@@ -5,15 +5,20 @@ function App() {
   return (
 
     <>
+    <div className="container">
+      <div className="header">
+        <div className="row">
+          {/* <Link>Properties</Link>
+          <Link>Seller</Link>
+          <Link>Buyers</Link> */}
+        </div>
+      </div>
+    </div>
 
-
-   <h1>Estate Agents</h1>
-
-   <p>this is my app for estae agents</p>
-   <div>hello world</div>
-   
-   
-   </>
+    <div className="container">
+      {/* <OutLet /> */}
+    </div>
+  </>
    
    )
 }
