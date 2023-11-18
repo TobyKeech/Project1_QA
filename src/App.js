@@ -1,8 +1,19 @@
-import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
 import './App.css';
+
+import LandingPage from "./Components/LandingPage/LandingPage";
 
 function App() {
   return (
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<LandingPage/>}> {/*This is the root path*/} 
+              </Route>
+          </Routes>
+      </BrowserRouter>
 
     <>
     <div className="container">
@@ -22,5 +33,4 @@ function App() {
    
    )
 }
-
 export default App;
