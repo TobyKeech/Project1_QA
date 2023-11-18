@@ -1,0 +1,7 @@
+const Seller = () => {
+    return (
+        <>
+        seller
+        </>
+    );
+    }
