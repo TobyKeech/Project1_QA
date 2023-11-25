@@ -1,0 +1,30 @@
+
+.header {
+    height: 120px;
+    font-size: 35pt;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 0 0 0 100px;
+    text-align: center;
+    background-color: grey;
+}
+
+.row{
+    color: red;
+    text-align: center;
+}
+
+.block {
+    padding: 50px  50px 10px;
+    height: 200px;
+    text-align: center;
+    color: black;
+    font-family: sans-serif;
+    font-size: 20px;
+    margin: 100px;
+    text-decoration: none;
+}
+
+body {
+    padding-top: 100px !important;
+}

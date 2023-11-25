@@ -41,7 +41,7 @@ const Buyer = () => {
     return (  
 
         <div>
-            this is the buyers page
+            This is the buyers page
         </div>
     );
 }
