@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+
+
 const Seller = () => {
 
     const [loading, setLoading] = useState(true);
