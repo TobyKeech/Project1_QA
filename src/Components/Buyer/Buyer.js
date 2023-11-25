@@ -22,9 +22,9 @@ const Buyer = () => {
     
             .then(buyers => {
                     setLoading(false);
-                    //manipulates the state to set this to false whena ction is complete, this started as true above in state 
+                    //manipulates the state to set this to false when action is complete, this started as true above in state 
                     console.log(buyers)
-                    //check what is contained within propeties, list of propeties displayed within the console
+                    //check what is contained within buyers, list of buyers displayed within the console
             })
     
             .catch(error => {
@@ -35,7 +35,7 @@ const Buyer = () => {
             })
             
     },[])
-    //this gets set into a new array to then use further down
+    //this gets set into a new array to then use further down within the return
 
    
     return (  

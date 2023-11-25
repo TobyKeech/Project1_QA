@@ -1,35 +1,61 @@
-
 import React, { useEffect, useState } from 'react';
 const Booking = () => {
 
 const [buyers, setBuyers] = useState([]);
+const[loadingBoooking, setLoadingBooking] = useState(false)
+
 
 
 useEffect(()=>{
-    fetch ("http://localhost:3000/buyer")
-    //get the json content across
-.then((reponse)=>{
-    if (!reponse){
-        alert ("Error occured, unable to retrieve buyer data")
-        throw reponse.status
-        //if statement that if data cannot be loaded then a alert will be displayed alonfg with the http code from the reponse status
-    
-    } else return reponse.json();    
-})
+    setLoadingBooking(true)
+    //changes the state of the loadings state to true
+    fetch("http://localhost:8081/booking")
+    // gets the booking json data
+    .then((response)=>{
+            if(!response.ok) {
+                alert("error has occured. Cannot laod booking data")
+                throw response.status;
+            } else return response.json();
+    })
+    .then(bookings => {
+        setLoadingBooking(false)
+        //setting state to false as was set to true above changing the state
+        console.log(bookings)
+    })
+    .catch(error => {
+        console.error(error);
+        setLoadingBooking(false);
+    })
 
-.then(buyers => {
-    setBuyers(buyers)
-    //sets the state of buyers above with the data from the response, done by using the setBuyers function into an empty array
-    console.log(buyers)
-    //check if the buyers object has been passed the information from JSON
-})
-.catch( error => console.error(error))
-//provides and error message if promise not caught and passed to the buyer fetch
 }, [])
-//stored in a lsit to access data later via the map function of JS
 
 
+useEffect(()=> {
+        fetch("http://localhost:8081/buyer")
+        //get the json content from the backend server to render
 
+        .then((response)=> {
+            if( !response.ok) {
+                alert("Error occured, could not load data of buyers")
+                throw response.status
+                //returns the status of the resonse back to the user ie 202 or 404
+            } else return response.json();
+            // if everything is good return the buyers json data in the response
+        })
+
+        .then(buyers => {
+                console.log(buyers)
+                //check what is contained within buyers, list of buyers displayed within the console
+        })
+
+        .catch(error => {
+            console.log(error)
+            alert("Error has occured getting the data")
+            //bring an alert if the json data doesnt load properly
+        })
+        
+},[])
+//this gets set into a new array to then use further down
 
 return ( 
 
