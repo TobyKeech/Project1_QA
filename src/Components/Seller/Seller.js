@@ -7,6 +7,9 @@ const Seller = () => {
     //state that can be changed by calling upon setLoading which will update the state in this case loading to true or false
     //by manipulating state
 
+    const [sellers, setSellers] = useState([])
+    //same as used to get data for storing propertes but used with seller instead
+
     useEffect(()=> {
         setLoading(true)
             fetch("http://localhost:8081/seller")
@@ -25,6 +28,7 @@ const Seller = () => {
                     setLoading(false);
                     //manipulates the state to set this to false whena ction is complete, this started as true above in state 
                     console.log(sellers)
+                    setSellers(sellers)
                     //check what is contained within sellers, list of sellers displayed within the console
             })
     
@@ -42,10 +46,22 @@ const Seller = () => {
 
     return (
         <>
-        seller
+       <div>
+        <h2>List of Sellers</h2>
 
-        
-        </>
+       {loading ? (
+        <div>Loading...</div>
+        // turnery statement to allow for a loading if the condition is true else it will render the infromation on to the webpage
+      ) : (
+        sellers.map((seller) => (
+          <div key={seller.id}>
+            
+            <p>{seller.firstName} &nbsp; {seller.surname}</p>
+          </div>
+        ))
+      )}
+       </div>
+    </>
     );
     }
 
