@@ -1,4 +1,4 @@
-import { error } from 'console';
+
 import React, { useEffect, useState } from 'react';
 const Booking = () => {
 
@@ -42,7 +42,7 @@ useEffect(()=>{
     return ( 
 
         <div>
-            Booking
+            this is the bookings page
         </div>
      );
 }

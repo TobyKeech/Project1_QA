@@ -8,9 +8,9 @@ function LandingPage() {
       <div className="container">
         <div className="header">Estate Agent</div>
           <nav className="row">
-            <Link>Properties</Link>
-            <Link>Seller</Link>
-            <Link>Buyers</Link>
+            <Link to="/property">&nbsp;Properties</Link>
+            <Link to="/seller">&nbsp;Seller</Link>
+            <Link to="/buyer">&nbsp;Buyers</Link>
           </nav>
      
       </div>
