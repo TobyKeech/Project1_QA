@@ -8,7 +8,7 @@ function LandingPage() {
   return (
     <>
       <div className="container">
-        <div className="header">Trusted Toby's Tenancys</div>
+        <div className="header">Toby's Trusted Tenancys</div>
           <nav className="row">
             <Link to="/property"className="block">&nbsp;Properties</Link>
             {/* links to the property page via inetraction with the browser router */}
