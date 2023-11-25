@@ -43,6 +43,8 @@ const Seller = () => {
     return (
         <>
         seller
+
+        
         </>
     );
     }
