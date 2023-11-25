@@ -11,6 +11,7 @@ const Property = () => {
 
 
 useEffect(()=> {
+    setLoading(true)
         fetch("http://localhost:8081/property")
         //get the json content from the backend server to render
 
