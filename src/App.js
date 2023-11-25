@@ -4,11 +4,7 @@ import Property from "./Components/Property/Property";
 import Buyer from "./Components/Buyer/Buyer";
 import Seller from "./Components/Seller/Seller";
 import Booking from "./Components/Booking/Booking";
-
-
-
 import './App.css';
-
 import LandingPage from "./Components/LandingPage/LandingPage";
 
 function App() {
