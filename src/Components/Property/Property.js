@@ -8,7 +8,9 @@ const Property = () => {
 
     const [loading, setLoading] = useState(true);
     //state that can be changed by calling upon setLoading which will update the state in this case loading
+    const [searchResult, setSearchResult] = useState([]);
 
+    const [properties, setProperties] = useState([]);
 
 useEffect(()=> {
     setLoading(true)
@@ -28,6 +30,7 @@ useEffect(()=> {
                 setLoading(false);
                 //manipulates the state to set this to false whena ction is complete, this started as true above in state 
                 console.log(properties)
+                setProperties(properties)
                 //check what is contained within propeties, list of propeties displayed within the console
         })
 
@@ -45,15 +48,25 @@ useEffect(()=> {
 
     return ( 
         <>
-        
-        
-        <div> this should Property</div>
-        
-        <ul>
-           {Property.price}
-        </ul>
-        
-        </>
+
+        <div>{properties.name}</div>
+       <div>
+
+       {loading ? (
+        <div>Loading...</div>
+      ) : (
+        properties.map((property) => (
+          <div key={property.id}>
+            {/* Display your property data here */}
+            <h2>{property.garden}</h2>
+            <p>{property.address}</p>
+          </div>
+        ))
+      )}
+
+
+       </div>
+    </>
      );
 }
  
