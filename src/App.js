@@ -1,5 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Property from "./Components/Property/Property";
+import Buyer from "./Components/Buyer/Buyer";
+import Seller from "./Components/Seller/Seller";
+
 
 
 import './App.css';
@@ -10,27 +14,14 @@ function App() {
   return (
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<LandingPage/>}> {/*This is the root path*/} 
+              <Route path="/" element={<LandingPage/>}> 
+              <Route path="property" element={<Property/>}></Route>
+              <Route path="buyer" element={<Buyer/>}></Route>
+              <Route path="seller" element={<Seller/>}></Route>
               </Route>
           </Routes>
       </BrowserRouter>
 
-    <>
-    <div className="container">
-      <div className="header">
-        <div className="row">
-          {/* <Link>Properties</Link>
-          <Link>Seller</Link>
-          <Link>Buyers</Link> */}
-        </div>
-      </div>
-    </div>
-
-    <div className="container">
-      {/* <OutLet /> */}
-    </div>
-  </>
-   
-   )
+   );
 }
 export default App;
