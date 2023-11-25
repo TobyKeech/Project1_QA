@@ -49,7 +49,9 @@ useEffect(()=> {
         
         <div> this should Property</div>
         
-        
+        <ul>
+           {Property.price}
+        </ul>
         
         </>
      );

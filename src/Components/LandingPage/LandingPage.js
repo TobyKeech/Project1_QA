@@ -8,13 +8,13 @@ function LandingPage() {
   return (
     <>
       <div className="container">
-        <div className="header">Estate Agent</div>
+        <div className="header">Trusted Toby's Tenancys</div>
           <nav className="row">
-            <Link to="/property">&nbsp;Properties</Link>
+            <Link to="/property"className="block">&nbsp;Properties</Link>
             {/* links to the property page via inetraction with the browser router */}
-            <Link to="/seller">&nbsp;Seller</Link>
+            <Link to="/seller" className="block">&nbsp;Seller</Link>
              {/* links to the seller page via inetraction with the browser router */}
-            <Link to="/buyer">&nbsp;Buyers</Link>
+            <Link to="/buyer" className="block">&nbsp;Buyers</Link>
              {/* links to the buyers page via interaction with the browser router */}
           </nav>
      
