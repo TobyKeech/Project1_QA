@@ -11,6 +11,7 @@ const Property = () => {
     const [searchResult, setSearchResult] = useState([]);
 
     const [properties, setProperties] = useState([]);
+    // currently state used to showcase the data onto the webpage below via a map function which returns an array of a defined value in his case of properties
 
 useEffect(()=> {
     setLoading(true)
@@ -49,23 +50,19 @@ useEffect(()=> {
     return ( 
         <>
 
-        <div>{properties.name}</div>
-       <div>
-
        {loading ? (
         <div>Loading...</div>
+        // turnery statement to allow for a loading if the condition is true else it will render the infromation on to the webpage
       ) : (
         properties.map((property) => (
           <div key={property.id}>
-            {/* Display your property data here */}
-            <h2>{property.garden}</h2>
-            <p>{property.address}</p>
+            <h2>{property.address}</h2>
+            <p>{property.type}</p>
+            <p>{property.garden}</p>
           </div>
         ))
       )}
-
-
-       </div>
+      
     </>
      );
 }
