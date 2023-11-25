@@ -56,10 +56,13 @@ useEffect(()=> {
       ) : (
         properties.map((property) => (
           <div key={property.id}>
-            <h2>{property.address}</h2>
-            <p>{property.type}</p>
-            <p>{property.garden}</p>
+            <h2>Address:&nbsp;{property.address}</h2>
+            <p>Type:&nbsp;{property.type}</p>
+            <p>Gardens:&nbsp;{property.garden}</p>
+            <p>Price:&nbsp;£{property.price}</p>
           </div>
+          //data displayed from fetched data above, placed in state and then map function used to show case the data to the screen
+          //for each property
         ))
       )}
       

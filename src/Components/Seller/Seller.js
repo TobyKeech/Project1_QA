@@ -47,6 +47,7 @@ const Seller = () => {
     return (
         <>
        <div>
+        <h2>List of Sellers</h2>
 
        {loading ? (
         <div>Loading...</div>
@@ -54,6 +55,7 @@ const Seller = () => {
       ) : (
         sellers.map((seller) => (
           <div key={seller.id}>
+            
             <p>{seller.firstName} &nbsp; {seller.surname}</p>
           </div>
         ))
