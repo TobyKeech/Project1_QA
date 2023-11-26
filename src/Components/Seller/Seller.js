@@ -8,14 +8,16 @@ const Seller = () => {
     //by manipulating state
 
     const [sellers, setSellers] = useState([]);
-    //same as used to get data for storing propertes but used with seller instead
+    //same as used to get data for storing propertes but used with seller instead, redundent after changes
+    //but kept to show process
 
     const [saving, setSaving] = useState(false);
+    //state to manipulate saving used below 
 
     const reducedSellersList = (state, action) => {
       //current state is passed in and the action set below in the fetch line 42
       switch (action.type){
-        //switch statement to execut dependent on the action.type 
+        //switch statement to execute dependent on the action.type 
         case "ADD":
           return state.concat(action.payload);
           //if action type is ADD new state is added to the current state and returned

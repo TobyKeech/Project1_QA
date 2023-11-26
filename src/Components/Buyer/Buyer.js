@@ -6,7 +6,10 @@ const Buyer = () => {
     //state that can be changed by calling upon setLoading which will update the state in this case loading to true or false
     //by manipulating state
 
-    const [buyers, setBuyers] = useState([])
+    const [buyers, setBuyers] = useState([]);
+
+    const [saving, setSaving] = useState(false);
+    //state to change the state of saving for alerts etc
 
     useEffect(()=> {
         setLoading(true)
@@ -23,10 +26,12 @@ const Buyer = () => {
             })
     
             .then(buyers => {
+              dispatch({type: "SET", payload: buyers});
+                    //set the buyers into the dispatch with the type of set, this will return the state dependent on thea action:type
                     setLoading(false);
                     //manipulates the state to set this to false when action is complete, this started as true above in state 
                     console.log(buyers)
-                    setBuyers(buyers)
+                    // setBuyers(buyers)
                     //check what is contained within buyers, list of buyers displayed within the console
             })
     
@@ -42,7 +47,6 @@ const Buyer = () => {
 
    
     return (  
-
         <>
          <>
        <div>
