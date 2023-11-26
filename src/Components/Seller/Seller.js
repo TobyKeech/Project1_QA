@@ -26,6 +26,8 @@ const Seller = () => {
     };
 
     const [listOfSellers, dispatch] = useReducer(reducedSellersList, [])
+    // we use the dispatch function here to update the state depending on actions defiend in the reducedSellersList function
+    // 
 
     useEffect(()=> {
         setLoading(true)
