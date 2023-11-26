@@ -52,6 +52,9 @@ const Buyer = () => {
         });
       };
 
+      //added notes to new code 
+
+
     useEffect(()=> {
         setLoading(true)
             fetch("http://localhost:8081/buyer")
