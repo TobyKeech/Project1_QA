@@ -1,4 +1,3 @@
-import { response } from "express";
 import { useEffect, useReducer, useState } from "react";
 
 const Buyer = () => {
@@ -31,29 +30,39 @@ const Buyer = () => {
     };
     const [listOfBuyers, dispatch] = useReducer(reducedBuyersList, []);
 
+    //useReducer manipulates state to certian conditiosn, dispatch sets a type which is refernced in the reduced buyers list function
+
+
 
       const buyerAddHandler = (newBuyer) => {
         setSaving(true);
         fetch("http://localhost:8081/buyer", {
+          //fetches info for buyer
           method: "POST",
+          // post method (HTTP) for adding new data on 
           headers : {"Content-Type" : "applicattion/json"},
+          //what to store as 
           body: JSON.stringify(newBuyer)
+          //makes the newBuyer into json so can be added to the backend
         }
         ).then((response) => {
           if (!response.ok){
             alert("error has occured, unable to add buyer")
+            //error handling using if statement if the reponse is not okay then an alert is thrown
             setSaving(false);
+            //manipulation of state to change saving to false 
             throw response.status;
+            //throw the HTTP response to the user 
           } else return response.json();
         }
         ).then(newBuyer => {
           setSaving(false);
           dispatch ({type: "ADD", payload: newBuyer})
+          //changes state to false for saving
+          //dispatch typer of add is applied with the newBuyer data as the paylaod, used by the useReducer and reducedBuyersList function above
+
         });
       };
-
-      //added notes to new code 
-
 
     useEffect(()=> {
         setLoading(true)
@@ -92,24 +101,31 @@ const Buyer = () => {
    
     return (  
         <>
-         <>
-       <div>
-
-       {loading ? (
-        <div>Loading...</div>
-        // turnery statement to allow for a loading if the condition is true else it will render the inforamtion on to the webpage
-      ) : (
-        buyers.map((buyer) => (
-          <div key={buyer.id}>
-            <h2>{buyer.firstName} &nbsp; {buyer.surname} </h2>
-            <p>{buyer.address},&nbsp;{buyer.postcode}</p>
-          </div>
-        ))
-      )}
-       </div>
-    </>
-        </>
-    );
-}
+         {
+        loading || saving ?
+        <div>
+                {loading ? "Loading buyers Information" : ""}
+                {saving ? "Saving buyer Information" : ""}
+                {/* both of these check the state of saving and loading to know what to render depenedng on boolean condition */}
+        </div>
+            : ""
+      }
+    <ul>
+        {
+            listOfBuyers.length === 0 && !loading ?
+                <li>
+                      &nbsp;No buyers found
+                </li>
+                :
+                listOfBuyers.map(buyer => (
+                    <li key={buyer.id}>
+                          {buyer.firstName}&nbsp;{buyer.surname}
+                          {buyer.address}&nbsp;{buyer.postcode}
+                          {buyer.phone}&nbsp;
+                    </li>
+                ))}
+    </ul>
+</>);
+};
  
 export default Buyer;
