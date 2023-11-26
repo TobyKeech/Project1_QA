@@ -10,11 +10,15 @@ function LandingPage() {
       <div className="container">
         <div className="header">Trusted Tenancys</div>
           <nav className="row">
-            <Link to="/property"className="block">&nbsp;Properties</Link>
+            <button className="btn">
+                <Link to="/property"className="block">&nbsp;Properties</Link>
+
+            </button>
             {/* links to the property page via inetraction with the browser router */}
-            <Link to="/seller" className="block">&nbsp;Seller</Link>
+
+            <button className="btn"><Link to="/seller" className="block">&nbsp;Seller</Link></button>
              {/* links to the seller page via inetraction with the browser router */}
-            <Link to="/buyer" className="block">&nbsp;Buyers</Link>
+            <button className="btn"><Link to="/buyer" className="block">&nbsp;Buyers</Link></button>
              {/* links to the buyers page via interaction with the browser router */}
           </nav>
      

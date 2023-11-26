@@ -1,12 +1,11 @@
 
 .header {
-    height: 120px;
+    height: 100px;
     font-size: 35pt;
     font-weight: bold;
-    margin-top: 10px;
-    padding: 0 0 0 100px;
+    margin-top: 0px;
+    padding: 0 0 0 50px;
     text-align: center;
-    background-color: grey;
 }
 
 .row{
@@ -23,8 +22,19 @@
     font-size: 20px;
     margin: 100px;
     text-decoration: none;
+
 }
 
 body {
-    padding-top: 100px !important;
+    padding-top: 50px !important;
+}
+
+button{
+    background-color: grey;
+}
+
+.btn{
+    border: 1px;
+    border-radius: 10px;
+    padding: 5px,10px;
 }
