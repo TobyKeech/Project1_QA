@@ -103,25 +103,31 @@ const Seller = () => {
 
 
     return (
-        <>
-       <div>
-        <h2>List of Sellers</h2>
-
-       {loading ? (
-        <div>Loading...</div>
-        // turnery statement to allow for a loading if the condition is true else it will render the infromation on to the webpage
-      ) : (
-        sellers.map((seller) => (
-          <div key={seller.id}>
-            
-            <p>{seller.firstName} &nbsp; {seller.surname}</p>
-            <p>{seller.address} &nbsp; {seller.postcode}</p>
-          </div>
-        ))
-      )}
-       </div>
-    </>
-    );
-    }
+      <>
+      {
+        loading || saving ?
+        <div>
+                {loading ? "Loading Sellers Information" : ""}
+                {saving ? "Saving Seller Information" : ""}
+        </div>
+            : ""
+      }
+    <ul>
+        {
+            listOfSellers.length === 0 && !loading ?
+                <li>
+                      &nbsp;No sellers found
+                </li>
+                :
+                listOfSellers.map(seller => (
+                    <li key={seller.id}>
+                          {seller.firstName}&nbsp;{seller.surname}
+                          {seller.address}&nbsp;{seller.postcode}
+                          {seller.phone}&nbsp;
+                    </li>
+                ))}
+    </ul>
+</>);
+};
 
     export default Seller;
