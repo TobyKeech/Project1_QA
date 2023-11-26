@@ -13,6 +13,19 @@ const Property = () => {
     const [properties, setProperties] = useState([]);
     // currently state used to showcase the data onto the webpage below via a map function which returns an array of a defined value in his case of properties
 
+
+    const reducedPropertiesList = (state, action) => {
+      switch(action.type){
+        case "SET":
+            return action.payload;
+        default:
+          return state;
+      }
+    }
+
+    const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
+
+
 useEffect(()=> {
     setLoading(true)
         fetch("http://localhost:8081/property")
@@ -31,6 +44,9 @@ useEffect(()=> {
                 setLoading(false);
                 //manipulates the state to set this to false whena ction is complete, this started as true above in state 
                 console.log(properties)
+                dispatch({type:"SET", payload: properties});
+                //slight change than just setting in state below. Dispatch used within useReducer and listPropertiesreducer function
+                //type set to SET and corrosponding action performed within fucntion
                 setProperties(properties)
                 //check what is contained within propeties, list of propeties displayed within the console
         })
@@ -50,26 +66,29 @@ useEffect(()=> {
     return ( 
         <>
 
-        <ul>
-
-       {properties.length===0 && loading ? 
-
-        <div>Loading properties</div>
-        // turnery statement to allow for a loading if the condition is true else it will render the information on to the webpage
-       : 
-        properties.map((property) => (
-          <li key={property.id}>
-            <h2>Address:&nbsp;{property.address}</h2>
-            <p>Type:&nbsp;{property.type}</p>
-            <p>Gardens:&nbsp;{property.garden}</p>
-            <p>Price:&nbsp;£{property.price}</p>
-          </li>
-          
-          //data displayed from fetched data above, placed in state and then map function used to show case the data to the screen
-          //for each property
-        ))
+{
+        loading ?
+        <div>
+                {loading ? "Loading properties Information" : ""}
+                
+        </div>
+            : ""
       }
-      </ul>
+    <ul>
+        {
+            listOfProperties.length === 0 && !loading ?
+                <li>
+                      &nbsp;No properties found
+                </li>
+                :
+                listOfProperties.map(properties => (
+                    <li key={properties.id}>
+                          {properties.firstName}&nbsp;{properties.surname}
+                          {properties.address}&nbsp;{properties.postcode}
+                          {properties.phone}&nbsp;
+                    </li>
+                ))}
+    </ul>
       
     </>
      );

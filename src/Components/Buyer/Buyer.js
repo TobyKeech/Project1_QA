@@ -106,6 +106,7 @@ const Buyer = () => {
         <div>
                 {loading ? "Loading buyers Information" : ""}
                 {saving ? "Saving buyer Information" : ""}
+                {/* both of these check the state of saving and loading to know what to render depenedng on boolean condition */}
         </div>
             : ""
       }
