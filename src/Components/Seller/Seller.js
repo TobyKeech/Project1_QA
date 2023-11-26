@@ -14,7 +14,7 @@ const Seller = () => {
 
     const reducedSellersList = (state, action) => {
       //current state is passed in and the action set below in the fetch line 42
-      switch ( action.type){
+      switch (action.type){
         //switch statement to execut dependent on the action.type 
         case "ADD":
           return state.concat(action.payload);
@@ -42,6 +42,27 @@ const Seller = () => {
         setSaving(true)
         //if true we set the state of setSaving to true 
 
+        fetch("http://localhost:8081/seller", {
+          method: "POST",
+          headers: {"Content-Type" : "application/json"},
+          body: JSON.stringify(newSeller)
+          //runa fetch to the seller backend data with a post method type and make the new seller into a json format to add
+        })
+        .then((response)=>{ 
+          if (!response.ok){
+            alert("An error has occured. Unable to create item");
+            setSaving(false);
+            //reset the state to false if cannot be returned and present an alert
+            throw response.status;
+          } else return response.json();
+          //if not return the data
+        })
+        .then(newSeller => {
+          dispatch({type: "ADD", payload: newSeller});
+          //take the newSeller and we change the dispatch type to ADD this in turn will add the new seller (which is the paylaod)
+          //on the current state (see reducedSellersList function)
+          setSaving(false); 
+        })
     }
 
     useEffect(()=> {
@@ -94,6 +115,7 @@ const Seller = () => {
           <div key={seller.id}>
             
             <p>{seller.firstName} &nbsp; {seller.surname}</p>
+            <p>{seller.address} &nbsp; {seller.postcode}</p>
           </div>
         ))
       )}
