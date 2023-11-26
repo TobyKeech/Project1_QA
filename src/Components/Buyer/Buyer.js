@@ -1,4 +1,3 @@
-import { response } from "express";
 import { useEffect, useReducer, useState } from "react";
 
 const Buyer = () => {
@@ -102,24 +101,30 @@ const Buyer = () => {
    
     return (  
         <>
-         <>
-       <div>
-
-       {loading ? (
-        <div>Loading...</div>
-        // turnery statement to allow for a loading if the condition is true else it will render the inforamtion on to the webpage
-      ) : (
-        buyers.map((buyer) => (
-          <div key={buyer.id}>
-            <h2>{buyer.firstName} &nbsp; {buyer.surname} </h2>
-            <p>{buyer.address},&nbsp;{buyer.postcode}</p>
-          </div>
-        ))
-      )}
-       </div>
-    </>
-        </>
-    );
-}
+         {
+        loading || saving ?
+        <div>
+                {loading ? "Loading buyers Information" : ""}
+                {saving ? "Saving buyer Information" : ""}
+        </div>
+            : ""
+      }
+    <ul>
+        {
+            listOfBuyers.length === 0 && !loading ?
+                <li>
+                      &nbsp;No buyers found
+                </li>
+                :
+                listOfBuyers.map(buyer => (
+                    <li key={buyer.id}>
+                          {buyer.firstName}&nbsp;{buyer.surname}
+                          {buyer.address}&nbsp;{buyer.postcode}
+                          {buyer.phone}&nbsp;
+                    </li>
+                ))}
+    </ul>
+</>);
+};
  
 export default Buyer;
