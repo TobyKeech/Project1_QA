@@ -50,21 +50,26 @@ useEffect(()=> {
     return ( 
         <>
 
-       {loading ? (
-        <div>Loading...</div>
-        // turnery statement to allow for a loading if the condition is true else it will render the infromation on to the webpage
-      ) : (
+        <ul>
+
+       {properties.length===0 && loading ? 
+
+        <div>Loading properties</div>
+        // turnery statement to allow for a loading if the condition is true else it will render the information on to the webpage
+       : 
         properties.map((property) => (
-          <div key={property.id}>
+          <li key={property.id}>
             <h2>Address:&nbsp;{property.address}</h2>
             <p>Type:&nbsp;{property.type}</p>
             <p>Gardens:&nbsp;{property.garden}</p>
             <p>Price:&nbsp;£{property.price}</p>
-          </div>
+          </li>
+          
           //data displayed from fetched data above, placed in state and then map function used to show case the data to the screen
           //for each property
         ))
-      )}
+      }
+      </ul>
       
     </>
      );

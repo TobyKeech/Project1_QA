@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 
 const Seller = () => {
@@ -9,6 +9,25 @@ const Seller = () => {
 
     const [sellers, setSellers] = useState([])
     //same as used to get data for storing propertes but used with seller instead
+
+    const reducedSellersList = (state, action) => {
+      //current state is passed in and the action set below in the fetch line 42
+      switch ( action.type){
+        //switch statement to execut dependent on the action.type 
+        case "ADD":
+          return state.concat(action.payload);
+          //if action type is ADD new state is added to the current state and returned
+          case "SET":
+            return action.payload;
+            //if action type is SET then the current state is returned
+          default:
+            return state;
+      }
+    };
+
+    const [listOfSellers, dispatch] = useReducer(reducedSellersList, [])
+    // we use the dispatch function here to update the state depending on actions defiend in the reducedSellersList function
+    // 
 
     useEffect(()=> {
         setLoading(true)
@@ -25,6 +44,9 @@ const Seller = () => {
             })
     
             .then(sellers => {
+                    dispatch({type: "SET", payload : sellers})
+                      //set the action type to SET and the payload (our seller data is stored in here) 
+                      // we can then change the state with this action type which we will use above
                     setLoading(false);
                     //manipulates the state to set this to false whena ction is complete, this started as true above in state 
                     console.log(sellers)
