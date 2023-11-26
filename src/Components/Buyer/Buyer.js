@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { response } from "express";
+import { useEffect, useReducer, useState } from "react";
 
 const Buyer = () => {
 
@@ -10,6 +11,46 @@ const Buyer = () => {
 
     const [saving, setSaving] = useState(false);
     //state to change the state of saving for alerts etc
+
+    const reducedBuyersList = (state, action) => {
+      //used in the useReducer to manipulate the state
+      switch (action.type){
+        case "ADD":
+            return state.concat(action.payload);
+          // if action.type is set to "ADD" then the new state is added to the current state and updated
+        case "SET":
+          return action.payload;
+          // if the action.type is set to "SET" then current state returned 
+        case "REMOVE":
+          return state.filter(buyer => buyer.id !== action.payload);
+        // DO RESEARCH ON THIS
+        default:
+          return state;
+          //otherwise will return the state as it was 
+      }
+    };
+    const [listOfBuyers, dispatch] = useReducer(reducedBuyersList, []);
+
+
+      const buyerAddHandler = (newBuyer) => {
+        setSaving(true);
+        fetch("http://localhost:8081/buyer", {
+          method: "POST",
+          headers : {"Content-Type" : "applicattion/json"},
+          body: JSON.stringify(newBuyer)
+        }
+        ).then((response) => {
+          if (!response.ok){
+            alert("error has occured, unable to add buyer")
+            setSaving(false);
+            throw response.status;
+          } else return response.json();
+        }
+        ).then(newBuyer => {
+          setSaving(false);
+          dispatch ({type: "ADD", payload: newBuyer})
+        });
+      };
 
     useEffect(()=> {
         setLoading(true)
