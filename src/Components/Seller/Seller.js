@@ -7,8 +7,10 @@ const Seller = () => {
     //state that can be changed by calling upon setLoading which will update the state in this case loading to true or false
     //by manipulating state
 
-    const [sellers, setSellers] = useState([])
+    const [sellers, setSellers] = useState([]);
     //same as used to get data for storing propertes but used with seller instead
+
+    const [saving, setSaving] = useState(false);
 
     const reducedSellersList = (state, action) => {
       //current state is passed in and the action set below in the fetch line 42
@@ -27,7 +29,20 @@ const Seller = () => {
 
     const [listOfSellers, dispatch] = useReducer(reducedSellersList, [])
     // we use the dispatch function here to update the state depending on actions defiend in the reducedSellersList function
-    // 
+    
+    const addSellerHandler = (newSeller) => {
+      // declared a function and passed in a newSeller parameter
+        if ( listOfSellers.fillter(seller => seller.firstName === newSeller.firstName && seller.surname === newSeller.surname).length){
+          // if statement that takes the listOfSellers we have declared in state above and used the useReducer function to change the return depending (see above)
+          // checks the new seller against the seller in the list using filter
+          alert("Seller already exists in the list")
+          //will show if the seller name and surname match will return an alert
+          return
+        }
+        setSaving(true)
+        //if true we set the state of setSaving to true 
+
+    }
 
     useEffect(()=> {
         setLoading(true)
