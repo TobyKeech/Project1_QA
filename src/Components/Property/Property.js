@@ -13,6 +13,8 @@ const Property = () => {
     const [properties, setProperties] = useState([]);
     // currently state used to showcase the data onto the webpage below via a map function which returns an array of a defined value in his case of properties
 
+    const [searchResult, setSearchResult] = useState([])
+
     const reducedPropertiesList = (state, action) => {
       switch(action.type){
         case "SET":
@@ -23,6 +25,17 @@ const Property = () => {
     }
 
     const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
+
+    const searchHandlerForForm = (searchInput) => {
+        setSearchResult(properties.filter(property => 
+            (searchInput.type === "ANY" || property.type === searchInput.type) &&
+            (Number(property.bathroom) >= Number(searchInput.bathroom)) &&
+            (Number(property.bedroom) >= Number(searchInput.bedroom)) &&
+            (Number(property.garden) >= Number(searchInput.garden)) &&
+            (Number(searchInput.price) === 0 || Number(property.price) <= Number(searchInput.price))
+            ));
+    };
+    
 
 
 useEffect(()=> {
@@ -66,7 +79,7 @@ useEffect(()=> {
         <>
 
             <div className='pageHeader'><b>Property Search and Booking</b></div>
-            <PropertySearchForm properties={properties}/>
+            <PropertySearchForm searchHandlerForForm = {searchHandlerForForm}/>
             {/* property search form component, passed down funcrion as a prop */}
 
 {

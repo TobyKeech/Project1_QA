@@ -16,9 +16,6 @@ const PropertySearchForm = (props) => {
     }
 
 
-
-
-
     return ( 
         <>
         <form>
