@@ -59,7 +59,7 @@ const Buyer = () => {
           setSaving(false);
           dispatch ({type: "ADD", payload: newBuyer})
           //changes state to false for saving
-          //dispatch typer of add is applied with the newBuyer data as the paylaod, used by the useReducer and reducedBuyersList function above
+          //dispatch typer of add is applied with the newBuyer data as the payload, used by the useReducer and reducedBuyersList function above
 
         });
       };
