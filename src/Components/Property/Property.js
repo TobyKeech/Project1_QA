@@ -6,29 +6,32 @@ import PropertySearchForm from './PropertySearchForm';
 
 
 const Property = () => {
+    const reducedPropertiesList = (state, action) => {
+        switch(action.type){
+          case "SET":
+              return action.payload;
+          default:
+            return state;
+        }
+      }
 
+    const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
+    const [searchResult, setSearchResult] = useState([])
     const [loading, setLoading] = useState(true);
     //state that can be changed by calling upon setLoading which will update the state in this case loading
     
-    const [properties, setProperties] = useState([]);
+    // const [properties, setProperties] = useState([]);
     // currently state used to showcase the data onto the webpage below via a map function which returns an array of a defined value in his case of properties
 
-    const [searchResult, setSearchResult] = useState([])
+    
 
-    const reducedPropertiesList = (state, action) => {
-      switch(action.type){
-        case "SET":
-            return action.payload;
-        default:
-          return state;
-      }
-    }
+    
 
-    const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
+    
 
     const searchHandlerForForm = (searchInput) => {
         //search handler function which we shall use in the form itself 
-        setSearchResult(properties.filter(property => 
+        setSearchResult(listOfProperties.filter(property => 
             //we set the search result in the state to update it using below for turnery statement, we filter the list of properties from the fetch to get a single property array
             //the conditions of this are set below and is matched against the searchInput criteria that we are given in the parameter
             (searchInput.type === "ANY" || property.type === searchInput.type) &&
@@ -38,6 +41,8 @@ const Property = () => {
             (Number(searchInput.price) === 0 || Number(property.price) <= Number(searchInput.price))
             ));
     };
+
+    console.log(searchResult)
     
 
 
@@ -56,13 +61,14 @@ useEffect(()=> {
         })
 
         .then(properties => {
+               
+                dispatch({type:"SET", payload: properties});
+                setSearchResult(properties)
                 setLoading(false);
                 //manipulates the state to set this to false whena ction is complete, this started as true above in state 
-                console.log(properties)
-                dispatch({type:"SET", payload: properties});
                 //slight change than just setting in state below. Dispatch used within useReducer and listPropertiesreducer function
                 //type set to SET and corrosponding action performed within fucntion
-                setProperties(properties)
+                // setProperties(properties)
                 //check what is contained within propeties, list of propeties displayed within the console
         })
 
@@ -87,23 +93,24 @@ useEffect(()=> {
 {
         loading ?
         <div>
-                {loading ? "Loading properties Information" : ""}
+               Loading properties Information
                 
         </div>
             : ""
       }
     <ul>
         {
-            listOfProperties.length === 0 && !loading ?
+            searchResult.length === 0 && !loading ?
                 <li>
                       &nbsp;No properties found
                 </li>
                 :
-                listOfProperties.map(properties => (
+                searchResult.map(properties => (
                     <li key={properties.id}>
                           {properties.firstName}&nbsp;{properties.surname}
                           {properties.address}&nbsp;{properties.postcode}
                           {properties.phone}&nbsp;
+                          {properties.type}&nbsp;
                     </li>
                 ))}
     </ul>
