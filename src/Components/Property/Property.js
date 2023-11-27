@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState, useReducer } from 'react';
 import { Link } from 'react-router-dom';
+import "../Property/Property.css";
+import PropertySearchForm from './PropertySearchForm';
 
 
 const Property = () => {
@@ -65,6 +67,10 @@ useEffect(()=> {
 
     return ( 
         <>
+
+            <div className='pageHeader'><b>Property Search and Booking</b></div>
+            <PropertySearchForm />
+            {/* property search form component, passed down funcrion as a prop */}
 
 {
         loading ?
