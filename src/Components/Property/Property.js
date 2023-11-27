@@ -41,6 +41,8 @@ const Property = () => {
             (Number(searchInput.price) === 0 || Number(property.price) <= Number(searchInput.price))
             ));
     };
+    //this links heavily with what is happening within the property earch form which is then filtering the data via the useRef values
+    //which are updated within the property search form
 
     console.log(searchResult)
     

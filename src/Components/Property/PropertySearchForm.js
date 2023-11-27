@@ -24,22 +24,23 @@ const PropertySearchForm = (props) => {
             }
         );
     }
+    //identifies the current value of the input from the form using the typeRef and than then uses it within the searchCriteria function
 
     return ( 
         <form>
         <div className="row">
-            <div className="form-group col">
-                <label htmlFor="propertyType">Type</label>
-                <select className="form-select" ref={referenceType}>
+            <div >
+                <label >Type</label>
+                <select ref={referenceType}>
                     <option value="ANY">Any</option>
                     <option value="DETACHED">Detached</option>
                     <option value="SEMI">Semi</option>
                     <option value="APARTMENT">Apartment</option>
                 </select>
             </div>
-            <div className="form-group col">
-                <label htmlFor="propertyPrice">Price</label>
-                <select className="form-select" ref={referencePrice}>
+            <div >
+                <label >Price</label>
+                <select  ref={referencePrice}>
                     <option value="0">Any</option>
                     <option value="50000">Up to 50000</option>
                     <option value="100000">Up to 100000</option>
@@ -48,9 +49,9 @@ const PropertySearchForm = (props) => {
                     <option value="400000">Up to 400000</option>
                 </select>
             </div>
-            <div className="form-group col">
-                <label htmlFor="numberOfBedrooms">Bedrooms</label>
-                <select className="form-select" ref={referenceBedroom}>
+            <div >
+                <label >Bedrooms</label>
+                <select  ref={referenceBedroom}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>
@@ -59,18 +60,18 @@ const PropertySearchForm = (props) => {
                     <option value="5">Minimum 5</option>
                 </select>
             </div>
-            <div className="form-group col">
-                <label htmlFor="numberOfBathrooms">Bathrooms</label>
-                <select className="form-select" ref={referenceBathroom}>
+            <div >
+                <label >Bathrooms</label>
+                <select  ref={referenceBathroom}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>
                     <option value="3">Minimum 3</option>
                 </select>
             </div>
-            <div className="form-group col">
-                <label htmlFor="numberOfGardens">Garden</label>
-                <select className="form-select" ref={referenceGarden}>
+            <div >
+                <label >Garden</label>
+                <select  ref={referenceGarden}>
                     <option value="0">Any</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
