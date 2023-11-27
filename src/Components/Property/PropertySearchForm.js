@@ -2,35 +2,19 @@ import "../Property/PropertySearchForm.css"
 
 const PropertySearchForm = (props) => {
 
-    console.log(props)
-    //checking what is set into the passed down props from property
+   const searchHandlerFormInput = props.searchHandlerForForm;
+   //setting the search handler function in a varibale for easier use, extracted via the prop which has been passed down containing the function
 
-    const searchHandler = (searchCriteria) => {
-         props.filter(property => 
-            (searchCriteria.type === "ANY" || property.type == searchCriteria.type) &&
-            (Number(property.bedroom) >= Number(searchCriteria.bedroom)) &&
-            (Number(property.bathroom) >= Number(searchCriteria.bathroom)) &&
-            (Number(property.garden) >= Number(searchCriteria.garden)) && 
-            (Number(searchCriteria.price)===0 || Number(property.price) <= Number(searchCriteria.price))
-            )
-    }
-
+    const referenceType = useRef();
+    const referenceBedroom = useRef();
+    const referenceBathroom = useRef();
+    const referenceGarden = useRef();
+    const referencePrice = useRef();
+    //these set the value to zero and are used later both in the function itself and the form to gain the data inputed by the user
 
     return ( 
         <>
-        <form>
-        <div className="head">
-            <div>
-                <label>Type</label>
-                <select>
-                    <option value="ANY">Any</option>
-                    <option value="DETACHED">Detached</option>
-                    <option value="SEMI">Semi</option>
-                    <option value="APARTMENT">Apartment</option>
-                </select>
-            </div>
-        </div>
-        </form>
+        
         </>
      );
 }

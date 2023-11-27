@@ -27,7 +27,10 @@ const Property = () => {
     const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
 
     const searchHandlerForForm = (searchInput) => {
+        //search handler function which we shall use in the form itself 
         setSearchResult(properties.filter(property => 
+            //we set the search result in the state to update it using below for turnery statement, we filter the list of properties from the fetch to get a single property array
+            //the conditions of this are set below and is matched against the searchInput criteria that we are given in the parameter
             (searchInput.type === "ANY" || property.type === searchInput.type) &&
             (Number(property.bathroom) >= Number(searchInput.bathroom)) &&
             (Number(property.bedroom) >= Number(searchInput.bedroom)) &&
@@ -77,10 +80,9 @@ useEffect(()=> {
 
     return ( 
         <>
-
             <div className='pageHeader'><b>Property Search and Booking</b></div>
             <PropertySearchForm searchHandlerForForm = {searchHandlerForForm}/>
-            {/* property search form component, passed down funcrion as a prop */}
+            {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
 
 {
         loading ?
