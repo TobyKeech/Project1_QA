@@ -7,14 +7,11 @@ import PropertySearchForm from './PropertySearchForm';
 
 const Property = () => {
 
-
     const [loading, setLoading] = useState(true);
     //state that can be changed by calling upon setLoading which will update the state in this case loading
-    const [searchResult, setSearchResult] = useState([]);
-
+    
     const [properties, setProperties] = useState([]);
     // currently state used to showcase the data onto the webpage below via a map function which returns an array of a defined value in his case of properties
-
 
     const reducedPropertiesList = (state, action) => {
       switch(action.type){
@@ -69,7 +66,7 @@ useEffect(()=> {
         <>
 
             <div className='pageHeader'><b>Property Search and Booking</b></div>
-            <PropertySearchForm />
+            <PropertySearchForm properties={properties}/>
             {/* property search form component, passed down funcrion as a prop */}
 
 {
