@@ -57,6 +57,7 @@ const Seller = () => {
 
     fetch(`http://localhost:8081/seller/${seller.id}`, {
       method: "DELETE",
+      //fetch the specific sellers id to match for deletion
     })
       .then((response) => {
         if (!response.ok) {
@@ -66,6 +67,8 @@ const Seller = () => {
         } else {
           dispatch({ type: "REMOVE", payload: seller });
           setSaving(false);
+          //dispatch typer is set to remove with the state of seller passed to the function, this then performs the delete method within the 
+          //reducer function
         }
       })
       .catch((error) => {

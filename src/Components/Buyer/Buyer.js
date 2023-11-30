@@ -1,3 +1,5 @@
+import BuyerInputForm from "./BuyerInputForm";
+
 import { useEffect, useReducer, useState } from "react";
 
 const Buyer = () => {
@@ -22,7 +24,7 @@ const Buyer = () => {
           // if the action.type is set to "SET" then current state returned 
         case "REMOVE":
           return state.filter(buyer => buyer.id !== action.payload);
-        // DO RESEARCH ON THIS
+        //comments for this stated in seller.js for justification
         default:
           return state;
           //otherwise will return the state as it was 
@@ -101,6 +103,7 @@ const Buyer = () => {
    
     return (  
         <>
+        <BuyerInputForm buyerAddHandler ={buyerAddHandler}/>
          {
         loading || saving ?
         <div>
@@ -110,21 +113,37 @@ const Buyer = () => {
         </div>
             : ""
       }
-    <ul>
-        {
-            listOfBuyers.length === 0 && !loading ?
-                <li>
-                      &nbsp;No buyers found
-                </li>
-                :
-                listOfBuyers.map(buyer => (
-                    <li key={buyer.id}>
-                          {buyer.firstName}&nbsp;{buyer.surname}
-                          {buyer.address}&nbsp;{buyer.postcode}
-                          {buyer.phone}&nbsp;
-                    </li>
-                ))}
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Surname</th>
+          <th>Address</th>
+          <th>Postcode</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {listOfBuyers.length === 0 && !loading ? (
+          <tr>
+            <td colSpan="5">No buyers found</td>
+          </tr>
+        ) : (
+          listOfBuyers.map((buyer) => (
+            <tr key={buyer.id}>
+              <td>{buyer.firstName}</td>
+              <td>{buyer.surname}</td>
+              <td>{buyer.address}</td>
+              <td>{buyer.postcode}</td>
+              <td>{buyer.phone}</td>
+              <td>
+                <button type="submit">Delete</button>
+              </td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
 </>);
 };
  
