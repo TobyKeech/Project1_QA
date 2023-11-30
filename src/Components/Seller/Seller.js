@@ -35,7 +35,7 @@ const Seller = () => {
     
     const addSellerHandler = (newSeller) => {
       // declared a function and passed in a newSeller parameter
-        if ( listOfSellers.fillter(seller => seller.firstName === newSeller.firstName && seller.surname === newSeller.surname).length){
+        if ( listOfSellers.filter(seller => seller.firstName === newSeller.firstName && seller.surname === newSeller.surname).length){
           // if statement that takes the listOfSellers we have declared in state above and used the useReducer function to change the return depending (see above)
           // checks the new seller against the seller in the list using filter
           alert("Seller already exists in the list")
@@ -139,9 +139,6 @@ const Seller = () => {
               <td>{seller.address}</td>
               <td>{seller.postcode}</td>
               <td>{seller.phone}</td>
-              <td>
-                <button>Add New Seller</button>
-              </td>
               <td>
                 <button>Delete</button>
               </td>
