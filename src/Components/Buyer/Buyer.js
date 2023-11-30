@@ -80,6 +80,32 @@ const Buyer = () => {
         });
       };
 
+      const deleteBuyerHandler = (buyer) => {
+        setSaving(true);
+    
+        fetch(`http://localhost:8081/buyer/${buyer.id}`, {
+          method: "DELETE",
+          //fetch the specific sellers id to match for deletion
+        })
+          .then((response) => {
+            if (!response.ok) {
+              alert("An error has occurred. Unable to delete buyer");
+              setSaving(false);
+              throw response.status;
+            } else {
+              dispatch({ type: "REMOVE", payload: buyer });
+              setSaving(false);
+              //dispatch typer is set to remove with the state of seller passed to the function, this then performs the delete method within the 
+              //reducer function
+            }
+          })
+          .catch((error) => {
+            setSaving(false);
+            console.log(error);
+            alert("Error has occurred while deleting the buyer");
+          });
+      };
+
     useEffect(()=> {
         setLoading(true)
             fetch("http://localhost:8081/buyer")
@@ -94,11 +120,12 @@ const Buyer = () => {
                 // if everything is good return the buyers json data in the response
             })
     
-            .then(buyers => {
+            .then((buyers) => {
               dispatch({type: "SET", payload: buyers});
                     //set the buyers into the dispatch with the type of set, this will return the state dependent on thea action:type
                     setLoading(false);
                     //manipulates the state to set this to false when action is complete, this started as true above in state 
+                    setBuyers(buyers)
                     console.log(buyers)
                     // setBuyers(buyers)
                     //check what is contained within buyers, list of buyers displayed within the console
@@ -151,7 +178,8 @@ const Buyer = () => {
               <td>{buyer.postcode}</td>
               <td>{buyer.phone}</td>
               <td>
-                <button type="submit">Delete</button>
+                <button onClick={() => deleteBuyerHandler(buyer)}>
+                  Delete</button>
               </td>
             </tr>
           ))
