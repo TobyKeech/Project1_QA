@@ -9,32 +9,28 @@ const Buyer = () => {
     //by manipulating state
 
     const [buyers, setBuyers] = useState([]);
+    // useless state that was used in the intial phases to display data
 
     const [saving, setSaving] = useState(false);
     //state to change the state of saving for alerts etc
 
     const reducedBuyersList = (state, action) => {
-      //used in the useReducer to manipulate the state
-      switch (action.type){
+      switch (action.type) {
         case "ADD":
-            return state.concat(action.payload);
-          // if action.type is set to "ADD" then the new state is added to the current state and updated
+          return state.concat(action.payload);
         case "SET":
           return action.payload;
-          // if the action.type is set to "SET" then current state returned 
         case "REMOVE":
-          return state.filter((buyer) => buyer.id !== action.payload);
-        //comments for this stated in seller.js for justification
+          return state.filter((buyer) => buyer.id !== action.payload.id);
+          //checks if the buyer within the current state, that its id is not equal to any within the current list. 
         default:
           return state;
-          //otherwise will return the state as it was 
       }
     };
+    
     const [listOfBuyers, dispatch] = useReducer(reducedBuyersList, []);
 
     //useReducer manipulates state to certian conditiosn, dispatch sets a type which is refernced in the reduced buyers list function
-
-
 
       const buyerAddHandler = (newBuyer) => {
 
@@ -47,8 +43,6 @@ const Buyer = () => {
           alert("Buyer already in the list")
           return;
         }
-
-
 
         setSaving(true);
         fetch("http://localhost:8081/buyer", {
@@ -82,7 +76,7 @@ const Buyer = () => {
 
       const deleteBuyerHandler = (buyer) => {
         setSaving(true);
-    
+      
         fetch(`http://localhost:8081/buyer/${buyer.id}`, {
           method: "DELETE",
           //fetch the specific sellers id to match for deletion
@@ -95,8 +89,8 @@ const Buyer = () => {
             } else {
               dispatch({ type: "REMOVE", payload: buyer });
               setSaving(false);
-              //dispatch typer is set to remove with the state of seller passed to the function, this then performs the delete method within the 
-              //reducer function
+               //dispatch type is set to remove with the state of seller passed to the function, this then performs the delete method within the 
+               //reducer function
             }
           })
           .catch((error) => {
@@ -145,15 +139,14 @@ const Buyer = () => {
     return (  
         <>
         <BuyerInputForm buyerAddHandler ={buyerAddHandler}/>
-         {
-        loading || saving ?
+        {loading || saving ? (
         <div>
                 {loading ? "Loading buyers Information" : ""}
                 {saving ? "Saving buyer Information" : ""}
                 {/* both of these check the state of saving and loading to know what to render depenedng on boolean condition */}
         </div>
-            : ""
-      }
+          )  : (""
+    )}
     <table>
       <thead>
         <tr>

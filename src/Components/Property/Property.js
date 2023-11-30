@@ -100,22 +100,35 @@ useEffect(()=> {
         </div>
             : ""
       }
-    <ul>
-        {
-            searchResult.length === 0 && !loading ?
-                <li>
-                      &nbsp;No properties found
-                </li>
-                :
-                searchResult.map(properties => (
-                    <li key={properties.id}>
-                          {properties.firstName}&nbsp;{properties.surname}
-                          {properties.address}&nbsp;{properties.postcode}
-                          {properties.phone}&nbsp;
-                          {properties.type}&nbsp;
-                    </li>
-                ))}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Postcode</th>
+                <th>No of Gardens</th>
+                <th>Type</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {
+                searchResult.length === 0 && !loading ?
+                    <tr>
+                        <td colSpan="6">No properties found</td>
+                    </tr>
+                    :
+                    searchResult.map(properties => (
+                        <tr key={properties.id}>
+                            <td>{properties.address}</td>
+                            <td>{properties.postcode}</td>
+                            <td>{properties.garden}</td>
+                            <td>{properties.type}</td>
+                            <td>{properties.status}</td>
+                        </tr>
+                    ))
+            }
+        </tbody>
+    </table>
       
     </>
      );
