@@ -23,7 +23,7 @@ const Buyer = () => {
           return action.payload;
           // if the action.type is set to "SET" then current state returned 
         case "REMOVE":
-          return state.filter(buyer => buyer.id !== action.payload);
+          return state.filter((buyer) => buyer.id !== action.payload);
         //comments for this stated in seller.js for justification
         default:
           return state;
@@ -41,7 +41,7 @@ const Buyer = () => {
         if( 
           listOfBuyers.filter(
             (buyer) => 
-            buyer.firstName ==newBuyer.firstName && buyer.surname == newBuyer.surname
+            buyer.firstName === newBuyer.firstName && buyer.surname === newBuyer.surname
           ).length
         ){
           alert("Buyer already in the list")
