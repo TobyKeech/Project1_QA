@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import SellerForm from "./SellerForm";
 
 
 const Seller = () => {
@@ -9,7 +10,7 @@ const Seller = () => {
 
     const [sellers, setSellers] = useState([]);
     //same as used to get data for storing propertes but used with seller instead, redundent after changes
-    //but kept to show process
+    //but kept to show process during the set up
 
     const [saving, setSaving] = useState(false);
     //state to manipulate saving used below 
@@ -48,7 +49,7 @@ const Seller = () => {
           method: "POST",
           headers: {"Content-Type" : "application/json"},
           body: JSON.stringify(newSeller)
-          //runa fetch to the seller backend data with a post method type and make the new seller into a json format to add
+          //run a fetch to the seller backend data with a post method type and make the new seller into a json format to add
         })
         .then((response)=>{ 
           if (!response.ok){
@@ -61,7 +62,7 @@ const Seller = () => {
         })
         .then(newSeller => {
           dispatch({type: "ADD", payload: newSeller});
-          //take the newSeller and we change the dispatch type to ADD this in turn will add the new seller (which is the paylaod)
+          //take the newSeller and we give the dispatch type to ADD this in turn will add the new seller (which is the paylaod)
           //on the current state (see reducedSellersList function)
           setSaving(false); 
         })
@@ -106,6 +107,7 @@ const Seller = () => {
 
     return (
       <>
+      <SellerForm addSellerHandler = {addSellerHandler} />
       {
         loading || saving ?
         <div>
@@ -114,21 +116,40 @@ const Seller = () => {
         </div>
             : ""
       }
-    <ul>
-        {
-            listOfSellers.length === 0 && !loading ?
-                <li>
-                      &nbsp;No sellers found
-                </li>
-                :
-                listOfSellers.map(seller => (
-                    <li key={seller.id}>
-                          {seller.firstName}&nbsp;{seller.surname}
-                          {seller.address}&nbsp;{seller.postcode}
-                          {seller.phone}&nbsp;
-                    </li>
-                ))}
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Surname</th>
+          <th>Address</th>
+          <th>Postcode</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        {listOfSellers.length === 0 && !loading ? (
+          <tr>
+            <td colSpan="6">No sellers found</td>
+          </tr>
+        ) : (
+          listOfSellers.map((seller) => (
+            <tr key={seller.id}>
+              <td>{seller.firstName}</td>
+              <td>{seller.surname}</td>
+              <td>{seller.address}</td>
+              <td>{seller.postcode}</td>
+              <td>{seller.phone}</td>
+              <td>
+                <button>Add New Seller</button>
+              </td>
+              <td>
+                <button>Delete</button>
+              </td>
+            </tr>
+          ))
+        )}
+      </tbody>
+    </table>
 </>);
 };
 
