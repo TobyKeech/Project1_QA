@@ -61,7 +61,7 @@ const Seller = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          alert("An error has occurred. Unable to delete item");
+          alert("An error has occurred. Unable to delete seller");
           setSaving(false);
           throw response.status;
         } else {
