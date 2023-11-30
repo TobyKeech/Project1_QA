@@ -37,14 +37,27 @@ const Buyer = () => {
 
 
       const buyerAddHandler = (newBuyer) => {
+
+        if( 
+          listOfBuyers.filter(
+            (buyer) => 
+            buyer.firstName ==newBuyer.firstName && buyer.surname == newBuyer.surname
+          ).length
+        ){
+          alert("Buyer already in the list")
+          return;
+        }
+
+
+
         setSaving(true);
         fetch("http://localhost:8081/buyer", {
           //fetches info for buyer
           method: "POST",
           // post method (HTTP) for adding new data on 
-          headers : {"Content-Type" : "applicattion/json"},
+          headers : {"Content-Type" : "application/json"},
           //what to store as 
-          body: JSON.stringify(newBuyer)
+          body: JSON.stringify(newBuyer),
           //makes the newBuyer into json so can be added to the backend
         }
         ).then((response) => {
@@ -58,8 +71,9 @@ const Buyer = () => {
           } else return response.json();
         }
         ).then(newBuyer => {
-          setSaving(false);
           dispatch ({type: "ADD", payload: newBuyer})
+          setSaving(false);
+
           //changes state to false for saving
           //dispatch typer of add is applied with the newBuyer data as the payload, used by the useReducer and reducedBuyersList function above
 
