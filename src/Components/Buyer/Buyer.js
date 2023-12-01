@@ -139,6 +139,7 @@ const Buyer = () => {
     return (  
         <>
         <BuyerInputForm buyerAddHandler ={buyerAddHandler}/>
+        <br />
         {loading || saving ? (
         <div>
                 {loading ? "Loading buyers Information" : ""}
@@ -171,8 +172,13 @@ const Buyer = () => {
               <td>{buyer.postcode}</td>
               <td>{buyer.phone}</td>
               <td>
-                <button class="btn btn-outline-danger" onClick={() => deleteBuyerHandler(buyer)}>
-                  Delete</button>
+              <button class="btn btn-outline-danger" onClick={() => {
+                                  if (window.confirm("Are you sure you want to delete this buyer?")) {
+                                    deleteBuyerHandler(buyer);
+                                  }
+                                }}>
+                                  Delete
+                                </button>
               </td>
             </tr>
           ))

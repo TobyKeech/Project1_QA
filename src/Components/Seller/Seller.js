@@ -102,6 +102,7 @@ const Seller = () => {
   return (
     <>
       <SellerForm addSellerHandler={addSellerHandler} />
+      <br />
       {loading || saving ? (
         <div>
           {loading ? "Loading Sellers Information" : ""}
@@ -135,9 +136,13 @@ const Seller = () => {
                 <td>{seller.postcode}</td>
                 <td>{seller.phone}</td>
                 <td>
-                  <button class="btn btn-outline-danger" onClick={() => deleteSellerHandler(seller)}>
-                    Delete
-                  </button>
+                <button class="btn btn-outline-danger" onClick={() => {
+                                  if (window.confirm("Are you sure you want to delete this seller?")) {
+                                    deleteSellerHandler(seller);
+                                  }
+                                }}>
+                                  Delete
+                                </button>
                 </td>
               </tr>
             ))
