@@ -7,18 +7,20 @@ import Buyer from "./Components/Buyer/Buyer";
 import Seller from "./Components/Seller/Seller";
 import Booking from "./Components/Booking/Booking";
 import './App.css';
-import LandingPage from "./Components/LandingPage/LandingPage";
+// import LandingPage from "./Components/LandingPage/LandingPage";
+import NavBar from "./Components/NavBar";
 
 function App() {
   return (
       <BrowserRouter>
+      <NavBar/>
           <Routes>
-              <Route path="/" element={<LandingPage/>}> 
+              {/* <Route path="/" element={<LandingPage/>}>  */}
               <Route path="property" element={<Property/>}></Route>
               <Route path="buyer" element={<Buyer/>}></Route>
               <Route path="seller" element={<Seller/>}></Route>
               <Route path="booking" element={<Booking/>}></Route>
-              </Route>
+              {/* </Route> */}
           </Routes>
       </BrowserRouter>
 
