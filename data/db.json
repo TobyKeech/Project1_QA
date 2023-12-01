@@ -196,19 +196,6 @@
       "garden": 0,
       "sellerId": 6,
       "status": "FOR SALE"
-    },
-    {
-      "id": 7,
-      "address": "7 Birch Street, Birchville",
-      "postcode": "BV1 1BV",
-      "type": "SEMI",
-      "price": 170000,
-      "bedroom": 3,
-      "bathroom": 2,
-      "garden": 1,
-      "sellerId": 7,
-      "status": "SOLD",
-      "buyerId": 6
     }
   ],
   "buyer": [

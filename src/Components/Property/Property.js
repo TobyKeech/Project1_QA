@@ -125,14 +125,14 @@ useEffect(() => {
       ) : (
         ""
       )}
-    <table>
+    <table class="table table-hover table-bordered">
         <thead>
             <tr>
-                <th>Address</th>
-                <th>Postcode</th>
-                <th>No of Gardens</th>
-                <th>Type</th>
-                <th>Status</th>
+                <th scope="col">Address</th>
+                <th scope="col">Postcode</th>
+                <th scope="col">No of Gardens</th>
+                <th scope="col">Type</th>
+                <th scope="col">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -150,7 +150,7 @@ useEffect(() => {
                             <td>{property.type}</td>
                             <td>{property.status}</td>
                             <td>
-                                <button onClick={() => deletePropertyHandler(property)}>
+                                <button class="btn btn-outline-danger" onClick={() => deletePropertyHandler(property)}>
                                     Delete</button>
                             </td>
                         </tr>
@@ -159,7 +159,7 @@ useEffect(() => {
         </tbody>
     </table>     
     </>
-     );
+    )
 }
  
 export default Property;

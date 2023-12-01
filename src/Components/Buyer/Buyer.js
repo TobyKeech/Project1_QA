@@ -147,14 +147,14 @@ const Buyer = () => {
         </div>
           )  : (""
     )}
-    <table>
+    <table class="table table-hover table-bordered">
       <thead>
         <tr>
-          <th>First Name</th>
-          <th>Surname</th>
-          <th>Address</th>
-          <th>Postcode</th>
-          <th>Phone</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Address</th>
+          <th scope="col">Postcode</th>
+          <th scope="col">Phone</th>
         </tr>
       </thead>
       <tbody>
@@ -171,7 +171,7 @@ const Buyer = () => {
               <td>{buyer.postcode}</td>
               <td>{buyer.phone}</td>
               <td>
-                <button onClick={() => deleteBuyerHandler(buyer)}>
+                <button class="btn btn-outline-danger" onClick={() => deleteBuyerHandler(buyer)}>
                   Delete</button>
               </td>
             </tr>
