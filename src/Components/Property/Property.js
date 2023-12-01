@@ -6,28 +6,26 @@ import PropertySearchForm from './PropertySearchForm';
 
 
 const Property = () => {
-    const reducedPropertiesList = (state, action) => {
-        switch(action.type){
-          case "SET":
-              return action.payload;
-          default:
-            return state;
-        }
-      }
+   const reducedPropertiesList = (state, action) => {
+  switch (action.type) {
+    case "SET":
+      return action.payload;
+    case "REMOVE":
+      return state.filter((property) => property.id !== action.payload.id);
+    default:
+      return state;
+  }
+};
+
 
     const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
     const [searchResult, setSearchResult] = useState([])
     const [loading, setLoading] = useState(true);
+    const [ saving, setSaving] = useState(false)
     //state that can be changed by calling upon setLoading which will update the state in this case loading
     
     // const [properties, setProperties] = useState([]);
     // currently state used to showcase the data onto the webpage below via a map function which returns an array of a defined value in his case of properties
-
-    
-
-    
-
-    
 
     const searchHandlerForForm = (searchInput) => {
         //search handler function which we shall use in the form itself 
@@ -45,9 +43,33 @@ const Property = () => {
     //which are updated within the property search form
 
     console.log(searchResult)
-    
 
-
+    const deletePropertyHandler = (property) => {
+        setSaving(true);
+      
+        fetch(`http://localhost:8081/property/${property.id}`, {
+          method: "DELETE",
+          //fetch the specific sellers id to match for deletion
+        })
+          .then((response) => {
+            if (!response.ok) {
+              alert("An error has occurred. Unable to delete property");
+              setSaving(false);
+              throw response.status;
+            } else {
+              dispatch({ type: "REMOVE", payload: property });
+              setSaving(false);
+               //dispatch type is set to remove with the state of seller passed to the function, this then performs the delete method within the 
+               //reducer function
+            }
+          })
+          .catch((error) => {
+            setSaving(false);
+            console.log(error);
+            alert("Error has occurred while deleting the property");
+          });
+      };
+   
 useEffect(()=> {
     setLoading(true)
         fetch("http://localhost:8081/property")
@@ -84,8 +106,6 @@ useEffect(()=> {
 },[])
 //this gets set into a new array to then use further down
 
-
-
     return ( 
         <>
             <div className='pageHeader'><b>Property Search and Booking</b></div>
@@ -117,19 +137,22 @@ useEffect(()=> {
                         <td colSpan="6">No properties found</td>
                     </tr>
                     :
-                    searchResult.map(properties => (
-                        <tr key={properties.id}>
-                            <td>{properties.address}</td>
-                            <td>{properties.postcode}</td>
-                            <td>{properties.garden}</td>
-                            <td>{properties.type}</td>
-                            <td>{properties.status}</td>
+                    searchResult.map((property => (
+                        <tr key={property.id}>
+                            <td>{property.address}</td>
+                            <td>{property.postcode}</td>
+                            <td>{property.garden}</td>
+                            <td>{property.type}</td>
+                            <td>{property.status}</td>
+                            <td>
+                                <button onClick={() => {deletePropertyHandler(property)}}>
+                                    Delete</button>
+                            </td>
                         </tr>
                     ))
-            }
+            )}
         </tbody>
-    </table>
-      
+    </table>     
     </>
      );
 }
