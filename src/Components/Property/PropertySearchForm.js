@@ -27,20 +27,21 @@ const PropertySearchForm = (props) => {
     //identifies the current value of the input from the form using the typeRef and than then uses it within the searchCriteria function
 
     return ( 
+        <div className="centered-container">
         <form>
-        <div className="row">
-            <div >
-                <label >Type</label>
-                <select ref={referenceType}>
+        <div className="dropdown">
+            <div className="form-group horizontal-select">
+                <label>Type</label>
+                <select className="form-control" ref={referenceType}>
                     <option value="ANY">Any</option>
                     <option value="DETACHED">Detached</option>
                     <option value="SEMI">Semi</option>
                     <option value="APARTMENT">Apartment</option>
                 </select>
             </div>
-            <div >
-                <label >Price</label>
-                <select  ref={referencePrice}>
+            <div className="form-group horizontal-select">
+                <label>Price</label>
+                <select className="form-control" ref={referencePrice}>
                     <option value="0">Any</option>
                     <option value="50000">Up to 50000</option>
                     <option value="100000">Up to 100000</option>
@@ -49,9 +50,9 @@ const PropertySearchForm = (props) => {
                     <option value="400000">Up to 400000</option>
                 </select>
             </div>
-            <div >
-                <label >Bedrooms</label>
-                <select  ref={referenceBedroom}>
+            <div className="form-group horizontal-select">
+                <label>Bedrooms</label>
+                <select className="form-control" ref={referenceBedroom}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>
@@ -60,18 +61,18 @@ const PropertySearchForm = (props) => {
                     <option value="5">Minimum 5</option>
                 </select>
             </div>
-            <div >
-                <label >Bathrooms</label>
-                <select  ref={referenceBathroom}>
+            <div className="form-group horizontal-select">
+                <label>Bathrooms</label>
+                <select className="form-control" ref={referenceBathroom}>
                     <option value="0">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>
                     <option value="3">Minimum 3</option>
                 </select>
             </div>
-            <div >
-                <label >Garden</label>
-                <select  ref={referenceGarden}>
+            <div className="form-group horizontal-select">
+                <label>Garden</label>
+                <select className="form-control" ref={referenceGarden}>
                     <option value="0">Any</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
@@ -79,13 +80,15 @@ const PropertySearchForm = (props) => {
             </div>
         </div>
         <div className="text-end">
-           
             &nbsp;
-            <button type="button" className="btn btn-primary" onClick={doSearch}>
-                <i className="bi bi-search"></i>&nbsp;Find Properties
-            </button>
+            <div className="d-flex justify-content-center align-items-center">
+                <button type="button" className="btn btn-primary" onClick={doSearch}>
+                    <i className="bi bi-search"></i>&nbsp;Find Properties
+                </button>
+            </div>
         </div>
     </form>
+    </div>
      );
 }
  

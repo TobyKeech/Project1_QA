@@ -32,36 +32,42 @@ const BuyerInputForm = (props) => {
 
     return (
         <>
-            <div>
+        <form>
+            <div class="form-row">
+            <div class="col">
                 <label>First Name</label>
-                <input type="text" id="buyerFirstName" ref={refFirstName} />
+                <input type="text" placeholder="Enter first name" class="form-control" id="buyerFirstName" ref={refFirstName} />
             </div>
 
-            <div>
+            <div class="col">
                 <label>Surname</label>
-                <input type="text" id="buyerSurname" ref={refSurname} />
+                <input type="text" placeholder="Enter surname name" class="form-control" id="buyerSurname" ref={refSurname} />
             </div>
 
-            <div>
+            <div class="col">
                 <label>Address</label>
-                <input type="text" id="buyerAddress" ref={refAddress} />
+                <input type="text" placeholder="Enter address" class="form-control" id="buyerAddress" ref={refAddress} />
             </div>
 
-            <div>
+            <div class="col">
                 <label>Postcode</label>
-                <input type="text" id="buyerPostcode" ref={refPostcode} />
+                <input type="text" placeholder="Enter postcode" class="form-control" id="buyerPostcode" ref={refPostcode} />
             </div>
 
-            <div>
+            <div class="col">
                 <label>Phone Number</label>
-                <input type="text" id="buyerPhoneNumber" ref={refPhone} />
+                <input type="text" placeholder="Enter phone number" class="form-control" id="buyerPhoneNumber" ref={refPhone} />
             </div>
 
             <div>
-                <button type="submit" onClick={submitHandler}>
+                <button type="submit" class="btn btn-success p-2" onClick={submitHandler}>
                     Add New Buyer
+                    <br />
                 </button>
+               
             </div>
+            </div>
+        </form>
         </>
     );
 };

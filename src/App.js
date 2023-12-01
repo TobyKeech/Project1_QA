@@ -1,4 +1,6 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Property from "./Components/Property/Property";
 import Buyer from "./Components/Buyer/Buyer";
