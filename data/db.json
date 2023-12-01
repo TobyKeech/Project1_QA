@@ -209,31 +209,6 @@
       "sellerId": 7,
       "status": "SOLD",
       "buyerId": 6
-    },
-    {
-      "id": 9,
-      "address": "12 Willow Street, Willowvale",
-      "postcode": "WV1 1WV",
-      "type": "APARTMENT",
-      "price": 140000,
-      "bedroom": 2,
-      "bathroom": 1,
-      "garden": 0,
-      "sellerId": 9,
-      "status": "SOLD",
-      "buyerId": 7
-    },
-    {
-      "id": 10,
-      "address": "18 Fir Street, Firfield",
-      "postcode": "FF1 1FF",
-      "type": "SEMI",
-      "price": 180000,
-      "bedroom": 4,
-      "bathroom": 2,
-      "garden": 1,
-      "sellerId": 10,
-      "status": "FOR SALE"
     }
   ],
   "buyer": [

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState, useReducer } from 'react';
-import { Link } from 'react-router-dom';
 import "../Property/Property.css";
 import PropertySearchForm from './PropertySearchForm';
 
@@ -49,7 +48,6 @@ const Property = () => {
       
         fetch(`http://localhost:8081/property/${property.id}`, {
           method: "DELETE",
-          //fetch the specific sellers id to match for deletion
         })
           .then((response) => {
             if (!response.ok) {
@@ -59,8 +57,6 @@ const Property = () => {
             } else {
               dispatch({ type: "REMOVE", payload: property });
               setSaving(false);
-               //dispatch type is set to remove with the state of seller passed to the function, this then performs the delete method within the 
-               //reducer function
             }
           })
           .catch((error) => {
@@ -69,6 +65,7 @@ const Property = () => {
             alert("Error has occurred while deleting the property");
           });
       };
+      
    
 useEffect(()=> {
     setLoading(true)
@@ -94,6 +91,7 @@ useEffect(()=> {
                 //type set to SET and corrosponding action performed within fucntion
                 // setProperties(properties)
                 //check what is contained within propeties, list of propeties displayed within the console
+                
         })
 
         .catch(error => {
@@ -106,20 +104,25 @@ useEffect(()=> {
 },[])
 //this gets set into a new array to then use further down
 
+useEffect(() => {
+    dispatch({ type: "SET", payload: listOfProperties });
+    setSearchResult(listOfProperties);
+  }, [listOfProperties]); // Only run when 'properties' change
+
     return ( 
         <>
             <div className='pageHeader'><b>Property Search and Booking</b></div>
             <PropertySearchForm searchHandlerForForm = {searchHandlerForForm}/>
             {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
 
-{
-        loading ?
+ {loading || saving ? (
         <div>
-               Loading properties Information
-                
+          {loading ? "Loading Properties Information" : ""}
+          {saving ? "Saving Properties Information" : ""}
         </div>
-            : ""
-      }
+      ) : (
+        ""
+      )}
     <table>
         <thead>
             <tr>
@@ -145,7 +148,7 @@ useEffect(()=> {
                             <td>{property.type}</td>
                             <td>{property.status}</td>
                             <td>
-                                <button onClick={() => {deletePropertyHandler(property)}}>
+                                <button onClick={() => deletePropertyHandler(property)}>
                                     Delete</button>
                             </td>
                         </tr>
