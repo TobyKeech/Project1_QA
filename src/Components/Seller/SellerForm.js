@@ -15,6 +15,14 @@ const SellerForm = (props) => {
 
     //setting the refernce to start as empty will assign below for use later
 
+    const resetForm =() => {
+        refFirstName.current.value = "";
+        refSecondName.current.value = "";
+        refAddress.current.value = "";
+        refPhone.current.value = "";
+        refPostcode.current.value = "";
+    }
+
     const sumbitHandler = (event) => {
        event.preventDefault(); 
         //sumbit handler for when the submit button is pressed and used by the user. If statement is run to check if the inputted values match those of the and then will then proceed to add these to the db json 
@@ -30,9 +38,12 @@ const SellerForm = (props) => {
                     "phone": refPhone.current.value
                 }
             )
+            resetForm();
             } 
     
     }
+
+   
     return (
         <>
         <form>
