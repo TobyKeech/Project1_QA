@@ -116,6 +116,7 @@ useEffect(() => {
             <div className='pageHeader'><b>Property Search and Booking</b></div>
             <PropertySearchForm searchHandlerForForm = {searchHandlerForForm}/>
             {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
+            <br />
 
  {loading || saving ? (
         <div>
@@ -130,6 +131,7 @@ useEffect(() => {
             <tr>
                 <th scope="col">Address</th>
                 <th scope="col">Postcode</th>
+                <th scope="col">Bedrooms</th>
                 <th scope="col">No of Gardens</th>
                 <th scope="col">Type</th>
                 <th scope="col">Status</th>
@@ -139,13 +141,14 @@ useEffect(() => {
             {
                 searchResult.length === 0 && !loading ?
                     <tr>
-                        <td colSpan="6">No properties found</td>
+                        <td colSpan="7">No properties found</td>
                     </tr>
                     :
                     searchResult.map((property => (
                         <tr key={property.id}>
                             <td>{property.address}</td>
                             <td>{property.postcode}</td>
+                            <td>{property.bedroom}</td>
                             <td>{property.garden}</td>
                             <td>{property.type}</td>
                             <td>{property.status}</td>

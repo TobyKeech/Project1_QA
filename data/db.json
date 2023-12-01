@@ -111,14 +111,6 @@
       "address": "14 High Street, Cardiff",
       "postcode": "CF1 1AM",
       "phone": "01234567812"
-    },
-    {
-      "id": 15,
-      "firstName": "Olivia",
-      "surname": "Lee",
-      "address": "15 Main Street, Cardiff",
-      "postcode": "CF1 1AN",
-      "phone": "01234567813"
     }
   ],
   "property": [

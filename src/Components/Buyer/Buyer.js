@@ -139,6 +139,7 @@ const Buyer = () => {
     return (  
         <>
         <BuyerInputForm buyerAddHandler ={buyerAddHandler}/>
+        <br />
         {loading || saving ? (
         <div>
                 {loading ? "Loading buyers Information" : ""}

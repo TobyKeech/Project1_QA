@@ -102,6 +102,7 @@ const Seller = () => {
   return (
     <>
       <SellerForm addSellerHandler={addSellerHandler} />
+      <br />
       {loading || saving ? (
         <div>
           {loading ? "Loading Sellers Information" : ""}
