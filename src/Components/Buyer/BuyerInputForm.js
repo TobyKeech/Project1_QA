@@ -10,6 +10,14 @@ const BuyerInputForm = (props) => {
     const refPostcode = useRef();
     const refPhone = useRef();
 
+    const resetForm =() => {
+        refFirstName.current.value = "";
+        refSurname.current.value = "";
+        refAddress.current.value = "";
+        refPhone.current.value = "";
+        refPostcode.current.value = "";
+    }
+
     const submitHandler = (event) => {
         event.preventDefault();
 
@@ -27,6 +35,7 @@ const BuyerInputForm = (props) => {
                 postcode: refPostcode.current.value,
                 phone: refPhone.current.value,
             });
+            resetForm();
         }
     };
 
