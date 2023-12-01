@@ -108,6 +108,8 @@ useEffect(() => {
     dispatch({ type: "SET", payload: listOfProperties });
     setSearchResult(listOfProperties);
   }, [listOfProperties]); // Only run when 'properties' change
+  // this allows for the fresh collection of the state to allow for a refersh when a property is deleted, also sets searchResult to dispaly the new data
+  //and allow the search to work as intended.
 
     return ( 
         <>
