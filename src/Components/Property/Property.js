@@ -153,8 +153,13 @@ useEffect(() => {
                             <td>{property.type}</td>
                             <td>{property.status}</td>
                             <td>
-                                <button class="btn btn-outline-danger" onClick={() => deletePropertyHandler(property)}>
-                                    Delete</button>
+                                <button class="btn btn-outline-danger" onClick={() => {
+                                  if (window.confirm("Are you sure you want to delete this property?")) {
+                                    deletePropertyHandler(property);
+                                  }
+                                }}>
+                                  Delete
+                                </button>
                             </td>
                         </tr>
                     ))
