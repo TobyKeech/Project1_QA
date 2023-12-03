@@ -27,56 +27,67 @@ const PropertySearchForm = (props) => {
     //identifies the current value of the input from the form using the typeRef and than then uses it within the searchCriteria function
 
     return ( 
+        
         <div className="centered-container">
         <form>
-        <div className="dropdown">
-            <div className="form-group ">
-                <label>Type</label>
-                <select className="form-control" ref={referenceType}>
-                    <option value="ANY">Any</option>
-                    <option value="DETACHED">Detached</option>
-                    <option value="SEMI">Semi</option>
-                    <option value="APARTMENT">Apartment</option>
-                </select>
+        <div className="row">
+            <div className="col-md-3">
+                <div className="form-group">
+                    <label>Type</label>
+                    <select className="form-control" ref={referenceType}>
+                        <option value="ANY">Any</option>
+                        <option value="DETACHED">Detached</option>
+                        <option value="SEMI">Semi</option>
+                        <option value="APARTMENT">Apartment</option>
+                    </select>
+                </div>
             </div>
-            <div className="form-group horizontal-select">
-                <label>Price</label>
-                <select className="form-control" ref={referencePrice}>
-                    <option value="0">Any</option>
-                    <option value="50000">Up to 50000</option>
-                    <option value="100000">Up to 100000</option>
-                    <option value="200000">Up to 200000</option>
-                    <option value="300000">Up to 300000</option>
-                    <option value="400000">Up to 400000</option>
-                </select>
+            <div className="col-md-3">
+                <div className="form-group">
+                    <label>Price</label>
+                    <select className="form-control" ref={referencePrice}>
+                        <option value="0">Any</option>
+                        <option value="50000">Up to 50000</option>
+                        <option value="100000">Up to 100000</option>
+                        <option value="200000">Up to 200000</option>
+                        <option value="300000">Up to 300000</option>
+                        <option value="400000">Up to 400000</option>
+                    </select>
+                </div>
             </div>
-            <div className="form-group horizontal-select">
-                <label>Bedrooms</label>
-                <select className="form-control" ref={referenceBedroom}>
-                    <option value="0">Any</option>
-                    <option value="1">Minimum 1</option>
-                    <option value="2">Minimum 2</option>
-                    <option value="3">Minimum 3</option>
-                    <option value="4">Minimum 4</option>
-                    <option value="5">Minimum 5</option>
-                </select>
+            <div className="col-md-3">
+                <div className="form-group">
+                    <label>Bedrooms</label>
+                    <select className="form-control" ref={referenceBedroom}>
+                        <option value="0">Any</option>
+                        <option value="1">Minimum 1</option>
+                        <option value="2">Minimum 2</option>
+                        <option value="3">Minimum 3</option>
+                        <option value="4">Minimum 4</option>
+                        <option value="5">Minimum 5</option>
+                    </select>
+                </div>
             </div>
-            <div className="form-group horizontal-select">
-                <label>Bathrooms</label>
-                <select className="form-control" ref={referenceBathroom}>
-                    <option value="0">Any</option>
-                    <option value="1">Minimum 1</option>
-                    <option value="2">Minimum 2</option>
-                    <option value="3">Minimum 3</option>
-                </select>
+            <div className="col-md-3">
+                <div className="form-group">
+                    <label>Bathrooms</label>
+                    <select className="form-control" ref={referenceBathroom}>
+                        <option value="0">Any</option>
+                        <option value="1">Minimum 1</option>
+                        <option value="2">Minimum 2</option>
+                        <option value="3">Minimum 3</option>
+                    </select>
+                </div>
             </div>
-            <div className="form-group horizontal-select">
-                <label>Garden</label>
-                <select className="form-control" ref={referenceGarden}>
-                    <option value="0">Any</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select>
+            <div className="col-md-3">
+                <div className="form-group">
+                    <label>Garden</label>
+                    <select className="form-control" ref={referenceGarden}>
+                        <option value="0">Any</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div className="text-end">

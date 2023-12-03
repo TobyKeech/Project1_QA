@@ -113,7 +113,6 @@ useEffect(() => {
 
     return ( 
         <>
-            <div className='pageHeader'><b>Property Search and Booking</b></div>
             <PropertySearchForm searchHandlerForForm = {searchHandlerForForm}/>
             {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
             <br />
