@@ -32,6 +32,8 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
+      <div className="mt-5">
+      </div>
     </>
   );
 };
