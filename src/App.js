@@ -10,7 +10,6 @@ import './App.css';
 // import LandingPage from "./Components/LandingPage/LandingPage";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer";
-
 function App() {
   return (
       <BrowserRouter>

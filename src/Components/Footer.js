@@ -1,123 +1,101 @@
+
 const Footer = () => {
     return ( 
         <>
-            {/* <div class="container my-5">
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div class="me-5 d-none d-lg-block">
+      <span>Connect with us on socials:</span>
+    </div>
 
-<footer class="bg-primary text-center text-lg-start text-white">
-  <div class="container p-4">
-    <div class="row my-4">
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </section>
 
-        <div class="rounded-circle bg-white shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-          <img src="https://mdbootstrap.com/img/Photos/new-templates/animal-shelter/logo.png" height="70" alt=""
-               loading="lazy" />
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Trusted Tenancys
+          </h6>
+          <p>
+            Check out our helpful links and how we can help secure your next home.
+          </p>
         </div>
 
-        <p class="text-center">Homless animal shelter The budgetary unit of the Capital City of Warsaw</p>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Angular</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">React</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Vue</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Laravel</a>
+          </p>
+        </div>
 
-        <ul class="list-unstyled d-flex flex-row justify-content-center">
-          <li>
-            <a class="text-white px-2" href="#!">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-          </li>
-          <li>
-            <a class="text-white px-2" href="#!">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-          <li>
-            <a class="text-white ps-2" href="#!">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </li>
-        </ul>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
 
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i>Scotland, home of the brave</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            trustedtenancys@wethebest.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> 12345679</p>
+        </div>
       </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">Animals</h5>
-
-        <ul class="list-unstyled">
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>When your pet is missing</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Recently found</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>How to adopt?</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Pets for adoption</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Material gifts</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Help with walks</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Volunteer activities</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">Animals</h5>
-
-        <ul class="list-unstyled">
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>General information</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>About the shelter</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Statistic data</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Job</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Tenders</a>
-          </li>
-          <li class="mb-2">
-            <a href="#!" class="text-white"><i class="fas fa-paw pe-3"></i>Contact</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase mb-4">Contact</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <p><i class="fas fa-map-marker-alt pe-2"></i>Warsaw, 57 Street, Poland</p>
-          </li>
-          <li>
-            <p><i class="fas fa-phone pe-2"></i>+ 01 234 567 89</p>
-          </li>
-          <li>
-            <p><i class="fas fa-envelope pe-2 mb-0"></i>contact@example.com</p>
-          </li>
-        </ul>
-      </div>
-      
     </div>
-   
-  </div>
- 
+  </section>
 
-  <div class="text-center p-3">
-    © 2020 Copyright:
-    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  <div class="text-center p-4">
+    © 2023 Copyright:&nbsp;
+    <a class="text-reset fw-bold">TrustedTenancys.com</a>
   </div>
- 
 </footer>
-
-</div> */}
-
 
         </>
      );
