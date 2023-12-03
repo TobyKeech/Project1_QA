@@ -8,7 +8,8 @@ import Seller from "./Components/Seller/Seller";
 import Booking from "./Components/Booking/Booking";
 import './App.css';
 // import LandingPage from "./Components/LandingPage/LandingPage";
-import NavBar from "./Components/NavBar";
+import NavBar from "./Components/NavBar/NavBar";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="booking" element={<Booking/>}></Route>
               {/* </Route> */}
           </Routes>
+          <Footer />
       </BrowserRouter>
 
    );

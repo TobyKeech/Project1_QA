@@ -157,11 +157,12 @@ const Buyer = () => {
           <th scope="col">Postcode</th>
           <th scope="col">Phone</th>
         </tr>
+
       </thead>
       <tbody>
         {listOfBuyers.length === 0 && !loading ? (
           <tr>
-            <td colSpan="5">No buyers found</td>
+            <td colSpan="5">No buyers found</td>dfsf
           </tr>
         ) : (
           listOfBuyers.map((buyer) => (
