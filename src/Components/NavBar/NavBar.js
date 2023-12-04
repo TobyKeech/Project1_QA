@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHouseUser, faHouseFlag } from "@fortawesome/free-solid-svg-icons"
+import { faHouse, faHouseUser, faHouseFlag, faT } from "@fortawesome/free-solid-svg-icons"
 
 const NavBar = () => {
   return (
@@ -20,7 +20,7 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav mr-auto">
             <Link to="/property" className="navbar-brand text-white">
-              &nbsp;Trusted Tenancy's
+              &nbsp;<FontAwesomeIcon icon={faT}/>&nbsp;<FontAwesomeIcon icon={faT}/>
             </Link>
           </div>
           <div className="navbar-nav ms-auto">

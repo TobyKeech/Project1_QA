@@ -180,7 +180,7 @@ const Buyer = () => {
                                     deleteBuyerHandler(buyer);
                                   }
                                 }}>
-                                  Delete 
+                                  Delete &nbsp;
                                   <FontAwesomeIcon icon={faTrash}/></button>
               </td>
             </tr>

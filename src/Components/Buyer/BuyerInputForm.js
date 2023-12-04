@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons"
+
 import { useRef } from "react";
 
 const BuyerInputForm = (props) => {
@@ -67,13 +70,14 @@ const BuyerInputForm = (props) => {
                 <label>Phone Number</label>
                 <input type="text" placeholder="Enter phone number" class="form-control" id="buyerPhoneNumber" ref={refPhone} />
             </div>
-
+            <br />
             <div>
+               
                 <button type="submit" class="btn btn-success p-2" onClick={submitHandler}>
-                    Add New Buyer
+                <FontAwesomeIcon icon={faPlus}/>&nbsp;New Buyer
                     <br />
                 </button>
-               
+            
             </div>
             </div>
         </form>

@@ -176,6 +176,19 @@
       "sellerId": 5,
       "status": "SOLD",
       "buyerId": 5
+    }, 
+    {
+    "id": 1,
+      "address": "56 Westmarket, Dundee",
+      "postcode": "CO4 LYF",
+      "type": "APARTMENT",
+      "price": 30000,
+      "bedroom": 5,
+      "bathroom": 6,
+      "garden": 0,
+      "sellerId": 1,
+      "status": "SOLD",
+      "buyerId": 3
     }
   ],
   "buyer": [

@@ -3,7 +3,7 @@ import { useEffect, useState, useReducer } from 'react';
 import "../Property/Property.css";
 import PropertySearchForm from './PropertySearchForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTrash, faBed, faTree, faHouseChimney, faMapPin} from "@fortawesome/free-solid-svg-icons"
+import {faTrash, faBed, faTree, faHouseChimney, faMapPin, faSackDollar} from "@fortawesome/free-solid-svg-icons"
 
 
 
@@ -45,6 +45,23 @@ const Property = () => {
     //which are updated within the property search form
 
     console.log(searchResult)
+
+    const propertyAddhandler = (newProperty) => {
+      fetch("http://localhost:8081/property", {
+        method: "POST",
+        headers : {"Content-Type" : "application/json"},
+        body: JSON.stringify(newProperty),
+      }).then((reponse) => {
+        if (!reponse.ok){
+          alert("error occured adding a property")
+          setSaving(false)
+          throw reponse.status
+        } else return reponse.json();
+      }).then(newProperty => {
+        dispatch ({type: "ADD", payload:newProperty})
+        setSaving(false);
+      })
+    }
 
     const deletePropertyHandler = (property) => {
         setSaving(true);
@@ -116,6 +133,8 @@ useEffect(() => {
 
     return ( 
         <>
+          {/* <PropertyAddForm propertyAddhandler={propertyAddhandler}/> */}
+
             <PropertySearchForm searchHandlerForForm = {searchHandlerForForm}/>
             {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
             <br />
@@ -139,9 +158,10 @@ useEffect(() => {
               <div className="card-body">
                 <h5 className="card-title">{property.address}</h5>
                 <p className="card-text">Postcode: {property.postcode} <FontAwesomeIcon icon={faMapPin}/></p>
-                <p className="card-text">Bedrooms: {property.bedroom} <FontAwesomeIcon icon={faBed}/></p>
+                <p className="card-text">No of Bedrooms: {property.bedroom} <FontAwesomeIcon icon={faBed}/></p>
                 <p className="card-text">No of Gardens: {property.garden}  <FontAwesomeIcon icon={faTree}/></p>
                 <p className="card-text">Type: {property.type} <FontAwesomeIcon icon={faHouseChimney}/></p>
+                <p className="card-text">Price: £{property.price} <FontAwesomeIcon icon={faSackDollar}/></p>
                 <p className="card-text">Status: {property.status}</p>
                 <button
                   className="btn btn-outline-danger"
