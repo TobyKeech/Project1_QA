@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import "../Property/PropertySearchForm.css"
 import React, {useRef} from "react";
 const PropertySearchForm = (props) => {
@@ -94,7 +96,7 @@ const PropertySearchForm = (props) => {
             &nbsp;
             <div className="d-flex justify-content-center align-items-center">
                 <button type="button" className="btn btn-primary" onClick={doSearch}>
-                    <i className="bi bi-search"></i>&nbsp;Find Properties
+                    <i className="bi bi-search"></i>&nbsp;Find Properties <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>
         </div>

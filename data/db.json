@@ -105,12 +105,12 @@
       "phone": "01234567811"
     },
     {
-      "id": 14,
-      "firstName": "Mark",
-      "surname": "White",
-      "address": "14 High Street, Cardiff",
-      "postcode": "CF1 1AM",
-      "phone": "01234567812"
+      "firstName": "Max",
+      "secondName": "Beef",
+      "address": "prem beef, dundee",
+      "postcode": "BEE7 4LF",
+      "phone": "0123434535",
+      "id": 14
     }
   ],
   "property": [
@@ -176,18 +176,6 @@
       "sellerId": 5,
       "status": "SOLD",
       "buyerId": 5
-    },
-    {
-      "id": 6,
-      "address": "10 Pine Street, Pinewood",
-      "postcode": "PW1 1PW",
-      "type": "APARTMENT",
-      "price": 130000,
-      "bedroom": 2,
-      "bathroom": 1,
-      "garden": 0,
-      "sellerId": 6,
-      "status": "FOR SALE"
     }
   ],
   "buyer": [
