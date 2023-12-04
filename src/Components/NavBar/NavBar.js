@@ -5,7 +5,7 @@ import { faHouse, faHouseUser, faHouseFlag } from "@fortawesome/free-solid-svg-i
 const NavBar = () => {
   return (
     <>
-    <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#f1e0c6' }}>
+    <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#8f8f8f' }}>
   <button
     className="navbar-toggler"
     type="button"

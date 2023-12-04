@@ -3,7 +3,7 @@ import { useEffect, useState, useReducer } from 'react';
 import "../Property/Property.css";
 import PropertySearchForm from './PropertySearchForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTrash} from "@fortawesome/free-solid-svg-icons"
+import {faTrash, faBed, faTree, faHouseChimney, faMapPin} from "@fortawesome/free-solid-svg-icons"
 
 
 
@@ -138,10 +138,10 @@ useEffect(() => {
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{property.address}</h5>
-                <p className="card-text">Postcode: {property.postcode}</p>
-                <p className="card-text">Bedrooms: {property.bedroom}</p>
-                <p className="card-text">No of Gardens: {property.garden}</p>
-                <p className="card-text">Type: {property.type}</p>
+                <p className="card-text">Postcode: {property.postcode} <FontAwesomeIcon icon={faMapPin}/></p>
+                <p className="card-text">Bedrooms: {property.bedroom} <FontAwesomeIcon icon={faBed}/></p>
+                <p className="card-text">No of Gardens: {property.garden}  <FontAwesomeIcon icon={faTree}/></p>
+                <p className="card-text">Type: {property.type} <FontAwesomeIcon icon={faHouseChimney}/></p>
                 <p className="card-text">Status: {property.status}</p>
                 <button
                   className="btn btn-outline-danger"
