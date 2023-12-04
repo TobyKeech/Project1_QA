@@ -31,6 +31,7 @@ const Property = () => {
 
   const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
   const [showPropertyInputForm, setShowPropertyInputForm] = useState(false);
+  const [showPropertySearchForm, setShowPropertySearchForm] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -143,14 +144,18 @@ const Property = () => {
   // this allows for the fresh collection of the state to allow for a refersh when a property is deleted, also sets searchResult to dispaly the new data
   //and allow the search to work as intended.
 
-  const toggleBuyerInputForm = () => {
+  const togglePropertyInputForm = () => {
     setShowPropertyInputForm((prevShowForm) => !prevShowForm);
+  };
+
+  const togglePropertySearchForm = () => {
+    setShowPropertySearchForm((prevShowForm) => !prevShowForm);
   };
 
   return (
     <>
     <div className="bg-dark text-white p-4">
-    <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />
+    {showPropertySearchForm && <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />}
       {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
       <br />
 
@@ -166,7 +171,12 @@ const Property = () => {
       ) : (
         ""
       )}
-       <button  className={`btn ${showPropertyInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={toggleBuyerInputForm}>
+      <button  className={`btn ${showPropertySearchForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={togglePropertySearchForm}>
+          {showPropertySearchForm ? "Hide Form" : "Search for a property"}
+        </button>
+      <span className="text-center p-2">or</span>
+        
+       <button  className={`btn ${showPropertyInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={togglePropertyInputForm}>
           {showPropertyInputForm ? "Hide Form" : "Add a new property"}
         </button>
         
