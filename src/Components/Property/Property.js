@@ -30,6 +30,7 @@ const Property = () => {
   };
 
   const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
+  const [showPropertyInputForm, setShowPropertyInputForm] = useState(true);
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -142,13 +143,18 @@ const Property = () => {
   // this allows for the fresh collection of the state to allow for a refersh when a property is deleted, also sets searchResult to dispaly the new data
   //and allow the search to work as intended.
 
+  const toggleBuyerInputForm = () => {
+    setShowPropertyInputForm((prevShowForm) => !prevShowForm);
+  };
+
   return (
     <>
     <div className="bg-dark text-white p-4">
-      <PropertyAddForm propertyAddHandler={propertyAddHandler}/>
-
-      <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />
+    <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />
       {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
+      <br />
+
+      {showPropertyInputForm && <PropertyAddForm propertyAddHandler={propertyAddHandler}/>}
       <br />
 
       {loading || saving ? (
@@ -159,7 +165,12 @@ const Property = () => {
       ) : (
         ""
       )}
+       <button  className={`btn ${showPropertyInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={toggleBuyerInputForm}>
+          {showPropertyInputForm ? "Hide Form" : "Add a new property"}
+        </button>
+        
       <div>
+      <br />
         {searchResult.length === 0 && !loading ? (
           <div>No properties found</div>
         ) : (
