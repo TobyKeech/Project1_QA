@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const BuyerInputForm = (props) => {
 

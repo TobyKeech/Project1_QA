@@ -1,6 +1,7 @@
 import BuyerInputForm from "./BuyerInputForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash} from "@fortawesome/free-solid-svg-icons"
+import {Link} from "react-router-dom"
 
 import { useEffect, useReducer, useState } from "react";
 
@@ -142,6 +143,11 @@ const Buyer = () => {
         <>
         <div  className="bg-dark text-white p-4">
         <BuyerInputForm buyerAddHandler ={buyerAddHandler}/>
+        <div>
+                <button>
+                    <Link to="/buyer-input">Buyer Form</Link>
+                </button>
+               </div>
         <br />
         {loading || saving ? (
         <div>
