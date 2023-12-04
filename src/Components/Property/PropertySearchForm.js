@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
-import "../Property/PropertySearchForm.css"
 import React, {useRef} from "react";
 const PropertySearchForm = (props) => {
 
