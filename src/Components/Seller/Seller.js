@@ -1,17 +1,19 @@
 import { useEffect, useReducer, useState } from "react";
 import SellerForm from "./SellerForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTrash} from "@fortawesome/free-solid-svg-icons"
+import {faMinus, faPlus, faTrash} from "@fortawesome/free-solid-svg-icons"
 
 const Seller = () => {
   const [loading, setLoading] = useState(true);
   const [sellers, setSellers] = useState([]);
+   // used during testing to display the inital list from the backend into a list (see early commits)
   const [saving, setSaving] = useState(false);
 
   const reducedSellersList = (state, action) => {
     switch (action.type) {
       case "ADD":
         return state.concat(action.payload);
+        //if the action type is set to add then the new state will be add to the list of properties and state updated
       case "SET":
         return action.payload;
       case "REMOVE":
@@ -19,10 +21,12 @@ const Seller = () => {
       default:
         return state;
     }
+    //switch statement thats used to change the action depending on the action.type which will invoke a diff action each time
+
   };
 
   const [listOfSellers, dispatch] = useReducer(reducedSellersList, []);
-  const [showSellerInputForm, setShowBuyerInputForm] = useState(true);
+  const [showSellerInputForm, setShowBuyerInputForm] = useState(false);
 
   const addSellerHandler = (newSeller) => {
     if (
@@ -105,6 +109,7 @@ const Seller = () => {
   const toggleSellerInputForm = () => {
     setShowBuyerInputForm((prevShowForm) => !prevShowForm);
   };
+  
 
   return (
     <>
@@ -121,9 +126,17 @@ const Seller = () => {
       ) : (
         ""
       )}
-      <button className={`btn ${showSellerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={toggleSellerInputForm}>
-        {showSellerInputForm ? "Hide Form" : "Add a new Seller"}
-      </button>
+    <button className={`btn ${showSellerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} mb-2 p-2`} onClick={toggleSellerInputForm}>
+  {showSellerInputForm ? (
+    <>
+      <FontAwesomeIcon icon={faMinus} /> Form
+    </>
+  ) : (
+    <>
+      <FontAwesomeIcon icon={faPlus} /> Seller
+    </>
+  )}
+</button>
 
       <table class="table table-hover table-bordered">
         <thead>

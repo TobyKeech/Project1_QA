@@ -30,7 +30,7 @@ const Property = () => {
   };
 
   const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
-  const [showPropertyInputForm, setShowPropertyInputForm] = useState(true);
+  const [showPropertyInputForm, setShowPropertyInputForm] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -155,6 +155,7 @@ const Property = () => {
       <br />
 
       {showPropertyInputForm && <PropertyAddForm propertyAddHandler={propertyAddHandler}/>}
+      {/* checks wether the showproperty iput form is true and then renders the form if it is */}
       <br />
 
       {loading || saving ? (

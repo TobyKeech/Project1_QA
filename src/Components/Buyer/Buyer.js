@@ -9,6 +9,7 @@ import { useEffect, useReducer } from "react";
 const Buyer = () => {
   const [loading, setLoading] = useState(true);
   const [buyers, setBuyers] = useState([]);
+  // used during testing to display the inital list from the backend into a list (see early commits)
   const [saving, setSaving] = useState(false);
 
   const reducedBuyersList = (state, action) => {
@@ -25,7 +26,7 @@ const Buyer = () => {
   };
 
   const [listOfBuyers, dispatch] = useReducer(reducedBuyersList, []);
-  const [showBuyerInputForm, setShowBuyerInputForm] = useState(true);
+  const [showBuyerInputForm, setShowBuyerInputForm] = useState(false);
 
   const buyerAddHandler = (newBuyer) => {
     if (
@@ -119,7 +120,7 @@ const Buyer = () => {
         ) : (
           ""
         )}
-        <button  className={`btn ${showBuyerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={toggleBuyerInputForm}>
+        <button  className={`btn ${showBuyerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} mb-2 p-2`} onClick={toggleBuyerInputForm}>
           {showBuyerInputForm ? "Hide Form" : "Add a new Buyer"}
         </button>
     
