@@ -140,6 +140,7 @@ const Buyer = () => {
    
     return (  
         <>
+        <div  className="bg-dark text-white p-4">
         <BuyerInputForm buyerAddHandler ={buyerAddHandler}/>
         <br />
         {loading || saving ? (
@@ -189,7 +190,9 @@ const Buyer = () => {
         )}
       </tbody>
     </table>
-</>);
+    </div>
+</>
+);
 };
  
 export default Buyer;
