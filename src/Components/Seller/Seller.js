@@ -1,5 +1,7 @@
 import { useEffect, useReducer, useState } from "react";
 import SellerForm from "./SellerForm";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faTrash} from "@fortawesome/free-solid-svg-icons"
 
 const Seller = () => {
   const [loading, setLoading] = useState(true);
@@ -141,7 +143,7 @@ const Seller = () => {
                                     deleteSellerHandler(seller);
                                   }
                                 }}>
-                                  Delete
+                                  Delete  <FontAwesomeIcon icon={faTrash}/>
                                 </button>
                 </td>
               </tr>

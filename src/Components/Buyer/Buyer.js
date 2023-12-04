@@ -1,4 +1,6 @@
 import BuyerInputForm from "./BuyerInputForm";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faTrash} from "@fortawesome/free-solid-svg-icons"
 
 import { useEffect, useReducer, useState } from "react";
 
@@ -178,8 +180,8 @@ const Buyer = () => {
                                     deleteBuyerHandler(buyer);
                                   }
                                 }}>
-                                  Delete
-                                </button>
+                                  Delete 
+                                  <FontAwesomeIcon icon={faTrash}/></button>
               </td>
             </tr>
           ))
