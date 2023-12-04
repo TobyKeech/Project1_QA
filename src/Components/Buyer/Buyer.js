@@ -119,9 +119,10 @@ const Buyer = () => {
         ) : (
           ""
         )}
-        <button onClick={toggleBuyerInputForm}>
+        <button  className={`btn ${showBuyerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={toggleBuyerInputForm}>
           {showBuyerInputForm ? "Hide Form" : "Show Form"}
         </button>
+    
         <table className="table table-hover table-bordered">
           <thead>
             <tr>
