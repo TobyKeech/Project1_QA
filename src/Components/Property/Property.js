@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState, useReducer } from "react";
 import PropertySearchForm from "./PropertySearchForm";
-import PropertyAddForm from "./PropertyAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropertyAddForm from "./PropertyAddForm";
 import {
   faTrash,
   faBed,
