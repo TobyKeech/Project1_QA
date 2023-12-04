@@ -8,7 +8,7 @@ import Seller from "./Components/Seller/Seller";
 import Booking from "./Components/Booking/Booking";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer";
-import BuyerInputForm from "./Components/Buyer/BuyerInputForm";
+
 function App() {
   return (
       <BrowserRouter>
@@ -18,7 +18,6 @@ function App() {
               <Route path="buyer" element={<Buyer/>}></Route>
               <Route path="seller" element={<Seller/>}></Route>
               <Route path="booking" element={<Booking/>}></Route>
-              <Route path="buyer-input" element={<BuyerInputForm/>}></Route>
           </Routes>
           <Footer />
       </BrowserRouter>
