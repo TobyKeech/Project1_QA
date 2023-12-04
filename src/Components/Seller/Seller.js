@@ -1,17 +1,19 @@
 import { useEffect, useReducer, useState } from "react";
 import SellerForm from "./SellerForm";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTrash} from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Seller = () => {
   const [loading, setLoading] = useState(true);
   const [sellers, setSellers] = useState([]);
+  // used during testing to display the inital list from the backend into a list (see early commits)
   const [saving, setSaving] = useState(false);
 
   const reducedSellersList = (state, action) => {
     switch (action.type) {
       case "ADD":
         return state.concat(action.payload);
+      //if the action type is set to add then the new state will be add to the list of properties and state updated
       case "SET":
         return action.payload;
       case "REMOVE":
@@ -19,10 +21,11 @@ const Seller = () => {
       default:
         return state;
     }
+    //switch statement thats used to change the action depending on the action.type which will invoke a diff action each time
   };
 
   const [listOfSellers, dispatch] = useReducer(reducedSellersList, []);
-  const [showSellerInputForm, setShowBuyerInputForm] = useState(true);
+  const [showSellerInputForm, setShowBuyerInputForm] = useState(false);
 
   const addSellerHandler = (newSeller) => {
     if (
@@ -70,7 +73,7 @@ const Seller = () => {
         } else {
           dispatch({ type: "REMOVE", payload: seller });
           setSaving(false);
-          //dispatch typer is set to remove with the state of seller passed to the function, this then performs the delete method within the 
+          //dispatch typer is set to remove with the state of seller passed to the function, this then performs the delete method within the
           //reducer function
         }
       })
@@ -108,62 +111,83 @@ const Seller = () => {
 
   return (
     <>
-    <div className="bg-dark text-white p-4">
+      <div className="bg-dark text-white p-4">
+        {showSellerInputForm && (
+          <SellerForm addSellerHandler={addSellerHandler} />
+        )}
+        <br />
 
-      {showSellerInputForm && <SellerForm addSellerHandler={addSellerHandler} />}
-      <br />
-
-      {loading || saving ? (
-        <div>
-          {loading ? "Loading Sellers Information" : ""}
-          {saving ? "Saving Seller Information" : ""}
-        </div>
-      ) : (
-        ""
-      )}
-      <button className={`btn ${showSellerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={toggleSellerInputForm}>
-        {showSellerInputForm ? "Hide Form" : "Add a new Seller"}
-      </button>
-
-      <table class="table table-hover table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Address</th>
-            <th scope="col">Postcode</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listOfSellers.length === 0 && !loading ? (
-            //turnery for displaying noting if the seller list itself is empty and there is nothing to show 
-            <tr>
-              <td colSpan="6">No sellers found</td>
-            </tr>
+        {loading || saving ? (
+          <div>
+            {loading ? "Loading Sellers Information" : ""}
+            {saving ? "Saving Seller Information" : ""}
+          </div>
+        ) : (
+          ""
+        )}
+        <button
+          className={`btn ${
+            showSellerInputForm ? "btn-outline-danger" : "btn-outline-success"
+          } mb-2 p-2`}
+          onClick={toggleSellerInputForm}
+        >
+          {showSellerInputForm ? (
+            <>
+              <FontAwesomeIcon icon={faMinus} /> Form
+            </>
           ) : (
-            listOfSellers.map((seller) => (
-              <tr key={seller.id}>
-                <td>{seller.firstName}</td>
-                <td>{seller.surname}</td>
-                <td>{seller.address}</td>
-                <td>{seller.postcode}</td>
-                <td>{seller.phone}</td>
-                <td>
-                <button class="btn btn-outline-danger" onClick={() => {
-                                  if (window.confirm("Are you sure you want to delete this seller?")) {
-                                    deleteSellerHandler(seller);
-                                  }
-                                }}>
-                                  Delete &nbsp; <FontAwesomeIcon icon={faTrash}/>
-                                </button>
-                </td>
-              </tr>
-            ))
+            <>
+              <FontAwesomeIcon icon={faPlus} /> Seller
+            </>
           )}
-        </tbody>
-      </table>
+        </button>
+
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Surname</th>
+              <th scope="col">Address</th>
+              <th scope="col">Postcode</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {listOfSellers.length === 0 && !loading ? (
+              //turnery for displaying noting if the seller list itself is empty and there is nothing to show
+              <tr>
+                <td colSpan="6">No sellers found</td>
+              </tr>
+            ) : (
+              listOfSellers.map((seller) => (
+                <tr key={seller.id}>
+                  <td>{seller.firstName}</td>
+                  <td>{seller.surname}</td>
+                  <td>{seller.address}</td>
+                  <td>{seller.postcode}</td>
+                  <td>{seller.phone}</td>
+                  <td>
+                    <button
+                      class="btn btn-outline-danger"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Are you sure you want to delete this seller?"
+                          )
+                        ) {
+                          deleteSellerHandler(seller);
+                        }
+                      }}
+                    >
+                      Delete &nbsp; <FontAwesomeIcon icon={faTrash} />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
     </>
   );

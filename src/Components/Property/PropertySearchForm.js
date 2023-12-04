@@ -36,7 +36,7 @@ const PropertySearchForm = (props) => {
                             <div className="col-lg-3 col-md-4 col-sm-6">
                                 <div className="form-group">
                                     <label>Type</label>
-                                    <select className="form-control" ref={referenceType}>
+                                    <select className="form-control form-control-sm" ref={referenceType}>
                                         <option value="ANY">Any</option>
                                         <option value="DETACHED">Detached</option>
                                         <option value="SEMI">Semi</option>
