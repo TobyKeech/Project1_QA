@@ -103,6 +103,8 @@ const Seller = () => {
 
   return (
     <>
+    <div className="bg-dark text-white p-4">
+
       <SellerForm addSellerHandler={addSellerHandler} />
       <br />
       {loading || saving ? (
@@ -152,6 +154,7 @@ const Seller = () => {
           )}
         </tbody>
       </table>
+      </div>
     </>
   );
 };

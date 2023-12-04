@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
-
+import { useParams } from "react-router-dom";
 import { useRef } from "react";
 
 const BuyerInputForm = (props) => {
-
+    const {} = useParams();
     const buyerAddHandler = props.buyerAddHandler;
 
     const refFirstName = useRef();

@@ -144,6 +144,7 @@ const Property = () => {
 
   return (
     <>
+    <div className="bg-dark text-white p-4">
       <PropertyAddForm propertyAddHandler={propertyAddHandler}/>
 
       <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />
@@ -209,6 +210,7 @@ const Property = () => {
             ))}
           </div>
         )}
+      </div>
       </div>
     </>
   );
