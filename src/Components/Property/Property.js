@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrash} from "@fortawesome/free-solid-svg-icons"
 
 
+
 const Property = () => {
    const reducedPropertiesList = (state, action) => {
   switch (action.type) {
@@ -172,3 +173,4 @@ useEffect(() => {
 }
  
 export default Property;
+

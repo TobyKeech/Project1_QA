@@ -33,7 +33,7 @@ const PropertySearchForm = (props) => {
         <div className="centered-container">
         <form>
         <div className="row">
-            <div className="col-md-3">
+            <div className="col-lg-2 col-md-3 col-sm-6">
                 <div className="form-group">
                     <label>Type</label>
                     <select className="form-control" ref={referenceType}>
@@ -44,7 +44,7 @@ const PropertySearchForm = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-lg-2 col-md-3 col-sm-6">
                 <div className="form-group">
                     <label>Price</label>
                     <select className="form-control" ref={referencePrice}>
@@ -57,7 +57,7 @@ const PropertySearchForm = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-lg-2 col-md-3 col-sm-6">
                 <div className="form-group">
                     <label>Bedrooms</label>
                     <select className="form-control" ref={referenceBedroom}>
@@ -70,7 +70,7 @@ const PropertySearchForm = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-lg-2 col-md-3 col-sm-6">
                 <div className="form-group">
                     <label>Bathrooms</label>
                     <select className="form-control" ref={referenceBathroom}>
@@ -81,7 +81,7 @@ const PropertySearchForm = (props) => {
                     </select>
                 </div>
             </div>
-            <div className="col-md-3">
+            <div className="col-lg-2 col-md-3 col-sm-6">
                 <div className="form-group">
                     <label>Garden</label>
                     <select className="form-control" ref={referenceGarden}>
