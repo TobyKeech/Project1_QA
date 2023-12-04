@@ -22,6 +22,7 @@ const Seller = () => {
   };
 
   const [listOfSellers, dispatch] = useReducer(reducedSellersList, []);
+  const [showSellerInputForm, setShowBuyerInputForm] = useState(true);
 
   const addSellerHandler = (newSeller) => {
     if (
@@ -101,12 +102,17 @@ const Seller = () => {
       });
   }, []);
 
+  const toggleSellerInputForm = () => {
+    setShowBuyerInputForm((prevShowForm) => !prevShowForm);
+  };
+
   return (
     <>
     <div className="bg-dark text-white p-4">
 
-      <SellerForm addSellerHandler={addSellerHandler} />
+      {showSellerInputForm && <SellerForm addSellerHandler={addSellerHandler} />}
       <br />
+
       {loading || saving ? (
         <div>
           {loading ? "Loading Sellers Information" : ""}
@@ -115,6 +121,10 @@ const Seller = () => {
       ) : (
         ""
       )}
+      <button className={`btn ${showSellerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={toggleSellerInputForm}>
+        {showSellerInputForm ? "Hide Form" : "Add a new Seller"}
+      </button>
+
       <table class="table table-hover table-bordered">
         <thead>
           <tr>
