@@ -76,6 +76,7 @@ const SellerForm = (props) => {
             <label>Phone Number</label>
             <input type="text" placeholder="Enter phone number" class="form-control" id="sellerPhoneNumber" ref={refPhone}></input>
         </div>
+        <br />
 
         <div>
             <button type="submit" class="btn btn-success p-2" onClick={sumbitHandler}><FontAwesomeIcon icon={faPlus}/>&nbsp;New Seller </button>
@@ -83,6 +84,7 @@ const SellerForm = (props) => {
         </div>
         </div>
         </form>
+
         </>
       );
 }

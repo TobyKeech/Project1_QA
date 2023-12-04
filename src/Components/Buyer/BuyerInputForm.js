@@ -70,13 +70,14 @@ const BuyerInputForm = (props) => {
                 <label>Phone Number</label>
                 <input type="text" placeholder="Enter phone number" class="form-control" id="buyerPhoneNumber" ref={refPhone} />
             </div>
-
+            <br />
             <div>
+               
                 <button type="submit" class="btn btn-success p-2" onClick={submitHandler}>
                 <FontAwesomeIcon icon={faPlus}/>&nbsp;New Buyer
                     <br />
                 </button>
-               
+            
             </div>
             </div>
         </form>

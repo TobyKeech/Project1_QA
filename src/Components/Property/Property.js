@@ -46,6 +46,23 @@ const Property = () => {
 
     console.log(searchResult)
 
+    const propertyAddhandler = (newProperty) => {
+      fetch("http://localhost:8081/property", {
+        method: "POST",
+        headers : {"Content-Type" : "application/json"},
+        body: JSON.stringify(newProperty),
+      }).then((reponse) => {
+        if (!reponse.ok){
+          alert("error occured adding a property")
+          setSaving(false)
+          throw reponse.status
+        } else return reponse.json();
+      }).then(newProperty => {
+        dispatch ({type: "ADD", payload:newProperty})
+        setSaving(false);
+      })
+    }
+
     const deletePropertyHandler = (property) => {
         setSaving(true);
       
@@ -116,6 +133,8 @@ useEffect(() => {
 
     return ( 
         <>
+          {/* <PropertyAddForm propertyAddhandler={propertyAddhandler}/> */}
+
             <PropertySearchForm searchHandlerForForm = {searchHandlerForForm}/>
             {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
             <br />

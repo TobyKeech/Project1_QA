@@ -144,7 +144,7 @@ const Seller = () => {
                                     deleteSellerHandler(seller);
                                   }
                                 }}>
-                                  Delete  <FontAwesomeIcon icon={faTrash}/>
+                                  Delete &nbsp; <FontAwesomeIcon icon={faTrash}/>
                                 </button>
                 </td>
               </tr>
