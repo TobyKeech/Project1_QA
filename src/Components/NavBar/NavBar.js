@@ -5,7 +5,7 @@ import { faHouse, faHouseUser, faHouseFlag, faT } from "@fortawesome/free-solid-
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: 'black' }}>
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark" style={{ backgroundColor: 'black' }}>
         <button
           className="navbar-toggler"
           type="button"
