@@ -28,12 +28,16 @@ const propertyAddHandler = props.propertyAddHandler
     const submitHandler = (event) => {
         event.preventDefault();
 
+        const isValidInput = (input) => {
+            return /^\d+$/.test(input); // Checks if the input is a positive integer
+          };
+
         if (
             refAddress.current.value &&
             refPostcode.current.value &&
-            refGardens.current.value &&
-            refBathrooms.current.value &&
-            refPrice.current.value &&
+           isValidInput(refGardens.current.value) &&
+           isValidInput(refBathrooms.current.value) &&
+            isValidInput(refPrice.current.value) &&
             refStatus.current.value &&
             refType.current.value
         ) {
@@ -47,7 +51,9 @@ const propertyAddHandler = props.propertyAddHandler
                 type: refType.current.value,
             });
             resetForm();
-        }
+        } else {
+            alert("Please enter valid input for Gardens, Bathrooms, and Price.");
+    };
     };
 
     return ( 
@@ -88,7 +94,7 @@ const propertyAddHandler = props.propertyAddHandler
                 <input type="text" placeholder="Enter type" class="form-control" id="propertyStatus" ref={refType} />
             </div>
             <br />
-            <div>
+            <div className="d-flex justify-content-center align-items-center">
                
                 <button type="submit" class="btn btn-success p-2" onClick={submitHandler}>
                 <FontAwesomeIcon icon={faPlus}/>&nbsp;New Property

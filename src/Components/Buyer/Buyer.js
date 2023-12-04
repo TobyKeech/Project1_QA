@@ -158,6 +158,7 @@ const Buyer = () => {
           <th scope="col">Address</th>
           <th scope="col">Postcode</th>
           <th scope="col">Phone</th>
+          <th scope="col">Action</th>
         </tr>
 
       </thead>
