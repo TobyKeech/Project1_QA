@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect, useState, useReducer } from 'react';
 import "../Property/Property.css";
 import PropertySearchForm from './PropertySearchForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faTrash} from "@fortawesome/free-solid-svg-icons"
 
 
 const Property = () => {
@@ -157,7 +159,7 @@ useEffect(() => {
                                     deletePropertyHandler(property);
                                   }
                                 }}>
-                                  Delete
+                                  Delete <FontAwesomeIcon icon={faTrash} />
                                 </button>
                             </td>
                         </tr>
