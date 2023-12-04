@@ -115,19 +115,6 @@
   ],
   "property": [
     {
-      "id": 1,
-      "address": "34 OK Place, OK Town",
-      "postcode": "OK1 1OK",
-      "type": "DETACHED",
-      "price": 100000,
-      "bedroom": 3,
-      "bathroom": 1,
-      "garden": 0,
-      "sellerId": 1,
-      "status": "SOLD",
-      "buyerId": 3
-    },
-    {
       "id": 2,
       "address": "22 Maple Street, Maple City",
       "postcode": "MC1 1MC",
@@ -176,9 +163,9 @@
       "sellerId": 5,
       "status": "SOLD",
       "buyerId": 5
-    }, 
+    },
     {
-    "id": 1,
+      "id": 1,
       "address": "56 Westmarket, Dundee",
       "postcode": "CO4 LYF",
       "type": "APARTMENT",
