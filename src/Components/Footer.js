@@ -1,4 +1,6 @@
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faT} from "@fortawesome/free-solid-svg-icons"
+import{faInstagram, faGoogle, faFacebook, faLinkedin} from "@fortawesome/free-brands-svg-icons"
 const Footer = () => {
     return ( 
         <>
@@ -9,23 +11,20 @@ const Footer = () => {
     </div>
 
     <div>
-      <a href="" class="me-4 text-reset">
+      <a href="" className="me-4 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
+       <FontAwesomeIcon icon={faInstagram}/>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
+      <FontAwesomeIcon icon={faGoogle}/>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
+      <FontAwesomeIcon icon={faFacebook}/>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
+      <FontAwesomeIcon icon={faLinkedin}/>
       </a>
     </div>
   </section>
@@ -35,28 +34,10 @@ const Footer = () => {
       <div class="row mt-3">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Trusted Tenancys
+          <FontAwesomeIcon icon={faT}/>&nbsp;rusted<FontAwesomeIcon icon={faT}/>&nbsp;&nbsp;enancys
           </h6>
           <p>
             Check out our helpful links and how we can help secure your next home.
-          </p>
-        </div>
-
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">
-            Products
-          </h6>
-          <p>
-            <a href="#!" class="text-reset">Angular</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">React</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Vue</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Laravel</a>
           </p>
         </div>
 
