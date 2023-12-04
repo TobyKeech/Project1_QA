@@ -3,7 +3,8 @@ import { useEffect, useState, useReducer } from 'react';
 import "../Property/Property.css";
 import PropertySearchForm from './PropertySearchForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTrash} from "@fortawesome/free-solid-svg-icons"
+import {faTrash, faBed, faTree, faHouseChimney, faMapPin} from "@fortawesome/free-solid-svg-icons"
+
 
 
 const Property = () => {
@@ -127,48 +128,41 @@ useEffect(() => {
       ) : (
         ""
       )}
-    <table class="table table-hover table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Address</th>
-                <th scope="col">Postcode</th>
-                <th scope="col">Bedrooms</th>
-                <th scope="col">No of Gardens</th>
-                <th scope="col">Type</th>
-                <th scope="col">Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            {
-                searchResult.length === 0 && !loading ?
-                    <tr>
-                        <td colSpan="7">No properties found</td>
-                    </tr>
-                    :
-                    searchResult.map((property => (
-                        <tr key={property.id}>
-                            <td>{property.address}</td>
-                            <td>{property.postcode}</td>
-                            <td>{property.bedroom}</td>
-                            <td>{property.garden}</td>
-                            <td>{property.type}</td>
-                            <td>{property.status}</td>
-                            <td>
-                                <button class="btn btn-outline-danger" onClick={() => {
-                                  if (window.confirm("Are you sure you want to delete this property?")) {
-                                    deletePropertyHandler(property);
-                                  }
-                                }}>
-                                  Delete <FontAwesomeIcon icon={faTrash} />
-                                </button>
-                            </td>
-                        </tr>
-                    ))
-            )}
-        </tbody>
-    </table>     
+    <div>
+    {searchResult.length === 0 && !loading ? (
+      <div>No properties found</div>
+    ) : (
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {searchResult.map((property) => (
+          <div key={property.id} className="col">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{property.address}</h5>
+                <p className="card-text">Postcode: {property.postcode} <FontAwesomeIcon icon={faMapPin}/></p>
+                <p className="card-text">Bedrooms: {property.bedroom} <FontAwesomeIcon icon={faBed}/></p>
+                <p className="card-text">No of Gardens: {property.garden}  <FontAwesomeIcon icon={faTree}/></p>
+                <p className="card-text">Type: {property.type} <FontAwesomeIcon icon={faHouseChimney}/></p>
+                <p className="card-text">Status: {property.status}</p>
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => {
+                    if (window.confirm("Are you sure you want to delete this property?")) {
+                      deletePropertyHandler(property);
+                    }
+                  }}
+                >
+                  Delete <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>    
     </>
     )
 }
  
 export default Property;
+

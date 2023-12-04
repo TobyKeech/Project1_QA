@@ -126,6 +126,7 @@ const Seller = () => {
         </thead>
         <tbody>
           {listOfSellers.length === 0 && !loading ? (
+            //turnery for displaying noting if the seller list itself is empty and there is nothing to show 
             <tr>
               <td colSpan="6">No sellers found</td>
             </tr>

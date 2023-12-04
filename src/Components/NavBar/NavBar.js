@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse, faHouseUser, faHouseFlag } from "@fortawesome/free-solid-svg-icons"
 
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-sm navbar-light bg-dark">
+      <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#8f8f8f' }}>
         <button
           className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup"
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -16,24 +18,25 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
+          <div className="navbar-nav mr-auto">
             <Link to="/property" className="navbar-brand text-white">
               &nbsp;Trusted Tenancy's
             </Link>
+          </div>
+          <div className="navbar-nav ms-auto">
             <Link to="/property" className="nav-item nav-link text-white">
-              &nbsp;Properties
+              &nbsp;Properties <FontAwesomeIcon icon={faHouse} />
             </Link>
-            <Link to="/seller" className="nav-item nav-link  text-white">
-              &nbsp;Seller
+            <Link to="/seller" className="nav-item nav-link text-white">
+              &nbsp;Seller <FontAwesomeIcon icon={faHouseFlag} />
             </Link>
-            <Link to="/buyer" className="nav-item nav-link  text-white">
-              &nbsp;Buyers
+            <Link to="/buyer" className="nav-item nav-link text-white">
+              &nbsp;Buyers <FontAwesomeIcon icon={faHouseUser} />
             </Link>
           </div>
         </div>
       </nav>
-      <div className="mt-5">
-      </div>
+      <div className="mt-5"></div>
     </>
   );
 };
