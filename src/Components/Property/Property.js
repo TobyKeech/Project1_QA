@@ -10,10 +10,12 @@ import {
   faHouseChimney,
   faMapPin,
   faSackDollar,
+  faMinus,
+  faPlus,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
-
   const reducedPropertiesList = (state, action) => {
     switch (action.type) {
       case "ADD":
@@ -154,85 +156,117 @@ const Property = () => {
 
   return (
     <>
-    <div className="bg-dark text-white p-4">
-    {showPropertySearchForm && <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />}
-      {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
-      <br />
+      <div className="bg-dark text-white p-4">
+        {showPropertyInputForm && (
+          <PropertyAddForm propertyAddHandler={propertyAddHandler} />
+        )}
+        {/* checks wether the showproperty iput form is true and then renders the form if it is */}
+        <br />
 
-      {showPropertyInputForm && <PropertyAddForm propertyAddHandler={propertyAddHandler}/>}
-      {/* checks wether the showproperty iput form is true and then renders the form if it is */}
-      <br />
+        {showPropertySearchForm && (
+          <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />
+        )}
+        {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
+        <br />
 
-      {loading || saving ? (
-        <div>
-          {loading ? "Loading Properties Information" : ""}
-          {saving ? "Saving Properties Information" : ""}
-        </div>
-      ) : (
-        ""
-      )}
-      <button  className={`btn ${showPropertySearchForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={togglePropertySearchForm}>
-          {showPropertySearchForm ? "Hide Form" : "Search for a property"}
-        </button>
-      <span className="text-center p-2">or</span>
-        
-       <button  className={`btn ${showPropertyInputForm ? 'btn-outline-danger' : 'btn-outline-success'} p-2`} onClick={togglePropertyInputForm}>
-          {showPropertyInputForm ? "Hide Form" : "Add a new property"}
-        </button>
-        
-      <div>
-      <br />
-        {searchResult.length === 0 && !loading ? (
-          <div>No properties found</div>
+        {loading || saving ? (
+          <div>
+            {loading ? "Loading Properties Information" : ""}
+            {saving ? "Saving Properties Information" : ""}
+          </div>
         ) : (
-          <div className="row row-cols-1 row-cols-md-3 g-4">
-            {searchResult.map((property) => (
-              <div key={property.id} className="col">
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">{property.address}</h5>
-                    <p className="card-text">
-                      Postcode: {property.postcode}{" "}
-                      <FontAwesomeIcon icon={faMapPin} />
-                    </p>
-                    <p className="card-text">
-                      No of Bedrooms: {property.bedroom}{" "}
-                      <FontAwesomeIcon icon={faBed} />
-                    </p>
-                    <p className="card-text">
-                      No of Gardens: {property.garden}{" "}
-                      <FontAwesomeIcon icon={faTree} />
-                    </p>
-                    <p className="card-text">
-                      Type: {property.type}{" "}
-                      <FontAwesomeIcon icon={faHouseChimney} />
-                    </p>
-                    <p className="card-text">
-                      Price: £{property.price}{" "}
-                      <FontAwesomeIcon icon={faSackDollar} />
-                    </p>
-                    <p className="card-text">Status: {property.status}</p>
-                    <button
-                      className="btn btn-outline-danger"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            "Are you sure you want to delete this property?"
-                          )
-                        ) {
-                          deletePropertyHandler(property);
-                        }
-                      }}
-                    >
-                      Delete <FontAwesomeIcon icon={faTrash} />
-                    </button>
+          ""
+        )}
+        <div className="d-flex justify-content-center align-items-center flex-column">
+          <button
+            className={`btn ${
+              showPropertySearchForm
+                ? "btn-outline-danger"
+                : "btn-outline-success"
+            } mb-2 p-2`}
+            onClick={togglePropertySearchForm}
+          >
+            {showPropertySearchForm ? (
+            <>
+           <FontAwesomeIcon icon={faMinus}/> Search Form
+            </>
+            ):(
+              <>
+            <FontAwesomeIcon icon={faMagnifyingGlass}/> for a property
+            </> )}
+          </button>
+          <button
+  className={`btn ${
+    showPropertyInputForm ? "btn-outline-danger" : "btn-outline-success"
+  } p-2`}
+  onClick={togglePropertyInputForm}
+>
+  {showPropertyInputForm ? (
+    <>
+      <FontAwesomeIcon icon={faMinus} /> Input Form
+    </>
+  ) : (
+    <>
+      <FontAwesomeIcon icon={faPlus} /> new property
+    </>
+  )}
+</button>
+
+        </div>
+
+        <div>
+          <br />
+          {searchResult.length === 0 && !loading ? (
+            <div>No properties found</div>
+          ) : (
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+              {searchResult.map((property) => (
+                <div key={property.id} className="col">
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{property.address}</h5>
+                      <p className="card-text">
+                        Postcode: {property.postcode}{" "}
+                        <FontAwesomeIcon icon={faMapPin} />
+                      </p>
+                      <p className="card-text">
+                        No of Bedrooms: {property.bedroom}{" "}
+                        <FontAwesomeIcon icon={faBed} />
+                      </p>
+                      <p className="card-text">
+                        No of Gardens: {property.garden}{" "}
+                        <FontAwesomeIcon icon={faTree} />
+                      </p>
+                      <p className="card-text">
+                        Type: {property.type}{" "}
+                        <FontAwesomeIcon icon={faHouseChimney} />
+                      </p>
+                      <p className="card-text">
+                        Price: £{property.price}{" "}
+                        <FontAwesomeIcon icon={faSackDollar} />
+                      </p>
+                      <p className="card-text">Status: {property.status}</p>
+                      <button
+                        className="btn btn-outline-danger"
+                        onClick={() => {
+                          if (
+                            window.confirm(
+                              "Are you sure you want to delete this property?"
+                            )
+                          ) {
+                            deletePropertyHandler(property);
+                          }
+                        }}
+                      >
+                        Delete <FontAwesomeIcon icon={faTrash} />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
