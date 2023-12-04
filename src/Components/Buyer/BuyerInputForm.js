@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons"
+
 import { useRef } from "react";
 
 const BuyerInputForm = (props) => {
@@ -70,7 +73,7 @@ const BuyerInputForm = (props) => {
 
             <div>
                 <button type="submit" class="btn btn-success p-2" onClick={submitHandler}>
-                    Add New Buyer
+                <FontAwesomeIcon icon={faPlus}/>&nbsp;New Buyer
                     <br />
                 </button>
                

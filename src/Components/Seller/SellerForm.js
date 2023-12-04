@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons"
+
 import { useRef } from "react";
 
 
@@ -75,7 +78,7 @@ const SellerForm = (props) => {
         </div>
 
         <div>
-            <button type="submit" class="btn btn-success p-2" onClick={sumbitHandler}>Add New Seller</button>
+            <button type="submit" class="btn btn-success p-2" onClick={sumbitHandler}><FontAwesomeIcon icon={faPlus}/>&nbsp;New Seller </button>
             {/* when the add new seller button is clicked the submitHandler function is called and the inputs are filled with the vlaues which were entered into the text inputs */}
         </div>
         </div>
