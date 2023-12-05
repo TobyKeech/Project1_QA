@@ -15,6 +15,7 @@ import {
   faPlus,
   faMagnifyingGlass,
   faJedi,
+  faPenToSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
@@ -36,6 +37,7 @@ const Property = () => {
   const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
   const [showPropertyInputForm, setShowPropertyInputForm] = useState(false);
   const [showPropertySearchForm, setShowPropertySearchForm] = useState(false);
+ const  [showPropertyEditForm, setShowPropertyEditForm] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [editedProperty, setEditedProperty] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -188,6 +190,10 @@ const Property = () => {
     setShowPropertySearchForm((prevShowForm) => !prevShowForm);
   };
 
+  const togglePropertyEditForm = () => {
+    setShowPropertyEditForm((prevShowForm) => !prevShowForm)
+  }
+
   const startEditProperty = (property) => {
     setEditedProperty(property);
   };
@@ -208,7 +214,12 @@ const Property = () => {
         {/* property search form component, passed down function as a prop to use within the form itself*/}
         <br />
 
-        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler}/>
+        {showPropertyEditForm && (
+
+        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler}/> 
+        )}
+
+        {/* property edit form that takes in the current details and then is updated with the new values taken by the edit handler */}
 
         {loading || saving ? (
           <div>
@@ -306,10 +317,11 @@ const Property = () => {
                         onClick={() => {
                           
                             startEditProperty(property);
+                            togglePropertyEditForm();
                           
                         }}
                       >
-                        Edit <FontAwesomeIcon icon={faJedi} />
+                        Edit <FontAwesomeIcon icon={faPenToSquare} />
                       </button>
                     </div>
                   </div>
