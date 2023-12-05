@@ -6,6 +6,7 @@ import SellerEditForm from "./SellerEditForm";
 
 const Seller = () => {
   const [loading, setLoading] = useState(true);
+  //state for setting loading to be true or false, used within functions that will be used in the turney within the return as well(see below)
   const [sellers, setSellers] = useState([]);
   // used during testing to display the inital list from the backend into a list (see early commits)
   const [saving, setSaving] = useState(false);
@@ -14,15 +15,17 @@ const Seller = () => {
     switch (action.type) {
       case "ADD":
         return state.concat(action.payload);
-      //if the action type is set to add then the new state will be add to the list of properties and state updated
+      //if the action type is set to add then the new state will be add to the list of sellers and state updated
       case "SET":
         return action.payload;
+        //returns the state as is 
       case "REMOVE":
         return state.filter((seller) => seller.id !== action.payload.id);
+        //used for delete that filters the current state, if the given sellersid matched that of the seller id contained within the buyer then the seller will be removed
       default:
         return state;
     }
-    //switch statement thats used to change the action depending on the action.type which will invoke a diff action each time
+    //switch statement thats used to change the case depending on the action.type which will invoke a diff action each time
   };
 
   const [listOfSellers, dispatch] = useReducer(reducedSellersList, []);
@@ -31,8 +34,11 @@ const Seller = () => {
   const [showSellerEditForm, setShowSellerEditForm] = useState(false);
 
   const addSellerHandler = (newSeller) => {
+    //add seller function which takes in a new seller 
     if (
       listOfSellers.filter(
+        //filters the list of sellers fo each seller and compares if the sellers first name matches that of the new sellers first name as well as second name
+
         (seller) =>
           seller.firstName === newSeller.firstName &&
           seller.surname === newSeller.surname
@@ -40,13 +46,16 @@ const Seller = () => {
     ) {
       alert("Seller already exists in the list");
       return;
+      //if a seller macthing the first name and surname appears then a alrt is thrown stating tthe seller alredy exists
     }
     setSaving(true);
+    //state set to true
 
     fetch("http://localhost:8081/seller", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newSeller),
+      //post request to the defined url and the newSeller object converted to JSON
     })
       .then((response) => {
         if (!response.ok) {
@@ -54,10 +63,13 @@ const Seller = () => {
           setSaving(false);
           throw response.status;
         } else return response.json();
+        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
       })
       .then((newSeller) => {
         dispatch({ type: "ADD", payload: newSeller });
         setSaving(false);
+        //if response is successful then the new seller is sent as the payload using dispath with the type set as ADD, this is then used by the 
+        //reducedSellerList function at the top which contains the action depending on the action type in this case ADD. Read above for details.
       });
   };
 
