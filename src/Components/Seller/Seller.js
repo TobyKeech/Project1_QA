@@ -1,7 +1,8 @@
 import { useEffect, useReducer, useState } from "react";
-import SellerForm from "./SellerForm";
+import SellerForm from "./SellerAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPenToSquare, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import SellerEditForm from "./SellerEditForm";
 
 const Seller = () => {
   const [loading, setLoading] = useState(true);
@@ -26,6 +27,8 @@ const Seller = () => {
 
   const [listOfSellers, dispatch] = useReducer(reducedSellersList, []);
   const [showSellerInputForm, setShowBuyerInputForm] = useState(false);
+  const [editedSeller, setEditedSeller] = useState(null)
+  const [showSellerEditForm, setShowSellerEditForm] = useState(false);
 
   const addSellerHandler = (newSeller) => {
     if (
@@ -84,6 +87,36 @@ const Seller = () => {
       });
   };
 
+  const editSellerHandler = (seller) => {
+    fetch(`http://localhost:8081/property/${seller.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(seller),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          alert("An error has occurred, unable to edit seller");
+          setSaving(false);
+          throw response.status;
+        }
+        return response.json();
+      })
+      .then((updatedSeller) => {
+        dispatch({
+          type: "SET",
+          payload: listOfSellers.map((s) =>
+            s.id === updatedSeller.id ? updatedSeller : s
+          ),
+        });
+        setSaving(false);
+      })
+      .catch((error) => {
+        setSaving(false);
+        console.log(error);
+        alert("Error has occurred while editing the property");
+      });
+  };
+
   useEffect(() => {
     setLoading(true);
     fetch("http://localhost:8081/seller")
@@ -109,6 +142,14 @@ const Seller = () => {
     setShowBuyerInputForm((prevShowForm) => !prevShowForm);
   };
 
+  const toggleSellerEditForm = () => {
+    setShowSellerEditForm((prevShowForm) => !prevShowForm);
+  };
+
+  const startEditSeller = (seller) => {
+    setEditedSeller(seller);
+  };
+
   return (
     <>
       <div className="bg-body-tertiary text-white p-4">
@@ -116,6 +157,14 @@ const Seller = () => {
           <SellerForm addSellerHandler={addSellerHandler} />
         )}
         <br />
+
+        {showSellerEditForm && (
+          <SellerEditForm
+            seller={editedSeller}
+            editSellerHandler={editSellerHandler}
+            onClose={() => setShowSellerEditForm(false)}
+          />
+        )}
 
         {loading || saving ? (
           <div>
@@ -228,13 +277,20 @@ const Seller = () => {
                           </div>
                         </div>
                       </div>
+
+                      <button  type="button"
+                        className="btn btn-outline-warning" onClick={() => {
+                          startEditSeller(seller);
+                          toggleSellerEditForm();
+
+                        }}>Edit <FontAwesomeIcon icon={faPenToSquare}/></button>
                   </td>
                 </tr>
               ))
             )}
           </tbody>
         </table>
-      </div>
+      </div>  
     </>
   );
 };

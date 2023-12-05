@@ -95,29 +95,16 @@
       "address": "12 Low Street, Cardiff",
       "postcode": "CF1 1AK",
       "phone": "01234567810"
-    },
-    {
-      "id": 13,
-      "firstName": "Emma",
-      "surname": "Clark",
-      "address": "13 Broad Street, Cardiff",
-      "postcode": "CF1 1AL",
-      "phone": "01234567811"
     }
   ],
   "property": [
     {
       "id": 1,
-      "address": "34 OK Place, OK Town",
-      "postcode": "OK1 1OK",
-      "type": "DETACHED",
-      "price": 100000,
-      "bedroom": 3,
-      "bathroom": 1,
-      "garden": 0,
-      "sellerId": 1,
-      "status": "SOLD",
-      "buyerId": 3
+      "firstName": "Alice",
+      "surname": "Johnson",
+      "address": "42 Pen-y-lan Road, Cardiff",
+      "postcode": "CA1 8RR",
+      "phone": "01234567890"
     },
     {
       "id": 2,
@@ -361,14 +348,6 @@
       "address": "2 Yarn Road, Southampton",
       "postcode": "SO1 4KN",
       "phone": "01234567812"
-    },
-    {
-      "id": 14,
-      "firstName": "Ella",
-      "surname": "Horse",
-      "address": "18 Stable Street, Cambridge",
-      "postcode": "CB1 2HS",
-      "phone": "01234567813"
     }
   ],
   "booking": [
