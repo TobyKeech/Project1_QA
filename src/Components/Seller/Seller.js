@@ -107,16 +107,18 @@ const Seller = () => {
   };
 
   const editSellerHandler = (seller) => {
-    fetch(`http://localhost:8081/property/${seller.id}`, {
+    fetch(`http://localhost:8081/seller/${seller.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(seller),
+      //sends a PUT request which will update the data on the server. Converts the seller object to JSON string. 
     })
       .then((response) => {
         if (!response.ok) {
           alert("An error has occurred, unable to edit seller");
           setSaving(false);
           throw response.status;
+          //see above for explination of same code
         }
         return response.json();
       })
@@ -126,34 +128,44 @@ const Seller = () => {
           payload: listOfSellers.map((s) =>
             s.id === updatedSeller.id ? updatedSeller : s
           ),
+          //dispatch action with the type set as SET and the payload is given an updated list of sellers with the seller with the same id is replaced with the updated seller. 
         });
         setSaving(false);
+        //state changed when completion of asynchronous function is finished. 
       })
       .catch((error) => {
         setSaving(false);
         console.log(error);
-        alert("Error has occurred while editing the property");
-      });
+        alert("Error has occurred while editing the seller");
+          //see above for explination of same code
+        });
   };
 
   useEffect(() => {
     setLoading(true);
     fetch("http://localhost:8081/seller")
+    //used to obtain list of all the sellers when page refreshes or state changes
       .then((response) => {
         if (!response.ok) {
           alert("Error occurred, could not load data of sellers");
           throw response.status;
         } else return response.json();
+        //see above for explination of same code
+
       })
       .then((sellers) => {
         dispatch({ type: "SET", payload: sellers });
+        //takes sellers (all of them) and is used with useReducer and reducedSellersList function by setting type as SET with the payload of all sellers. See explination of this function above. 
         setLoading(false);
         setSellers(sellers);
+        //above was used for testing purposes to display a list of sellers initally 
       })
       .catch((error) => {
         setLoading(false);
         console.log(error);
         alert("Error has occurred while getting the data");
+        //see above for explination of same code
+
       });
   }, []);
 

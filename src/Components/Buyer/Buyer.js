@@ -85,7 +85,7 @@ const Buyer = () => {
   };
 
   const editBuyerHandler = (buyer) => {
-    fetch(`http://localhost:8081/property/${buyer.id}`, {
+    fetch(`http://localhost:8081/buyer/${buyer.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(buyer),
