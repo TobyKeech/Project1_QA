@@ -115,44 +115,7 @@
   ],
   "property": [
     {
-      "id": 2,
-      "address": "22 Maple Street, Maple City",
-      "postcode": "MC1 1MC",
-      "type": "SEMI",
-      "price": "150000",
-      "bedroom": "5",
-      "bathroom": 2,
-      "garden": "2",
-      "sellerId": 2,
-      "status": "FOR SALE"
-    },
-    {
-      "id": 4,
-      "address": "15 Elm Street, Elmville",
-      "postcode": "EH1 7GH",
-      "type": "APARTMENT",
-      "price": 180000,
-      "bedroom": "4",
-      "bathroom": 2,
-      "garden": 1,
-      "sellerId": 4,
-      "status": "SOLD"
-    },
-    {
       "id": 5,
-      "address": "3 Oak Street, Oakton",
-      "postcode": "OT1 1OT",
-      "type": "SEMI",
-      "price": 160000,
-      "bedroom": 3,
-      "bathroom": 1,
-      "garden": 1,
-      "sellerId": 5,
-      "status": "SOLD",
-      "buyerId": 5
-    },
-    {
-      "id": 1,
       "address": "56 Westmarket, Dundee",
       "postcode": "CO4 LYF",
       "type": "APARTMENT",
@@ -165,44 +128,20 @@
       "buyerId": 3
     },
     {
-      "address": "prem beef, dundee",
-      "postcode": "BEE7 4LF",
-      "gardens": "2",
-      "bathrooms": "3",
-      "price": "256000",
-      "status": "34",
-      "type": "SEMI",
       "id": 6,
-      "garden": "0",
-      "bedroom": "1"
-    },
-    {
-      "id": 4,
-      "address": "15 Elm Street, Elmville",
-      "postcode": "EV1 1EV",
-      "type": "DETACHED",
-      "price": 180000,
-      "bedroom": 4,
-      "bathroom": 2,
-      "garden": 1,
-      "sellerId": 4,
-      "status": "FOR SALE"
-    },
-    {
-      "id": 5,
-      "address": "3 Oak Street, Oakton",
-      "postcode": "OT1 1OT",
-      "type": "SEMI",
-      "price": 160000,
-      "bedroom": 3,
-      "bathroom": 1,
-      "garden": 1,
-      "sellerId": 5,
+      "address": "56 Westmarket, Dundee",
+      "postcode": "CO4 LYF",
+      "type": "APARTMENT",
+      "price": 30000,
+      "bedroom": 5,
+      "bathroom": 6,
+      "garden": 0,
+      "sellerId": 1,
       "status": "SOLD",
-      "buyerId": 5
+      "buyerId": 3
     },
     {
-      "id": 1,
+      "id": 7,
       "address": "56 Westmarket, Dundee",
       "postcode": "CO4 LYF",
       "type": "APARTMENT",
@@ -222,7 +161,7 @@
       "price": "12123",
       "status": "34",
       "type": "432",
-      "id": 7
+      "id": 8
     }
   ],
   "buyer": [
