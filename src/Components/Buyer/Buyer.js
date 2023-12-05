@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BuyerInputForm from "./BuyerInputForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 import { useEffect, useReducer } from "react";
@@ -121,7 +121,9 @@ const Buyer = () => {
           ""
         )}
         <button  className={`btn ${showBuyerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} mb-2 p-2`} onClick={toggleBuyerInputForm}>
-          {showBuyerInputForm ? "Hide Form" : "Add a new Buyer"}
+          {showBuyerInputForm 
+          ?( <> <FontAwesomeIcon icon={faMinus}/> Form</>) 
+          : (<><FontAwesomeIcon icon={faPlus}/> Buyer</>)}
         </button>
     
         <table className="table table-hover table-bordered">
