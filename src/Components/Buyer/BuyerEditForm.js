@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 const BuyerEditForm = ({buyer, editBuyerHandler, onClose}) => {
 
+  //for explination of functionality please see seller, these are very similar following the same code layout and functionallity for explination. 
+
+
     const [editedBuyer, setEditedbuyer] = useState({...buyer})
     const [formVisible, setFormVisible] = useState(true);
 

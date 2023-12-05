@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { useRef } from "react";
 
 const BuyerInputForm = (props) => {
-    const {} = useParams();
+    //for explination of functionality please see seller, these are very similar following the same code layout and functionallity for explination. 
+
     const buyerAddHandler = props.buyerAddHandler;
 
     const refFirstName = useRef();

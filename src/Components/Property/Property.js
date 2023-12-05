@@ -18,29 +18,43 @@ import {
 
 const Property = () => {
   const reducedPropertiesList = (state, action) => {
+    //reduced properties list function used in useReducer
     switch (action.type) {
       case "ADD":
         return state.concat(action.payload);
-      case "SET":
+              //if the action type is set to add then the new state will be add to the list of properties and state updated
+      case "SET": 
         return action.payload;
+                //returns the state as is 
       case "REMOVE":
         return state.filter((property) => property.id !== action.payload.id);
+                //used for delete that filters the current state, if the given propertiesid matched that of the property id contained within the buyer then the property will be removed
       default:
         return state; 
     }
   };
 
   const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
+  //creates 2 varibales of listOfProperties and dispatch. Using useReducer hook to handle state. Takes 2 arguments of the reducer function ie reducedPropertiesList and intial state of an empty array
+  // as above reducedPropertiesList is a function which manipulates the state in response to different actions
   const [showPropertyInputForm, setShowPropertyInputForm] = useState(false);
+    //state for showing and hiding the property input form used below 
   const [showPropertySearchForm, setShowPropertySearchForm] = useState(false);
+  //state for showing and hiding the property sreach form used below 
   const [showPropertyEditForm, setShowPropertyEditForm] = useState(false);
+  //state for showing and hiding the property edit form used below 
   const [searchResult, setSearchResult] = useState([]);
+  //used for the filer to set the state of the filter function to display certian properties given certian conditions
   const [editedProperty, setEditedProperty] = useState(null);
+  //intilises the state of edited property to start as empty this can then be used in the function below and the editPopertyForm component via pass down. 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  //both of these above used for state maniplution for setting loading and saving to true or false within functions to allow for displaying of error handling. 
 
   const searchHandlerForForm = (searchInput) => {
+    //function which takes the search input as a parameter
     setSearchResult(
+      //state of search result will be updated with the filtered list of properties, this is used for the display in the map. See below within return. 
       listOfProperties.filter(
         (property) =>
           (searchInput.type === "ANY" || property.type === searchInput.type) &&
@@ -49,6 +63,8 @@ const Property = () => {
           Number(property.garden) >= Number(searchInput.garden) &&
           (Number(searchInput.price) === 0 ||
             Number(property.price) <= Number(searchInput.price))
+            //filter is used on the list of properties and a new array is created with all the elements that pass the conditon. 
+            //this will then be set into the search result which can be used to display the search result. 
       )
     );
   };
@@ -58,41 +74,53 @@ const Property = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProperty),
+            //post request to the defined url and the newProperty object converted to JSON
+
     })
       .then((response) => {
         if (!response.ok) {
           alert("Error occurred while adding a property");
           setSaving(false);
           throw response.status;
-        }
-        return response.json();
+        } else return response.json();
+                //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
       })
       .then((newProperty) => {
         dispatch({ type: "ADD", payload: newProperty });
         setSaving(false);
+         //if response is successful then the new property is sent as the payload using dispath with the type set as ADD, this is then used by the 
+        //reducedPropertiesList function at the top which contains the action depending on the action type in this case ADD. Read above for details.
       });
   };
 
   const deletePropertyHandler = (property) => {
     setSaving(true);
-
+    //manipulates the state
     fetch(`http://localhost:8081/property/${property.id}`, {
       method: "DELETE",
+            //fetch the specific sellers id to match for deletion, HTTP method delete is specified
     })
       .then((response) => {
         if (!response.ok) {
           alert("An error has occurred. Unable to delete property");
           setSaving(false);
           throw response.status;
+        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+
         } else {
           dispatch({ type: "REMOVE", payload: property });
           setSaving(false);
+        //if response is successful then the property is sent as the payload using dispath with the type set as REMOVE, this is then used by the 
+        //reducedPropertiesList function at the top which contains the action depending on the action type in this case REMOVE. Read above for details.
+
         }
       })
       .catch((error) => {
         setSaving(false);
         console.log(error);
         alert("Error has occurred while deleting the property");
+                //error handling that if anything goes wrong then state of saving is changed as well as an error alert being given to the user that there was issue deleting the property 
+
       });
   };
 
