@@ -1,14 +1,6 @@
 {
   "seller": [
     {
-      "id": 1,
-      "firstName": "John",
-      "surname": "Doe",
-      "address": "1 High Street, Cardiff",
-      "postcode": "CF1 1AA",
-      "phone": "01234567890"
-    },
-    {
       "id": 2,
       "firstName": "Anna",
       "surname": "Smith",
@@ -245,14 +237,6 @@
     }
   ],
   "buyer": [
-    {
-      "id": 1,
-      "firstName": "Alice",
-      "surname": "Johnson",
-      "address": "42 Pen-y-lan Road, Cardiff",
-      "postcode": "CA1 8RR",
-      "phone": "01234567890"
-    },
     {
       "id": 2,
       "firstName": "David",

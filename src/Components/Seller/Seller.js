@@ -6,6 +6,7 @@ import SellerEditForm from "./SellerEditForm";
 
 const Seller = () => {
   const [loading, setLoading] = useState(true);
+  //state for setting loading to be true or false, used within functions that will be used in the turney within the return as well(see below)
   const [sellers, setSellers] = useState([]);
   // used during testing to display the inital list from the backend into a list (see early commits)
   const [saving, setSaving] = useState(false);
@@ -14,25 +15,34 @@ const Seller = () => {
     switch (action.type) {
       case "ADD":
         return state.concat(action.payload);
-      //if the action type is set to add then the new state will be add to the list of properties and state updated
+      //if the action type is set to add then the new state will be add to the list of sellers and state updated
       case "SET":
         return action.payload;
+        //returns the state as is 
       case "REMOVE":
         return state.filter((seller) => seller.id !== action.payload.id);
+        //used for delete that filters the current state, if the given sellersid matched that of the seller id contained within the buyer then the seller will be removed
       default:
         return state;
     }
-    //switch statement thats used to change the action depending on the action.type which will invoke a diff action each time
+    //switch statement thats used to change the case depending on the action.type which will invoke a diff action each time
   };
 
   const [listOfSellers, dispatch] = useReducer(reducedSellersList, []);
-  const [showSellerInputForm, setShowBuyerInputForm] = useState(false);
+  //creates 2 varibales of listOfSellers and dispatch. Using useReducer hook to handle state. Takes 2 arguments of the reducer function ie reducedSellersList and intial state of an empty array
+  // as above reducedSellersList is a function which manipulates the state in response to different actions
+  const [showSellerInputForm, setShowSellerInputForm] = useState(false);
+  //state for showing and hiding the seller input form used below 
   const [editedSeller, setEditedSeller] = useState(null)
   const [showSellerEditForm, setShowSellerEditForm] = useState(false);
+  //state for showing and hiding the seller edit form used below
 
   const addSellerHandler = (newSeller) => {
+    //add seller function which takes in a new seller 
     if (
       listOfSellers.filter(
+        //filters the list of sellers fo each seller and compares if the sellers first name matches that of the new sellers first name as well as second name
+
         (seller) =>
           seller.firstName === newSeller.firstName &&
           seller.surname === newSeller.surname
@@ -40,13 +50,16 @@ const Seller = () => {
     ) {
       alert("Seller already exists in the list");
       return;
+      //if a seller macthing the first name and surname appears then a alrt is thrown stating tthe seller alredy exists
     }
     setSaving(true);
+    //state set to true
 
     fetch("http://localhost:8081/seller", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newSeller),
+      //post request to the defined url and the newSeller object converted to JSON
     })
       .then((response) => {
         if (!response.ok) {
@@ -54,15 +67,19 @@ const Seller = () => {
           setSaving(false);
           throw response.status;
         } else return response.json();
+        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
       })
       .then((newSeller) => {
         dispatch({ type: "ADD", payload: newSeller });
         setSaving(false);
+        //if response is successful then the new seller is sent as the payload using dispath with the type set as ADD, this is then used by the 
+        //reducedSellerList function at the top which contains the action depending on the action type in this case ADD. Read above for details.
       });
   };
 
   const deleteSellerHandler = (seller) => {
     setSaving(true);
+    //manipulates the state
 
     fetch(`http://localhost:8081/seller/${seller.id}`, {
       method: "DELETE",
@@ -73,31 +90,35 @@ const Seller = () => {
           alert("An error has occurred. Unable to delete seller");
           setSaving(false);
           throw response.status;
-        } else {
+        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+      } else {
           dispatch({ type: "REMOVE", payload: seller });
           setSaving(false);
-          //dispatch typer is set to remove with the state of seller passed to the function, this then performs the delete method within the
-          //reducer function
-        }
+        //if response is successful then the seller is sent as the payload using dispath with the type set as REMOVE, this is then used by the 
+        //reducedSellerList function at the top which contains the action depending on the action type in this case REMOVE. Read above for details.
+      }
       })
       .catch((error) => {
         setSaving(false);
         console.log(error);
         alert("Error has occurred while deleting the seller");
+        //error handling that if anything goes wrong then state of saving is changed as well as an error alert being given to the user that there was issue deleting the seller 
       });
   };
 
   const editSellerHandler = (seller) => {
-    fetch(`http://localhost:8081/property/${seller.id}`, {
+    fetch(`http://localhost:8081/seller/${seller.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(seller),
+      //sends a PUT request which will update the data on the server. Converts the seller object to JSON string. 
     })
       .then((response) => {
         if (!response.ok) {
           alert("An error has occurred, unable to edit seller");
           setSaving(false);
           throw response.status;
+          //see above for explination of same code
         }
         return response.json();
       })
@@ -107,62 +128,79 @@ const Seller = () => {
           payload: listOfSellers.map((s) =>
             s.id === updatedSeller.id ? updatedSeller : s
           ),
+          //dispatch action with the type set as SET and the payload is given an updated list of sellers with the seller with the same id is replaced with the updated seller. 
         });
         setSaving(false);
+        //state changed when completion of asynchronous function is finished. 
       })
       .catch((error) => {
         setSaving(false);
         console.log(error);
-        alert("Error has occurred while editing the property");
-      });
+        alert("Error has occurred while editing the seller");
+          //see above for explination of same code
+        });
   };
 
   useEffect(() => {
     setLoading(true);
     fetch("http://localhost:8081/seller")
+    //used to obtain list of all the sellers when page refreshes or state changes
       .then((response) => {
         if (!response.ok) {
           alert("Error occurred, could not load data of sellers");
           throw response.status;
         } else return response.json();
+        //see above for explination of same code
+
       })
       .then((sellers) => {
         dispatch({ type: "SET", payload: sellers });
+        //takes sellers (all of them) and is used with useReducer and reducedSellersList function by setting type as SET with the payload of all sellers. See explination of this function above. 
         setLoading(false);
         setSellers(sellers);
+        //above was used for testing purposes to display a list of sellers initally 
       })
       .catch((error) => {
         setLoading(false);
         console.log(error);
         alert("Error has occurred while getting the data");
+        //see above for explination of same code
+
       });
   }, []);
 
   const toggleSellerInputForm = () => {
-    setShowBuyerInputForm((prevShowForm) => !prevShowForm);
+    setShowSellerInputForm((prevShowForm) => !prevShowForm);
   };
+  //functions responsible for the input form to be toggled on and off. Manages the showsellerinputform state which is above. 
 
   const toggleSellerEditForm = () => {
     setShowSellerEditForm((prevShowForm) => !prevShowForm);
   };
+  //used the same as above just for the edit form instead
 
   const startEditSeller = (seller) => {
     setEditedSeller(seller);
   };
+  //set to the click of the edit button before the form is shown to the user. The current seller is then set into the edited seller state which is set to null to begin. This is then passed down to the SellerEditForm Component (see below) 
 
   return (
     <>
       <div className="bg-body-tertiary text-white p-4">
         {showSellerInputForm && (
           <SellerAddForm addSellerHandler={addSellerHandler} />
+          //seller add form is passed down the add seller handler to the function 
         )}
         <br />
 
         {showSellerEditForm && (
           <SellerEditForm
             seller={editedSeller}
+            // passed down to the form above as stated in line 185. 
             editSellerHandler={editSellerHandler}
+            //editsellerhandler fucntion passed down to the form
             onClose={() => setShowSellerEditForm(false)}
+            //function passed down which in turn used to hide the form once its clicked. 
           />
         )}
 
