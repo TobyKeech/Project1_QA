@@ -24,6 +24,7 @@ const SellerForm = (props) => {
         refAddress.current.value = "";
         refPhone.current.value = "";
         refPostcode.current.value = "";
+        //explination below line 46. 
     }
 
     const sumbitHandler = (event) => {
@@ -31,6 +32,7 @@ const SellerForm = (props) => {
         //sumbit handler for when the submit button is pressed and used by the user. If statement is run to check if the inputted values match those of the and then will then proceed to add these to the db json 
             
         if ( refFirstName.current.value && refSecondName.current.value && refAddress.current.value && refPostcode.current.value && refPhone.current.value){
+            //makes sure to have all the values to be able to add a seller using the function. 
             addSellerHandler(
                 {
                     "firstName": refFirstName.current.value,
@@ -40,8 +42,11 @@ const SellerForm = (props) => {
                     "postcode": refPostcode.current.value,
                     "phone": refPhone.current.value
                 }
+                //add seller handler is defined in parent component. Values are set with the those from the form and the function (check addSellerHandler in seller) will run its logic. 
+                //this will then proceed to add the handler to the state. 
             )
             resetForm();
+            //form values are reset back to empty each time once action is called. Function is defined above. 
             } 
     
     }
