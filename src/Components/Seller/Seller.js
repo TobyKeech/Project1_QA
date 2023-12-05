@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import SellerForm from "./SellerForm";
+import SellerForm from "./SellerAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPenToSquare, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import SellerEditForm from "./SellerEditForm";
@@ -95,7 +95,7 @@ const Seller = () => {
     })
       .then((response) => {
         if (!response.ok) {
-          alert("An error has occurred, unable to edit property");
+          alert("An error has occurred, unable to edit seller");
           setSaving(false);
           throw response.status;
         }

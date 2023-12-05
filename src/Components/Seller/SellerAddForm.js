@@ -50,7 +50,7 @@ const SellerForm = (props) => {
     return (
         <>
         <form>
-            <div class="form-row">
+            <div class="form-row text-black">
         <div class="col">
             <label>First Name</label>
             <input type="text"  placeholder="Enter first name" class="form-control" id="sellerFirstName" ref={refFirstName}/>

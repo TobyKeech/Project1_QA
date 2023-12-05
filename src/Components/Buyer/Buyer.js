@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import BuyerInputForm from "./BuyerInputForm";
+import BuyerEditForm from "./BuyerEditForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 import { useEffect, useReducer } from "react";
@@ -27,7 +28,8 @@ const Buyer = () => {
 
   const [listOfBuyers, dispatch] = useReducer(reducedBuyersList, []);
   const [showBuyerInputForm, setShowBuyerInputForm] = useState(false);
-
+  const [editedBuyer, setEditedBuyer] = useState(null);
+  const [showBuyerEditForm, setShowBuyerEditForm] = useState(false);
   const buyerAddHandler = (newBuyer) => {
     if (
       listOfBuyers.filter(
@@ -82,6 +84,36 @@ const Buyer = () => {
       });
   };
 
+  const editBuyerHandler = (buyer) => {
+    fetch(`http://localhost:8081/property/${buyer.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(buyer),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          alert("An error has occurred, unable to edit buyer");
+          setSaving(false);
+          throw response.status;
+        }
+        return response.json();
+      })
+      .then((updatedBuyer) => {
+        dispatch({
+          type: "SET",
+          payload: listOfBuyers.map((b) =>
+            b.id === updatedBuyer.id ? updatedBuyer : b
+          ),
+        });
+        setSaving(false);
+      })
+      .catch((error) => {
+        setSaving(false);
+        console.log(error);
+        alert("Error has occurred while editing the property");
+      });
+  };
+
   useEffect(() => {
     setLoading(true);
     fetch("http://localhost:8081/buyer")
@@ -107,25 +139,55 @@ const Buyer = () => {
     setShowBuyerInputForm((prevShowForm) => !prevShowForm);
   };
 
+  const toggleBuyerEditForm = () => {
+    setShowBuyerEditForm((prevShowForm) => !prevShowForm);
+  };
+
+  const startEditBuyer = (buyer) => {
+    setEditedBuyer(buyer);
+  };
+
   return (
     <>
       <div className="bg-body-tertiary text-white p-4">
-        {showBuyerInputForm && <BuyerInputForm buyerAddHandler={buyerAddHandler} />}
+        {showBuyerInputForm && (
+          <BuyerInputForm buyerAddHandler={buyerAddHandler} />
+        )}
         <br />
+
+        {showBuyerEditForm && (
+          <BuyerEditForm
+            buyer={editedBuyer}
+            editBuyerHandler={editBuyerHandler}
+            onClose={() => setShowBuyerEditForm(false)}
+          />
+        )}
+
         {loading || saving ? (
           <div>
             {loading ? "Loading buyers Information" : ""}
-            {saving ? "Saving buyer Information" : ""}
+            {saving ? "Saving buyers Information" : ""}
           </div>
         ) : (
           ""
         )}
-        <button  className={`btn ${showBuyerInputForm ? 'btn-outline-danger' : 'btn-outline-success'} mb-2 p-2`} onClick={toggleBuyerInputForm}>
-          {showBuyerInputForm 
-          ?( <> <FontAwesomeIcon icon={faMinus}/> Form</>) 
-          : (<><FontAwesomeIcon icon={faPlus}/> Buyer</>)}
+        <button
+          className={`btn ${
+            showBuyerInputForm ? "btn-outline-danger" : "btn-outline-success"
+          } mb-2 p-2`}
+          onClick={toggleBuyerInputForm}
+        >
+          {showBuyerInputForm ? (
+            <>
+              <FontAwesomeIcon icon={faMinus} /> Form
+            </>
+          ) : (
+            <>
+              <FontAwesomeIcon icon={faPlus} /> Buyer
+            </>
+          )}
         </button>
-    
+
         <table className="table table-hover table-bordered">
           <thead>
             <tr>
@@ -151,66 +213,72 @@ const Buyer = () => {
                   <td>{buyer.postcode}</td>
                   <td>{buyer.phone}</td>
                   <td>
-                  <button
-                        type="button"
-                        className="btn btn-outline-danger m-1"
-                        data-bs-toggle="modal"
-                        data-bs-target={`#exampleModal-${buyer.id}`}
-                      >
-                        Delete <FontAwesomeIcon icon={faTrash} />
-                      </button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger m-1"
+                      data-bs-toggle="modal"
+                      data-bs-target={`#exampleModal-${buyer.id}`}
+                    >
+                      Delete <FontAwesomeIcon icon={faTrash} />
+                    </button>
 
-                      <div
-                        className="modal fade"
-                        id={`exampleModal-${buyer.id}`}
-                        tabIndex="-1"
-                        role="dialog"
-                        aria-labelledby={`exampleModalLabel-${buyer.id}`}
-                        aria-hidden="true"
-                      >
-                        <div className="modal-dialog" role="document">
-                          <div className="modal-content">
-                            <div className="modal-header">
-                              <h5
-                                className="modal-title"
-                                id={`exampleModalLabel-${buyer.id}`}
-                              >
-                                Delete Buyer
-                              </h5>
-                              <button
-                                type="button"
-                                className="close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                              >
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div className="modal-body">
-                              Are you sure you want to delete this buyer?
-                            </div>
-                            <div className="modal-footer">
-                              <button
-                                type="button"
-                                className="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                              >
-                                Close
-                              </button>
-                              <button
-                                type="button"
-                                className="btn btn-primary"
-                                data-bs-dismiss="modal"
-                                onClick={() => {
-                                  deleteBuyerHandler(buyer);
-                                }}
-                              >
-                                Delete
-                              </button>
-                            </div>
+                    <div
+                      className="modal fade"
+                      id={`exampleModal-${buyer.id}`}
+                      tabIndex="-1"
+                      role="dialog"
+                      aria-labelledby={`exampleModalLabel-${buyer.id}`}
+                      aria-hidden="true"
+                    >
+                      <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <h5
+                              className="modal-title"
+                              id={`exampleModalLabel-${buyer.id}`}
+                            >
+                              Delete Buyer
+                            </h5>
+                            <button
+                              type="button"
+                              className="close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div className="modal-body">
+                            Are you sure you want to delete this buyer?
+                          </div>
+                          <div className="modal-footer">
+                            <button
+                              type="button"
+                              className="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <button
+                              type="button"
+                              className="btn btn-primary"
+                              data-bs-dismiss="modal"
+                              onClick={() => {
+                                deleteBuyerHandler(buyer);
+                              }}
+                            >
+                              Delete
+                            </button>
                           </div>
                         </div>
                       </div>
+                    </div>
+                    <button  type="button"
+                        className="btn btn-outline-warning" onClick={() => {
+                          startEditBuyer(buyer);
+                          toggleBuyerEditForm();
+
+                        }}>Edit <FontAwesomeIcon icon={faPenToSquare}/></button>
                   </td>
                 </tr>
               ))

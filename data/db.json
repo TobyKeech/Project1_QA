@@ -100,10 +100,10 @@
   "property": [
     {
       "id": 1,
-      "firstName": "John",
-      "surname": "Doe",
-      "address": "1 High Street, Cardiff",
-      "postcode": "CF1 1AA",
+      "firstName": "Alice",
+      "surname": "Johnson",
+      "address": "42 Pen-y-lan Road, Cardiff",
+      "postcode": "CA1 8RR",
       "phone": "01234567890"
     },
     {
