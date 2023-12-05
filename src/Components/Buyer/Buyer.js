@@ -109,7 +109,7 @@ const Buyer = () => {
 
   return (
     <>
-      <div className="bg-dark text-white p-4">
+      <div className="bg-body-tertiary text-white p-4">
         {showBuyerInputForm && <BuyerInputForm buyerAddHandler={buyerAddHandler} />}
         <br />
         {loading || saving ? (
