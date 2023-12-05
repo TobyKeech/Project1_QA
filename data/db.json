@@ -95,14 +95,6 @@
       "address": "12 Low Street, Cardiff",
       "postcode": "CF1 1AK",
       "phone": "01234567810"
-    },
-    {
-      "id": 13,
-      "firstName": "Emma",
-      "surname": "Clark",
-      "address": "13 Broad Street, Cardiff",
-      "postcode": "CF1 1AL",
-      "phone": "01234567811"
     }
   ],
   "property": [
@@ -361,14 +353,6 @@
       "address": "2 Yarn Road, Southampton",
       "postcode": "SO1 4KN",
       "phone": "01234567812"
-    },
-    {
-      "id": 14,
-      "firstName": "Ella",
-      "surname": "Horse",
-      "address": "18 Stable Street, Cambridge",
-      "postcode": "CB1 2HS",
-      "phone": "01234567813"
     }
   ],
   "booking": [

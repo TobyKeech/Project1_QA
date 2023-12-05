@@ -26,7 +26,7 @@ const Property = () => {
       case "REMOVE":
         return state.filter((property) => property.id !== action.payload.id);
       default:
-        return state;
+        return state; 
     }
   };
 
