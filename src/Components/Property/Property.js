@@ -37,7 +37,7 @@ const Property = () => {
   const [showPropertyInputForm, setShowPropertyInputForm] = useState(false);
   const [showPropertySearchForm, setShowPropertySearchForm] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
-  const [editProperty, setEditProperty] = useState(null);
+  const [editedProperty, setEditedProperty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   //state that can be changed by calling upon setLoading which will update the state in this case loading
@@ -88,7 +88,7 @@ const Property = () => {
   const deletePropertyHandler = (property) => {
     setSaving(true);
 
-    fetch(`http://localhost:8081/property/${property.id}`, {
+    fetch(`https://localhost:8081/property/${property.id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -109,31 +109,34 @@ const Property = () => {
   };
 
   const editPropertyHandler = (property) => {
-    fetch(`https://localhost:8081/property/${property.id}`, {
+    fetch(`http://localhost:8081/property/${property.id}`, {
       method: "PUT",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(property)
-    } )
-    .then((response) => 
-    {if(!response.ok){
-      alert("An error has occured, unable to edit property")
-      setSaving(false)
-      throw response.status
-    }
-    return response.json();
-
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(property),
     })
-    .then((updatedProperty) => {
-      dispatch({type: "REMOVE", payload: property})
-      dispatch({typer: "ADD", payload: updatedProperty})
-      setSaving(false);
-    })
-    .catch((error) => {
-      setSaving(false);
-      console.log(error);
-      alert("Error has occurred while editing the property");
-    });
-  }
+      .then((response) => {
+        if (!response.ok) {
+          alert("An error has occurred, unable to edit property");
+          setSaving(false);
+          throw response.status;
+        }
+        return response.json();
+      })
+      .then((updatedProperty) => {
+        dispatch({
+          type: "SET",
+          payload: listOfProperties.map((p) =>
+            p.id === updatedProperty.id ? updatedProperty : p
+          ),
+        });
+        setSaving(false);
+      })
+      .catch((error) => {
+        setSaving(false);
+        console.log(error);
+        alert("Error has occurred while editing the property");
+      });
+  };
   
 
   useEffect(() => {
@@ -186,7 +189,7 @@ const Property = () => {
   };
 
   const startEditProperty = (property) => {
-    setEditProperty(property);
+    setEditedProperty(property);
   };
 
 
@@ -202,10 +205,10 @@ const Property = () => {
         {showPropertySearchForm && (
           <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />
         )}
-        {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
+        {/* property search form component, passed down function as a prop to use within the form itself*/}
         <br />
 
-        <PropertyEditForm property = {editProperty} editPropertyHandler={editPropertyHandler}/>
+        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler}/>
 
         {loading || saving ? (
           <div>
@@ -302,7 +305,7 @@ const Property = () => {
                         className="btn btn-outline-warning"
                         onClick={() => {
                           
-                            editPropertyHandler(property);
+                            startEditProperty(property);
                           
                         }}
                       >

@@ -122,7 +122,7 @@
       "price": 150000,
       "bedroom": 4,
       "bathroom": 2,
-      "garden": 1,
+      "garden": "1",
       "sellerId": 2,
       "status": "FOR SALE"
     },
