@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import SellerForm from "./SellerAddForm";
+import SellerAddForm from "./SellerAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPenToSquare, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import SellerEditForm from "./SellerEditForm";
@@ -154,7 +154,7 @@ const Seller = () => {
     <>
       <div className="bg-body-tertiary text-white p-4">
         {showSellerInputForm && (
-          <SellerForm addSellerHandler={addSellerHandler} />
+          <SellerAddForm addSellerHandler={addSellerHandler} />
         )}
         <br />
 
