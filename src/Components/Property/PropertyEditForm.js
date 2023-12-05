@@ -67,6 +67,8 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
           id="bedroom"
           name="bedroom"
           value={editedProperty.bedroom || ""}
+          min="1"
+          max="10"
           onChange={handleChange}
           required
         />
@@ -81,6 +83,8 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
           id="garden"
           name="garden"
           value={editedProperty.garden || ""}
+          min="0"
+          max="5"
           onChange={handleChange}
           required
         />
@@ -97,6 +101,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
           value={editedProperty.type || ""}
           onChange={handleChange}
           required
+          pattern="SEMI|DETACHED|APARTMENT"
         />
       </div>
       <div className="mb-3">
@@ -109,8 +114,25 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
           id="price"
           name="price"
           value={editedProperty.price || ""}
+          min="25000"
+          max="100000000"
           onChange={handleChange}
           required
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="price" className="form-label">
+          Status
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="status"
+          name="status"
+          value={editedProperty.status || ""}
+          onChange={handleChange}
+          required
+          pattern="FOR SALE|SOLD"
         />
       </div>
       <div className="mb-3">
