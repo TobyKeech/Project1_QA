@@ -172,28 +172,35 @@ const Seller = () => {
   const toggleSellerInputForm = () => {
     setShowSellerInputForm((prevShowForm) => !prevShowForm);
   };
+  //functions responsible for the input form to be toggled on and off. Manages the showsellerinputform state which is above. 
 
   const toggleSellerEditForm = () => {
     setShowSellerEditForm((prevShowForm) => !prevShowForm);
   };
+  //used the same as above just for the edit form instead
 
   const startEditSeller = (seller) => {
     setEditedSeller(seller);
   };
+  //set to the click of the edit button before the form is shown to the user. The current seller is then set into the edited seller state which is set to null to begin. This is then passed down to the SellerEditForm Component (see below) 
 
   return (
     <>
       <div className="bg-body-tertiary text-white p-4">
         {showSellerInputForm && (
           <SellerAddForm addSellerHandler={addSellerHandler} />
+          //seller add form is passed down the add seller handler to the function 
         )}
         <br />
 
         {showSellerEditForm && (
           <SellerEditForm
             seller={editedSeller}
+            // passed down to the form above as stated in line 185. 
             editSellerHandler={editSellerHandler}
+            //editsellerhandler fucntion passed down to the form
             onClose={() => setShowSellerEditForm(false)}
+            //functiob passed down which in turn used to hide the form once its clicked. 
           />
         )}
 
