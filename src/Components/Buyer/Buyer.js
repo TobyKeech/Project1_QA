@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 import { useEffect, useReducer } from "react";
 
+//for explination of functionality please see seller, these are very similar following the same code layout and functionallity for explination. 
+
 const Buyer = () => {
   const [loading, setLoading] = useState(true);
   const [buyers, setBuyers] = useState([]);
