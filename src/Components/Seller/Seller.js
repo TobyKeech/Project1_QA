@@ -168,20 +168,66 @@ const Seller = () => {
                   <td>{seller.postcode}</td>
                   <td>{seller.phone}</td>
                   <td>
-                    <button
-                      class="btn btn-outline-danger"
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            "Are you sure you want to delete this seller?"
-                          )
-                        ) {
-                          deleteSellerHandler(seller);
-                        }
-                      }}
-                    >
-                      Delete &nbsp; <FontAwesomeIcon icon={faTrash} />
-                    </button>
+                  <button
+                        type="button"
+                        className="btn btn-outline-danger m-1"
+                        data-bs-toggle="modal"
+                        data-bs-target={`#exampleModal-${seller.id}`}
+                      >
+                        Delete <FontAwesomeIcon icon={faTrash} />
+                      </button>
+
+                      <div
+                        className="modal fade"
+                        id={`exampleModal-${seller.id}`}
+                        tabIndex="-1"
+                        role="dialog"
+                        aria-labelledby={`exampleModalLabel-${seller.id}`}
+                        aria-hidden="true"
+                      >
+                        <div className="modal-dialog" role="document">
+                          <div className="modal-content">
+                            <div className="modal-header">
+                              <h5
+                                className="modal-title"
+                                id={`exampleModalLabel-${seller.id}`}
+                              >
+                                Delete Property
+                              </h5>
+                              <button
+                                type="button"
+                                className="close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              >
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div className="modal-body">
+                              Are you sure you want to delete this seller?
+                            </div>
+                            <div className="modal-footer">
+                              <button
+                                type="button"
+                                className="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                              <button
+                                type="button"
+                                className="btn btn-primary"
+                                data-bs-dismiss="modal"
+                                onClick={() => {
+                                  deleteSellerHandler(seller);
+                                }}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                   </td>
                 </tr>
               ))
