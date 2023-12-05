@@ -100,16 +100,11 @@
   "property": [
     {
       "id": 1,
-      "address": "34 OK Place, OK Town",
-      "postcode": "OK1 1OK",
-      "type": "DETACHED",
-      "price": 100000,
-      "bedroom": 3,
-      "bathroom": 1,
-      "garden": 0,
-      "sellerId": 1,
-      "status": "SOLD",
-      "buyerId": 3
+      "firstName": "John",
+      "surname": "Doe",
+      "address": "1 High Street, Cardiff",
+      "postcode": "CF1 1AA",
+      "phone": "01234567890"
     },
     {
       "id": 2,
