@@ -201,7 +201,7 @@ const Property = () => {
 
   return (
     <>
-      <div className="bg-dark text-white p-4">
+      <div className="bg-body-tertiary text-white p-4">
         {showPropertyInputForm && (
           <PropertyAddForm propertyAddHandler={propertyAddHandler} />
         )}

@@ -111,7 +111,7 @@ const Seller = () => {
 
   return (
     <>
-      <div className="bg-dark text-white p-4">
+      <div className="bg-body-tertiary text-white p-4">
         {showSellerInputForm && (
           <SellerForm addSellerHandler={addSellerHandler} />
         )}
