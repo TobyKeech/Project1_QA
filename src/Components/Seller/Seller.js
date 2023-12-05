@@ -29,9 +29,13 @@ const Seller = () => {
   };
 
   const [listOfSellers, dispatch] = useReducer(reducedSellersList, []);
-  const [showSellerInputForm, setShowBuyerInputForm] = useState(false);
+  //creates 2 varibales of listOfSellers and dispatch. Using useReducer hook to handle state. Takes 2 arguments of the reducer function ie reducedSellersList and intial state of an empty array
+  // as above reducedSellersList is a function which manipulates the state in response to different actions
+  const [showSellerInputForm, setShowSellerInputForm] = useState(false);
+  //state for showing and hiding the seller input form used below 
   const [editedSeller, setEditedSeller] = useState(null)
   const [showSellerEditForm, setShowSellerEditForm] = useState(false);
+  //state for showing and hiding the seller edit form used below
 
   const addSellerHandler = (newSeller) => {
     //add seller function which takes in a new seller 
@@ -75,6 +79,7 @@ const Seller = () => {
 
   const deleteSellerHandler = (seller) => {
     setSaving(true);
+    //manipulates the state
 
     fetch(`http://localhost:8081/seller/${seller.id}`, {
       method: "DELETE",
@@ -85,17 +90,19 @@ const Seller = () => {
           alert("An error has occurred. Unable to delete seller");
           setSaving(false);
           throw response.status;
-        } else {
+        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+      } else {
           dispatch({ type: "REMOVE", payload: seller });
           setSaving(false);
-          //dispatch typer is set to remove with the state of seller passed to the function, this then performs the delete method within the
-          //reducer function
-        }
+        //if response is successful then the seller is sent as the payload using dispath with the type set as REMOVE, this is then used by the 
+        //reducedSellerList function at the top which contains the action depending on the action type in this case REMOVE. Read above for details.
+      }
       })
       .catch((error) => {
         setSaving(false);
         console.log(error);
         alert("Error has occurred while deleting the seller");
+        //error handling that if anything goes wrong then state of saving is changed as well as an error alert being given to the user that there was issue deleting the seller 
       });
   };
 
@@ -151,7 +158,7 @@ const Seller = () => {
   }, []);
 
   const toggleSellerInputForm = () => {
-    setShowBuyerInputForm((prevShowForm) => !prevShowForm);
+    setShowSellerInputForm((prevShowForm) => !prevShowForm);
   };
 
   const toggleSellerEditForm = () => {
