@@ -5,7 +5,7 @@ import { faHouse, faHouseUser, faHouseFlag, faT } from "@fortawesome/free-solid-
 const NavBar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark" style={{ backgroundColor: 'black' }}>
+      <nav className="navbar navbar-expand-sm navbar-dark bg-body-tertiary">
         <button
           className="navbar-toggler"
           type="button"
@@ -19,18 +19,18 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav mr-auto">
-            <Link to="/property" className="navbar-brand text-white">
+            <Link to="/property" className="navbar-brand text-black">
               &nbsp;<FontAwesomeIcon icon={faT}/>&nbsp;<FontAwesomeIcon icon={faT}/>
             </Link>
           </div>
           <div className="navbar-nav ms-auto">
-            <Link to="/property" className="nav-item nav-link text-white">
+            <Link to="/property" className="nav-item nav-link text-black">
               &nbsp;Properties <FontAwesomeIcon icon={faHouse} />
             </Link>
-            <Link to="/seller" className="nav-item nav-link text-white">
+            <Link to="/seller" className="nav-item nav-link text-black">
               &nbsp;Seller <FontAwesomeIcon icon={faHouseFlag} />
             </Link>
-            <Link to="/buyer" className="nav-item nav-link text-white">
+            <Link to="/buyer" className="nav-item nav-link text-black">
               &nbsp;Buyers <FontAwesomeIcon icon={faHouseUser} />
             </Link>
           </div>
