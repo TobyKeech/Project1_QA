@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import PropertySearchForm from "./PropertySearchForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropertyAddForm from "./PropertyAddForm";
@@ -10,7 +9,6 @@ import {
   faTree,
   faHouseChimney,
   faMapPin,
-  faSackDollar,
   faMinus,
   faPlus,
   faMagnifyingGlass,
@@ -23,8 +21,6 @@ const Property = () => {
     switch (action.type) {
       case "ADD":
         return state.concat(action.payload);
-    }
-    switch (action.type) {
       case "SET":
         return action.payload;
       case "REMOVE":
@@ -42,18 +38,11 @@ const Property = () => {
   const [editedProperty, setEditedProperty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  //state that can be changed by calling upon setLoading which will update the state in this case loading
-
-  // const [properties, setProperties] = useState([]);
-  // currently state used to showcase the data onto the webpage below via a map function which returns an array of a defined value in his case of properties
 
   const searchHandlerForForm = (searchInput) => {
-    //search handler function which we shall use in the form itself
     setSearchResult(
       listOfProperties.filter(
         (property) =>
-          //we set the search result in the state to update it using below for turnery statement, we filter the list of properties from the fetch to get a single property array
-          //the conditions of this are set below and is matched against the searchInput criteria that we are given in the parameter
           (searchInput.type === "ANY" || property.type === searchInput.type) &&
           Number(property.bathroom) >= Number(searchInput.bathroom) &&
           Number(property.bedroom) >= Number(searchInput.bedroom) &&
@@ -63,10 +52,6 @@ const Property = () => {
       )
     );
   };
-  //this links heavily with what is happening within the property earch form which is then filtering the data via the useRef values
-  //which are updated within the property search form
-
-  console.log(searchResult);
 
   const propertyAddHandler = (newProperty) => {
     fetch("http://localhost:8081/property", {
@@ -74,12 +59,13 @@ const Property = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProperty),
     })
-      .then((reponse) => {
-        if (!reponse.ok) {
-          alert("error occured adding a property");
+      .then((response) => {
+        if (!response.ok) {
+          alert("Error occurred while adding a property");
           setSaving(false);
-          throw reponse.status;
-        } else return reponse.json();
+          throw response.status;
+        }
+        return response.json();
       })
       .then((newProperty) => {
         dispatch({ type: "ADD", payload: newProperty });
@@ -143,43 +129,29 @@ const Property = () => {
   useEffect(() => {
     setLoading(true);
     fetch("http://localhost:8081/property")
-      //get the json content from the backend server to render
-
       .then((response) => {
         if (!response.ok) {
-          alert("Error occured, could not load data of properties");
+          alert("Error occurred, could not load data of properties");
           throw response.status;
-          //returns the status of the resonse back to the user ie 202 or 404
-        } else return response.json();
-        // if everything is good return the properties json data in the response
+        }
+        return response.json();
       })
-
       .then((properties) => {
         dispatch({ type: "SET", payload: properties });
         setSearchResult(properties);
         setLoading(false);
-        //manipulates the state to set this to false whena ction is complete, this started as true above in state
-        //slight change than just setting in state below. Dispatch used within useReducer and listPropertiesreducer function
-        //type set to SET and corrosponding action performed within fucntion
-        // setProperties(properties)
-        //check what is contained within propeties, list of propeties displayed within the console
       })
-
       .catch((error) => {
         setLoading(false);
         console.log(error);
-        alert("Error has occured getting the data");
-        //bring an alert if the json data doesnt load properly
+        alert("Error has occurred getting the data");
       });
   }, []);
-  //this gets set into a new array to then use further down
 
   useEffect(() => {
     dispatch({ type: "SET", payload: listOfProperties });
     setSearchResult(listOfProperties);
-  }, [listOfProperties]); // Only run when 'properties' change
-  // this allows for the fresh collection of the state to allow for a refersh when a property is deleted, also sets searchResult to dispaly the new data
-  //and allow the search to work as intended.
+  }, [listOfProperties]);
 
   const togglePropertyInputForm = () => {
     setShowPropertyInputForm((prevShowForm) => !prevShowForm);
@@ -203,13 +175,13 @@ const Property = () => {
         {showPropertyInputForm && (
           <PropertyAddForm propertyAddHandler={propertyAddHandler} />
         )}
-        {/* checks wether the showproperty iput form is true and then renders the form if it is */}
+
         <br />
 
         {showPropertySearchForm && (
           <PropertySearchForm searchHandlerForForm={searchHandlerForForm} />
         )}
-        {/* property search form component, passed down function as a prop to use within the form itself*/}
+
         <br />
 
         {showPropertyEditForm && (
@@ -220,8 +192,6 @@ const Property = () => {
           />
         )}
 
-        {/* property edit form that takes in the current details and then is updated with the new values taken by the edit handler */}
-
         {loading || saving ? (
           <div>
             {loading ? "Loading Properties Information" : ""}
@@ -230,6 +200,7 @@ const Property = () => {
         ) : (
           ""
         )}
+
         <div className="d-flex justify-content-center align-items-center flex-column">
           <button
             className={`btn ${
@@ -320,48 +291,51 @@ const Property = () => {
                         type="button"
                         className="btn btn-outline-danger m-1"
                         data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
+                        data-bs-target={`#exampleModal-${property.id}`}
                       >
                         Delete <FontAwesomeIcon icon={faTrash} />
                       </button>
 
                       <div
-                        class="modal fade"
-                        id="exampleModal"
-                        tabindex="-1"
+                        className="modal fade"
+                        id={`exampleModal-${property.id}`}
+                        tabIndex="-1"
                         role="dialog"
-                        aria-labelledby="exampleModalLabel"
+                        aria-labelledby={`exampleModalLabel-${property.id}`}
                         aria-hidden="true"
                       >
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">
-                                Delete Card
+                        <div className="modal-dialog" role="document">
+                          <div className="modal-content">
+                            <div className="modal-header">
+                              <h5
+                                className="modal-title"
+                                id={`exampleModalLabel-${property.id}`}
+                              >
+                                Delete Property
                               </h5>
                               <button
                                 type="button"
-                                class="close"
+                                className="close"
                                 data-bs-dismiss="modal"
                                 aria-label="Close"
                               >
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                               Are you sure you want to delete this property?
                             </div>
-                            <div class="modal-footer">
+                            <div className="modal-footer">
                               <button
                                 type="button"
-                                class="btn btn-secondary"
+                                className="btn btn-secondary"
                                 data-bs-dismiss="modal"
                               >
                                 Close
                               </button>
                               <button
                                 type="button"
-                                class="btn btn-primary"
+                                className="btn btn-primary"
                                 data-bs-dismiss="modal"
                                 onClick={() => {
                                   deletePropertyHandler(property);
