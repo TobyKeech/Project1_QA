@@ -83,7 +83,7 @@ const Seller = () => {
 
     fetch(`http://localhost:8081/seller/${seller.id}`, {
       method: "DELETE",
-      //fetch the specific sellers id to match for deletion
+      //fetch the specific sellers id to match for deletion, HTTP method delete is specified
     })
       .then((response) => {
         if (!response.ok) {
