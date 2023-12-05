@@ -216,7 +216,7 @@ const Property = () => {
 
         {showPropertyEditForm && (
 
-        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler}/> 
+        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler} onClose={() => setShowPropertyEditForm(false)}/> 
         )}
 
         {/* property edit form that takes in the current details and then is updated with the new values taken by the edit handler */}
