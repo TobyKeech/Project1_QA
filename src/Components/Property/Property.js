@@ -37,7 +37,7 @@ const Property = () => {
   const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
   const [showPropertyInputForm, setShowPropertyInputForm] = useState(false);
   const [showPropertySearchForm, setShowPropertySearchForm] = useState(false);
- const  [showPropertyEditForm, setShowPropertyEditForm] = useState(false);
+  const [showPropertyEditForm, setShowPropertyEditForm] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [editedProperty, setEditedProperty] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -90,7 +90,7 @@ const Property = () => {
   const deletePropertyHandler = (property) => {
     setSaving(true);
 
-    fetch(`https://localhost:8081/property/${property.id}`, {
+    fetch(`http://localhost:8081/property/${property.id}`, {
       method: "DELETE",
     })
       .then((response) => {

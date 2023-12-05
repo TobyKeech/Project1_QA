@@ -127,29 +127,16 @@
       "status": "FOR SALE"
     },
     {
-      "id": 3,
-      "address": "8 Rose Street, Roseville",
-      "postcode": "RV1 2RV",
-      "type": "APARTMENT",
-      "price": 120000,
-      "bedroom": "1",
-      "bathroom": 1,
-      "garden": "0",
-      "sellerId": 3,
-      "status": "SOLD",
-      "buyerId": 4
-    },
-    {
       "id": 4,
       "address": "15 Elm Street, Elmville",
-      "postcode": "EV1 1EV",
+      "postcode": "EH1 7GH",
       "type": "APARTMENT",
       "price": 180000,
-      "bedroom": 4,
+      "bedroom": "4",
       "bathroom": 2,
       "garden": 1,
       "sellerId": 4,
-      "status": "FOR SALE"
+      "status": "SOLD"
     },
     {
       "id": 5,
@@ -226,6 +213,16 @@
       "sellerId": 1,
       "status": "SOLD",
       "buyerId": 3
+    },
+    {
+      "address": "prem beef, dundee",
+      "postcode": "BEE7 4LF",
+      "gardens": "2",
+      "bathrooms": "2",
+      "price": "12123",
+      "status": "34",
+      "type": "432",
+      "id": 7
     }
   ],
   "buyer": [
