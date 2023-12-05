@@ -1,4 +1,11 @@
-const PropertyEditForm = () => {
+const PropertyEditForm = ({property, editPropertyHandler}) => {
+
+    const 
+
+
+
+
+
     return ( 
         <>
         </>

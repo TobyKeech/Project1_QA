@@ -205,7 +205,7 @@ const Property = () => {
         {/* property search form component, passed down funcrion as a prop to use within the form itself*/}
         <br />
 
-        <PropertyEditForm />
+        <PropertyEditForm property = {editProperty} editPropertyHandler={editPropertyHandler}/>
 
         {loading || saving ? (
           <div>
