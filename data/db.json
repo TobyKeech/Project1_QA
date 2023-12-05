@@ -369,14 +369,6 @@
       "address": "18 Stable Street, Cambridge",
       "postcode": "CB1 2HS",
       "phone": "01234567813"
-    },
-    {
-      "id": 15,
-      "firstName": "Noah",
-      "surname": "Lee",
-      "address": "9 Whisker Way, Oxford",
-      "postcode": "OX1 1PA",
-      "phone": "01234567814"
     }
   ],
   "booking": [

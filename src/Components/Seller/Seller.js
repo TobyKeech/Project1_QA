@@ -192,7 +192,7 @@ const Seller = () => {
                                 className="modal-title"
                                 id={`exampleModalLabel-${seller.id}`}
                               >
-                                Delete Property
+                                Delete Seller
                               </h5>
                               <button
                                 type="button"
