@@ -37,7 +37,7 @@ const Property = () => {
   const [listOfProperties, dispatch] = useReducer(reducedPropertiesList, []);
   const [showPropertyInputForm, setShowPropertyInputForm] = useState(false);
   const [showPropertySearchForm, setShowPropertySearchForm] = useState(false);
- const  [showPropertyEditForm, setShowPropertyEditForm] = useState(false);
+  const [showPropertyEditForm, setShowPropertyEditForm] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [editedProperty, setEditedProperty] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -90,7 +90,7 @@ const Property = () => {
   const deletePropertyHandler = (property) => {
     setSaving(true);
 
-    fetch(`https://localhost:8081/property/${property.id}`, {
+    fetch(`http://localhost:8081/property/${property.id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -139,7 +139,6 @@ const Property = () => {
         alert("Error has occurred while editing the property");
       });
   };
-  
 
   useEffect(() => {
     setLoading(true);
@@ -191,13 +190,12 @@ const Property = () => {
   };
 
   const togglePropertyEditForm = () => {
-    setShowPropertyEditForm((prevShowForm) => !prevShowForm)
-  }
+    setShowPropertyEditForm((prevShowForm) => !prevShowForm);
+  };
 
   const startEditProperty = (property) => {
     setEditedProperty(property);
   };
-
 
   return (
     <>
@@ -215,8 +213,11 @@ const Property = () => {
         <br />
 
         {showPropertyEditForm && (
-
-        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler} onClose={() => setShowPropertyEditForm(false)}/> 
+          <PropertyEditForm
+            property={editedProperty}
+            editPropertyHandler={editPropertyHandler}
+            onClose={() => setShowPropertyEditForm(false)}
+          />
         )}
 
         {/* property edit form that takes in the current details and then is updated with the new values taken by the edit handler */}
@@ -239,31 +240,33 @@ const Property = () => {
             onClick={togglePropertySearchForm}
           >
             {showPropertySearchForm ? (
-            <>
-           <FontAwesomeIcon icon={faMinus}/> Search Form
-            </>
-            ):(
               <>
-            <FontAwesomeIcon icon={faMagnifyingGlass}/> for a property
-            </> )}
+                <FontAwesomeIcon icon={faMinus} /> Search Form
+              </>
+            ) : (
+              <>
+                <FontAwesomeIcon icon={faMagnifyingGlass} /> for a property
+              </>
+            )}
           </button>
           <button
-  className={`btn ${
-    showPropertyInputForm ? "btn-outline-danger" : "btn-outline-success"
-  } p-2`}
-  onClick={togglePropertyInputForm}
->
-  {showPropertyInputForm ? (
-    <>
-      <FontAwesomeIcon icon={faMinus} /> Input Form
-    </>
-  ) : (
-    <>
-      <FontAwesomeIcon icon={faPlus} /> new property
-    </>
-  )}
-</button>
-
+            className={`btn ${
+              showPropertyInputForm
+                ? "btn-outline-danger"
+                : "btn-outline-success"
+            } p-2`}
+            onClick={togglePropertyInputForm}
+          >
+            {showPropertyInputForm ? (
+              <>
+                <FontAwesomeIcon icon={faMinus} /> Input Form
+              </>
+            ) : (
+              <>
+                <FontAwesomeIcon icon={faPlus} /> new property
+              </>
+            )}
+          </button>
         </div>
 
         <div>
@@ -279,46 +282,103 @@ const Property = () => {
                       <h5 className="card-title">{property.address}</h5>
                       <p className="card-text">
                         Postcode: {property.postcode}{" "}
-                        <FontAwesomeIcon icon={faMapPin} style={{color:"red"}} />
+                        <FontAwesomeIcon
+                          icon={faMapPin}
+                          style={{ color: "red" }}
+                        />
                       </p>
                       <p className="card-text">
                         No of Bedrooms: {property.bedroom}{" "}
-                        <FontAwesomeIcon icon={faBed} style={{color:"#00ace6"}}/>
+                        <FontAwesomeIcon
+                          icon={faBed}
+                          style={{ color: "#00ace6" }}
+                        />
                       </p>
                       <p className="card-text">
                         No of Gardens: {property.garden}{" "}
-                        <FontAwesomeIcon icon={faTree} style={{color:"green"}} />
+                        <FontAwesomeIcon
+                          icon={faTree}
+                          style={{ color: "green" }}
+                        />
                       </p>
                       <p className="card-text">
                         Type: {property.type}{" "}
-                        <FontAwesomeIcon icon={faHouseChimney} style={{color:"#a86f2e"}}/>
+                        <FontAwesomeIcon
+                          icon={faHouseChimney}
+                          style={{ color: "#a86f2e" }}
+                        />
                       </p>
                       <p className="card-text">
                         Price: £{property.price}{" "}
-                        <FontAwesomeIcon icon={faCoins} style={{color: "#dcad04"}}/>
+                        <FontAwesomeIcon
+                          icon={faCoins}
+                          style={{ color: "#dcad04" }}
+                        />
                       </p>
                       <p className="card-text">Status: {property.status}</p>
                       <button
+                        type="button"
                         className="btn btn-outline-danger m-1"
-                        onClick={() => {
-                          if (
-                            window.confirm(
-                              "Are you sure you want to delete this property?"
-                            )
-                          ) {
-                            deletePropertyHandler(property);
-                          }
-                        }}
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
                       >
                         Delete <FontAwesomeIcon icon={faTrash} />
                       </button>
+
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                Delete Card
+                              </h5>
+                              <button
+                                type="button"
+                                class="close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              >
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete this property?
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                              <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-bs-dismiss="modal"
+                                onClick={() => {
+                                  deletePropertyHandler(property);
+                                }}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                       <button
                         className="btn btn-outline-warning"
                         onClick={() => {
-                          
-                            startEditProperty(property);
-                            togglePropertyEditForm();
-                          
+                          startEditProperty(property);
+                          togglePropertyEditForm();
                         }}
                       >
                         Edit <FontAwesomeIcon icon={faPenToSquare} />

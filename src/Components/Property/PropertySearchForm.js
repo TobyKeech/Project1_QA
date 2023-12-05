@@ -34,7 +34,7 @@ const PropertySearchForm = (props) => {
                     <form>
                         <div className="row">
                             <div className="col-lg-3 col-md-4 col-sm-6">
-                                <div className="form-group">
+                                <div className="form-group text-black">
                                     <label>Type</label>
                                     <select className="form-control form-control-sm" ref={referenceType}>
                                         <option value="ANY">Any</option>
@@ -45,7 +45,7 @@ const PropertySearchForm = (props) => {
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-4 col-sm-6">
-                                <div className="form-group">
+                                <div className="form-group text-black">
                                     <label>Price</label>
                                     <select className="form-control" ref={referencePrice}>
                                         <option value="0">Any</option>
@@ -58,7 +58,7 @@ const PropertySearchForm = (props) => {
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-4 col-sm-6">
-                                <div className="form-group">
+                                <div className="form-group text-black">
                                     <label>Bedrooms</label>
                                     <select className="form-control" ref={referenceBedroom}>
                                         <option value="0">Any</option>
@@ -71,7 +71,7 @@ const PropertySearchForm = (props) => {
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-4 col-sm-6">
-                                <div className="form-group">
+                                <div className="form-group text-black">
                                     <label>Bathrooms</label>
                                     <select className="form-control" ref={referenceBathroom}>
                                         <option value="0">Any</option>
@@ -82,7 +82,7 @@ const PropertySearchForm = (props) => {
                                 </div>
                             </div>
                             <div className="col-lg-3 col-md-4 col-sm-6">
-                                <div className="form-group">
+                                <div className="form-group text-black">
                                     <label>Garden</label>
                                     <select className="form-control" ref={referenceGarden}>
                                         <option value="0">Any</option>

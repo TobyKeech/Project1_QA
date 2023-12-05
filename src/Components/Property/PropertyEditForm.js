@@ -30,7 +30,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         <>
         <form onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label htmlFor="address" className="form-label">
+        <label htmlFor="address" className="form-label text-black">
           Address
         </label>
         <input
@@ -44,7 +44,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="postcode" className="form-label">
+        <label htmlFor="postcode" className="form-label text-black">
           Postcode
         </label>
         <input
@@ -58,7 +58,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="bedroom" className="form-label">
+        <label htmlFor="bedroom" className="form-label text-black">
           No of Bedrooms
         </label>
         <input
@@ -74,7 +74,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="garden" className="form-label">
+        <label htmlFor="garden" className="form-label text-black">
           No of Gardens
         </label>
         <input
@@ -90,7 +90,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="type" className="form-label">
+        <label htmlFor="type" className="form-label text-black">
           Type
         </label>
         <input
@@ -105,7 +105,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="price" className="form-label">
+        <label htmlFor="price" className="form-label text-black">
           Price
         </label>
         <input
@@ -121,7 +121,7 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="price" className="form-label">
+        <label htmlFor="price" className="form-label text-black">
           Status
         </label>
         <input

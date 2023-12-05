@@ -59,7 +59,7 @@ const propertyAddHandler = props.propertyAddHandler
     return ( 
     <>
      <form>
-            <div class="form-row">
+            <div class="form-row text-black">
             <div class="col">
                 <label>Address</label>
                 <input type="text" placeholder="Enter address" class="form-control" id="propertyAddress" ref={refAddress} />
