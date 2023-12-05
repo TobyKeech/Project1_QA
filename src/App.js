@@ -7,7 +7,7 @@ import Buyer from "./Components/Buyer/Buyer";
 import Seller from "./Components/Seller/Seller";
 import Booking from "./Components/Booking/Booking";
 import NavBar from "./Components/NavBar/NavBar";
-import Footer from "./Components/Footer";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
