@@ -15,16 +15,16 @@ const Footer = () => {
         <i class="fab fa-facebook-f"></i>
       </a>
       <a href="" class="me-4 text-reset">
-       <FontAwesomeIcon icon={faInstagram}/>
+       <FontAwesomeIcon icon={faInstagram} style={{color: "#bb06e0"}}/>
       </a>
       <a href="" class="me-4 text-reset">
-      <FontAwesomeIcon icon={faGoogle}/>
+      <FontAwesomeIcon icon={faGoogle} style={{color: "#48ec27"}}/>
       </a>
       <a href="" class="me-4 text-reset">
-      <FontAwesomeIcon icon={faFacebook}/>
+      <FontAwesomeIcon icon={faFacebook} style={{color: "#0822e2"}}/>
       </a>
       <a href="" class="me-4 text-reset">
-      <FontAwesomeIcon icon={faLinkedin}/>
+      <FontAwesomeIcon icon={faLinkedin} style={{color: "#0792e9"}}/>
       </a>
     </div>
   </section>

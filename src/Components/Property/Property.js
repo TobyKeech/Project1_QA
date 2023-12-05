@@ -14,8 +14,8 @@ import {
   faMinus,
   faPlus,
   faMagnifyingGlass,
-  faJedi,
   faPenToSquare,
+  faCoins,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
@@ -216,7 +216,7 @@ const Property = () => {
 
         {showPropertyEditForm && (
 
-        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler}/> 
+        <PropertyEditForm property = {editedProperty} editPropertyHandler={editPropertyHandler} onClose={() => setShowPropertyEditForm(false)}/> 
         )}
 
         {/* property edit form that takes in the current details and then is updated with the new values taken by the edit handler */}
@@ -279,23 +279,23 @@ const Property = () => {
                       <h5 className="card-title">{property.address}</h5>
                       <p className="card-text">
                         Postcode: {property.postcode}{" "}
-                        <FontAwesomeIcon icon={faMapPin} />
+                        <FontAwesomeIcon icon={faMapPin} style={{color:"red"}} />
                       </p>
                       <p className="card-text">
                         No of Bedrooms: {property.bedroom}{" "}
-                        <FontAwesomeIcon icon={faBed} />
+                        <FontAwesomeIcon icon={faBed} style={{color:"#00ace6"}}/>
                       </p>
                       <p className="card-text">
                         No of Gardens: {property.garden}{" "}
-                        <FontAwesomeIcon icon={faTree} />
+                        <FontAwesomeIcon icon={faTree} style={{color:"green"}} />
                       </p>
                       <p className="card-text">
                         Type: {property.type}{" "}
-                        <FontAwesomeIcon icon={faHouseChimney} />
+                        <FontAwesomeIcon icon={faHouseChimney} style={{color:"#a86f2e"}}/>
                       </p>
                       <p className="card-text">
                         Price: £{property.price}{" "}
-                        <FontAwesomeIcon icon={faSackDollar} />
+                        <FontAwesomeIcon icon={faCoins} style={{color: "#dcad04"}}/>
                       </p>
                       <p className="card-text">Status: {property.status}</p>
                       <button

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 
-const PropertyEditForm = ({property, editPropertyHandler}) => {
+const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
 
     const [editedProperty, setEditedProperty] = useState({...property})
     //state to manage the edited property, the inital state is set with the current ata of the orinigal property using spread
+    const [formVisible, setFormVisible] = useState(true);
 
 
     useEffect(() => {
@@ -21,9 +22,9 @@ const PropertyEditForm = ({property, editPropertyHandler}) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         editPropertyHandler(editedProperty);
+        setFormVisible(false);
+        onClose();
       };
-
-
 
     return ( 
         <>
@@ -115,6 +116,9 @@ const PropertyEditForm = ({property, editPropertyHandler}) => {
       <div className="mb-3">
         <button type="submit" className="btn btn-success me-2">
           Save
+        </button>
+        <button type="button" className="btn btn-danger" onClick={() => onClose()}>
+          Cancel
         </button>
        
       </div>
