@@ -200,7 +200,7 @@ const Seller = () => {
             editSellerHandler={editSellerHandler}
             //editsellerhandler fucntion passed down to the form
             onClose={() => setShowSellerEditForm(false)}
-            //functiob passed down which in turn used to hide the form once its clicked. 
+            //function passed down which in turn used to hide the form once its clicked. 
           />
         )}
 
