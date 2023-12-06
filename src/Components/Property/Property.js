@@ -199,6 +199,7 @@ const Property = () => {
 
   return (
     <>
+        <h1 class="display-1">&nbsp;Properties Page</h1>
       <div className="bg-body-tertiary text-white p-4">
         {showPropertyInputForm && (
           <PropertyAddForm propertyAddHandler={propertyAddHandler} />
@@ -233,8 +234,8 @@ const Property = () => {
           <button
             className={`btn ${
               showPropertySearchForm
-                ? "btn-outline-danger"
-                : "btn-outline-success"
+                ? "btn-outline-danger btn-lg"
+                : "btn-outline-success btn-lg"
             } mb-2 p-2`}
             onClick={togglePropertySearchForm}
           >
@@ -251,8 +252,8 @@ const Property = () => {
           <button
             className={`btn ${
               showPropertyInputForm
-                ? "btn-outline-danger"
-                : "btn-outline-success"
+                ? "btn-outline-danger btn-lg"
+                : "btn-outline-success btn-lg"
             } p-2`}
             onClick={togglePropertyInputForm}
           >
