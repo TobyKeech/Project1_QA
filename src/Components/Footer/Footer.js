@@ -5,7 +5,7 @@ import{faInstagram, faGoogle, faFacebook, faLinkedin} from "@fortawesome/free-br
 const Footer = () => {
     return ( 
         <>
-<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+<footer class="text-center text-lg-start bg-body-info text-muted">
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <div class="me-5 d-none d-lg-block">
       <span>Connect with us on socials:</span>

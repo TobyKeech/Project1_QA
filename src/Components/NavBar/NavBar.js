@@ -20,7 +20,7 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav mr-auto">
             <Link to="/property" className="navbar-brand text-black">
-              &nbsp;<FontAwesomeIcon icon={faT}/>&nbsp;<FontAwesomeIcon icon={faT}/>
+              &nbsp;<FontAwesomeIcon icon={faT} size="2x"/>&nbsp;<FontAwesomeIcon icon={faT} size="2x"/>
             </Link>
           </div>
           <div className="navbar-nav ms-auto">

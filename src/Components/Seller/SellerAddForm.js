@@ -84,7 +84,7 @@ const SellerForm = (props) => {
         <br />
 
         <div className="d-flex justify-content-center align-items-center">
-            <button type="submit" class="btn btn-success p-2" onClick={sumbitHandler}><FontAwesomeIcon icon={faPlus}/>&nbsp;New Seller </button>
+            <button type="submit" class="btn btn-success p-2" onClick={sumbitHandler}><FontAwesomeIcon icon={faPlus} />&nbsp;New Seller </button>
             {/* when the add new seller button is clicked the submitHandler function is called and the inputs are filled with the vlaues which were entered into the text inputs */}
         </div>
         </div>

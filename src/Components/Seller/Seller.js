@@ -186,7 +186,8 @@ const Seller = () => {
 
   return (
     <>
-    <h1 class="display-1">&nbsp;Sellers Page</h1>
+    <h1 class="display-1">&nbsp;Sellers List</h1>
+    <br />
       <div className="bg-body-tertiary text-white p-4">
         {showSellerInputForm && (
           <SellerAddForm addSellerHandler={addSellerHandler} />
@@ -229,7 +230,9 @@ const Seller = () => {
             </>
           )}
         </button>
-
+        <div className="container-fluid">
+        <div className="row justify-content-center">
+        <div className="col-lg-10">
         <table  class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -329,6 +332,9 @@ const Seller = () => {
             )}
           </tbody>
         </table>
+        </div>
+      </div>  
+      </div>  
       </div>  
     </>
   );

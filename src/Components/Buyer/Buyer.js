@@ -151,7 +151,8 @@ const Buyer = () => {
 
   return (
     <>
-    <h1 class="display-1">&nbsp;Buyers Page</h1>
+    <h1 class="display-1">&nbsp;Buyers List</h1>
+    <br />
       <div className="bg-body-tertiary text-white p-4">
         {showBuyerInputForm && (
           <BuyerInputForm buyerAddHandler={buyerAddHandler} />
@@ -190,7 +191,9 @@ const Buyer = () => {
             </>
           )}
         </button>
-
+        <div className="container-fluid">
+        <div className="row justify-content-center">
+        <div className="col-lg-10">
         <table className="table table-hover table-bordered">
           <thead>
             <tr>
@@ -288,6 +291,9 @@ const Buyer = () => {
             )}
           </tbody>
         </table>
+        </div>
+        </div>
+        </div>
       </div>
     </>
   );

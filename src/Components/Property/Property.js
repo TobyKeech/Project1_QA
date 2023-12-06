@@ -200,6 +200,7 @@ const Property = () => {
   return (
     <>
         <h1 class="display-1">&nbsp;Properties Page</h1>
+        <br />
       <div className="bg-body-tertiary text-white p-4">
         {showPropertyInputForm && (
           <PropertyAddForm propertyAddHandler={propertyAddHandler} />
@@ -236,12 +237,13 @@ const Property = () => {
               showPropertySearchForm
                 ? "btn-outline-danger btn-lg"
                 : "btn-outline-success btn-lg"
-            } mb-2 p-2`}
+            } mb-2 p-3`}
+            style={{ width: "200px" }} 
             onClick={togglePropertySearchForm}
           >
             {showPropertySearchForm ? (
               <>
-                <FontAwesomeIcon icon={faMinus} /> Search Form
+                <FontAwesomeIcon icon={faMinus} /> search Form
               </>
             ) : (
               <>
@@ -254,12 +256,12 @@ const Property = () => {
               showPropertyInputForm
                 ? "btn-outline-danger btn-lg"
                 : "btn-outline-success btn-lg"
-            } p-2`}
+            } mb-2 p-3`} style={{ width: "200px" }}
             onClick={togglePropertyInputForm}
           >
             {showPropertyInputForm ? (
               <>
-                <FontAwesomeIcon icon={faMinus} /> Input Form
+                <FontAwesomeIcon icon={faMinus} /> &nbsp; Input Form
               </>
             ) : (
               <>
@@ -274,10 +276,15 @@ const Property = () => {
           {searchResult.length === 0 && !loading ? (
             <div>No properties found</div>
           ) : (
-            <div className="row row-cols-1 row-cols-md-3 g-4">
+            <div className="row row-cols-1  row-cols-md-3 row-cols-lg-3 g-2">
               {searchResult.map((property) => (
                 <div key={property.id} className="col">
-                  <div className="card">
+                  <div class="card m-3 shadow" >
+                  <img
+                    class="card-img-top"
+                    src={property.img ? require(`../../images/${property.img}`) : require('../../images/noimg.jpg').default}
+                    alt="Card image cap"
+                  />
                     <div className="card-body">
                       <h5 className="card-title">{property.address}</h5>
                       <p className="card-text">
@@ -285,6 +292,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faMapPin}
                           style={{ color: "red" }}
+                         
                         />
                       </p>
                       <p className="card-text">
@@ -292,6 +300,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faBed}
                           style={{ color: "#00ace6" }}
+                          
                         />
                       </p>
                       <p className="card-text">
@@ -299,6 +308,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faTree}
                           style={{ color: "green" }}
+                         
                         />
                       </p>
                       <p className="card-text">
@@ -306,6 +316,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faHouseChimney}
                           style={{ color: "#a86f2e" }}
+                          
                         />
                       </p>
                       <p className="card-text">
@@ -313,6 +324,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faCoins}
                           style={{ color: "#dcad04" }}
+                          
                         />
                       </p>
                       <p className="card-text">Status: {property.status}</p>
