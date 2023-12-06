@@ -200,6 +200,7 @@ const Property = () => {
   return (
     <>
         <h1 class="display-1">&nbsp;Properties Page</h1>
+        <br />
       <div className="bg-body-tertiary text-white p-4">
         {showPropertyInputForm && (
           <PropertyAddForm propertyAddHandler={propertyAddHandler} />
@@ -236,12 +237,13 @@ const Property = () => {
               showPropertySearchForm
                 ? "btn-outline-danger btn-lg"
                 : "btn-outline-success btn-lg"
-            } mb-2 p-2`}
+            } mb-2 p-3`}
+            style={{ width: "200px" }} 
             onClick={togglePropertySearchForm}
           >
             {showPropertySearchForm ? (
               <>
-                <FontAwesomeIcon icon={faMinus} /> Search Form
+                <FontAwesomeIcon icon={faMinus} /> search Form
               </>
             ) : (
               <>
@@ -254,7 +256,7 @@ const Property = () => {
               showPropertyInputForm
                 ? "btn-outline-danger btn-lg"
                 : "btn-outline-success btn-lg"
-            } p-2`}
+            } mb-2 p-3`} style={{ width: "200px" }}
             onClick={togglePropertyInputForm}
           >
             {showPropertyInputForm ? (

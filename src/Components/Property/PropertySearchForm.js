@@ -95,8 +95,8 @@ const PropertySearchForm = (props) => {
                         <div className="text-end">
                             &nbsp;
                             <div className="d-flex justify-content-center align-items-center">
-                                <button type="button" className="btn btn-primary" onClick={doSearch}>
-                                    <i className="bi bi-search"></i>&nbsp;Find Properties <FontAwesomeIcon icon={faMagnifyingGlass} />
+                                <button type="button" className="btn btn-primary mb-2 p-3"  style={{ width: "200px" }}  onClick={doSearch}> 
+                                    <i className="bi bi-search"></i>&nbsp;find properties <FontAwesomeIcon icon={faMagnifyingGlass} />
                                 </button>
                             </div>
                         </div>

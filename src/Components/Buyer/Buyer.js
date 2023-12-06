@@ -151,7 +151,8 @@ const Buyer = () => {
 
   return (
     <>
-    <h1 class="display-1">&nbsp;Buyers Page</h1>
+    <h1 class="display-1">&nbsp;Buyers List</h1>
+    <br />
       <div className="bg-body-tertiary text-white p-4">
         {showBuyerInputForm && (
           <BuyerInputForm buyerAddHandler={buyerAddHandler} />
