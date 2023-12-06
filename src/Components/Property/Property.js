@@ -277,7 +277,7 @@ const Property = () => {
             <div className="row row-cols-1  row-cols-md-3 row-cols-lg-3 g-2">
               {searchResult.map((property) => (
                 <div key={property.id} className="col">
-                  <div class="card" >
+                  <div class="card m-3 shadow" >
                   <img
                     class="card-img-top"
                     src={property.img ? require(`../../images/${property.img}`) : require('../../images/noimg.jpg').default}
