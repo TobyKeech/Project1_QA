@@ -130,12 +130,14 @@ const Property = () => {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(property),
+      //request made with a specific id for a property and a put method indicating an update of the property 
     })
       .then((response) => {
         if (!response.ok) {
           alert("An error has occurred, unable to edit property");
           setSaving(false);
           throw response.status;
+          //error handling for bad requests
         }
         return response.json();
       })
@@ -146,6 +148,7 @@ const Property = () => {
             p.id === updatedProperty.id ? updatedProperty : p
           ),
         });
+        //action to update the state and the payload now is set with the updated property to the correct one by checking via the id and then using the SET in the reduced properties list function
         setSaving(false);
       })
       .catch((error) => {
@@ -162,12 +165,14 @@ const Property = () => {
         if (!response.ok) {
           alert("Error occurred, could not load data of properties");
           throw response.status;
+          //GET request to get all the properties and set this into state
         }
         return response.json();
       })
       .then((properties) => {
         dispatch({ type: "SET", payload: properties });
         setSearchResult(properties);
+        //using a type of SET and the payload of all the propeties, search result is set with all this information which is used later for the display
         setLoading(false);
       })
       .catch((error) => {
@@ -181,22 +186,28 @@ const Property = () => {
     dispatch({ type: "SET", payload: listOfProperties });
     setSearchResult(listOfProperties);
   }, [listOfProperties]);
+  //use effect introduced for when the listOfProperties changes the state is refreshred and set to the the search result meaning when the data is filtered the updated list of displays is shown to the user and can 
+//search for whaat they want. 
 
   const togglePropertyInputForm = () => {
     setShowPropertyInputForm((prevShowForm) => !prevShowForm);
   };
+  //function for controlling visbiilty of the form being show or not 
 
   const togglePropertySearchForm = () => {
     setShowPropertySearchForm((prevShowForm) => !prevShowForm);
   };
+  //function for controlling visbiilty of the form being show or not 
 
   const togglePropertyEditForm = () => {
     setShowPropertyEditForm((prevShowForm) => !prevShowForm);
   };
+  //function for controlling visbiilty of the form being show or not 
 
   const startEditProperty = (property) => {
     setEditedProperty(property);
   };
+  //iniates the start edit function and the property is set to the nll state of editedProperty and then passed to the pass edit from, means the data is pre populated before we begin the edit
 
   return (
     <>
