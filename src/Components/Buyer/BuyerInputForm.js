@@ -76,7 +76,7 @@ const BuyerInputForm = (props) => {
             <br />
             <div className="d-flex justify-content-center align-items-center">
                
-                <button type="submit" class="btn btn-success p-2" onClick={submitHandler}>
+                <button type="submit" class="btn btn-success p-2" onClick={submitHandler} style={{ width: "150px" }}>
                 <FontAwesomeIcon icon={faPlus}/>&nbsp;New Buyer
                     <br />
                 </button>

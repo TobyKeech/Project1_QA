@@ -64,7 +64,7 @@ const Footer = () => {
           <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
           <p class="fasme-3"> <FontAwesomeIcon icon={faMapLocationDot}/> &nbsp;186 Braveheart Lane, Perth, PH8 7LF</p>
           <p class="fasme-3"> <FontAwesomeIcon icon={faAt}/>&nbsp;
-            trustedtenancys@wethebest.com
+          RookResidences@chess.com
           </p>
           <p class="fasme-3"> <FontAwesomeIcon icon={faPhone}/>&nbsp;01652 864579</p>
         </div>
@@ -74,7 +74,7 @@ const Footer = () => {
 
   <div class="text-center p-4">
      2023 Copyright:&nbsp;
-    <a class="text-reset fw-bold">TrustedTenancys.com</a>
+    <a class="text-reset fw-bold">RookResidences.com</a>
   </div>
 </footer>
 

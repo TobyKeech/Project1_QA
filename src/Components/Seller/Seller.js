@@ -235,7 +235,7 @@ const Seller = () => {
         </div>
         <div className="container-fluid">
         <div className="row justify-content-center">
-        <div className="col-lg-10">
+        <div className="col-lg-6">
         <table  class="table table-hover table-bordered">
           <thead>
             <tr>

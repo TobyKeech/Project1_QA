@@ -1,6 +1,6 @@
 import { Link, Outlet} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHouseUser, faHouseFlag, faT } from "@fortawesome/free-solid-svg-icons"
+import { faHouse, faHouseUser, faHouseFlag, faT, faChessRook} from "@fortawesome/free-solid-svg-icons"
 
 const NavBar = () => {
   return (
@@ -20,18 +20,18 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav mr-auto">
             <Link to="/property" className="navbar-brand text-black">
-              &nbsp;<FontAwesomeIcon icon={faT} size="2x"/>&nbsp;<FontAwesomeIcon icon={faT} size="2x"/>
+              &nbsp;<FontAwesomeIcon icon={faChessRook}  /> Rook Residences
             </Link>
           </div>
-          <div className="navbar-nav ms-auto">
-            <Link to="/property" className="nav-item nav-link text-black">
-              &nbsp;Properties <FontAwesomeIcon icon={faHouse} />
+          <div className="navbar-nav ms-auto text-dark">
+            <Link to="/property" className="nav-item nav-link text-dark">
+            <FontAwesomeIcon icon={faHouse}  />&nbsp;Properties 
             </Link>
             <Link to="/seller" className="nav-item nav-link text-black">
-              &nbsp;Seller <FontAwesomeIcon icon={faHouseFlag} />
+            <FontAwesomeIcon icon={faHouseFlag}  />&nbsp;Seller 
             </Link>
             <Link to="/buyer" className="nav-item nav-link text-black">
-              &nbsp;Buyers <FontAwesomeIcon icon={faHouseUser} />
+            <FontAwesomeIcon icon={faHouseUser}  />&nbsp;Buyers 
             </Link>
           </div>
         </div>

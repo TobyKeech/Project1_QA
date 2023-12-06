@@ -14,6 +14,7 @@ import {
   faMagnifyingGlass,
   faPenToSquare,
   faCoins,
+  faHouse
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
@@ -199,7 +200,7 @@ const Property = () => {
 
   return (
     <>
-        <h1 class="display-1">&nbsp;Properties Page</h1>
+        <h1 class="display-2" >&nbsp;Properties Page</h1>
         <br />
       <div className="bg-body-tertiary text-white p-4">
         {showPropertyInputForm && (
@@ -276,7 +277,7 @@ const Property = () => {
           {searchResult.length === 0 && !loading ? (
             <div>No properties found</div>
           ) : (
-            <div className="row row-cols-1  row-cols-md-4 row-cols-lg-5 g-2">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
               {searchResult.map((property) => (
                 <div key={property.id} className="col">
                   <div class="card m-3 shadow" >
