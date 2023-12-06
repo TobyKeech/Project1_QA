@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faHouseUser, faHouseFlag, faT } from "@fortawesome/free-solid-svg-icons"
 
@@ -36,6 +36,9 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
+      <div className="container">
+                <Outlet/>
+            </div>
       <div className="mt-5"></div>
     </>
   );
