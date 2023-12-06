@@ -245,7 +245,9 @@ const Seller = () => {
               <th scope="col">Address</th>
               <th scope="col">Postcode</th>
               <th scope="col">Phone</th>
+              <th scope="col">Properties</th>
               <th scope="col">Action</th>
+             
             </tr>
           </thead>
           <tbody>
@@ -262,10 +264,11 @@ const Seller = () => {
                   <td>{seller.address}</td>
                   <td>{seller.postcode}</td>
                   <td>{seller.phone}</td>
-                  <td>
-                  <Link to={`/seller/${seller.id}/properties`}>
+                  <td> <Link to={`/seller/${seller.id}/properties`}>
                      View Properties
-                  </Link>
+                  </Link></td>
+                  <td>
+  
                   <button
                         type="button"
                         className="btn btn-outline-danger m-1"
