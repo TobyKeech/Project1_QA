@@ -214,10 +214,11 @@ const Seller = () => {
         ) : (
           ""
         )}
+         <div className="d-flex justify-content-center align-items-center flex-column">
         <button
           className={`btn ${
             showSellerInputForm ? "btn-outline-danger  btn-lg" : "btn-outline-success  btn-lg"
-          } mb-2 p-2`}
+          } mb-2 p-2`} style={{ width: "150px" }}
           onClick={toggleSellerInputForm}
         >
           {showSellerInputForm ? (
@@ -229,7 +230,9 @@ const Seller = () => {
               <FontAwesomeIcon icon={faPlus} /> Seller
             </>
           )}
+      
         </button>
+        </div>
         <div className="container-fluid">
         <div className="row justify-content-center">
         <div className="col-lg-10">

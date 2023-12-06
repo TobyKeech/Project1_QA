@@ -211,19 +211,6 @@
       "status": "SOLD",
       "buyerId": 7,
       "img": "img9.jpg"
-    },
-    {
-      "id": 10,
-      "address": "18 Fir Street, Firfield",
-      "postcode": "FF1 1FF",
-      "type": "SEMI",
-      "price": 180000,
-      "bedroom": 4,
-      "bathroom": 2,
-      "garden": 1,
-      "sellerId": 10,
-      "status": "FOR SALE",
-      "img": "img10.jpg"
     }
   ],
   "buyer": [

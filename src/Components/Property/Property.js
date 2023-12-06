@@ -276,7 +276,7 @@ const Property = () => {
           {searchResult.length === 0 && !loading ? (
             <div>No properties found</div>
           ) : (
-            <div className="row row-cols-1  row-cols-md-3 row-cols-lg-3 g-2">
+            <div className="row row-cols-1  row-cols-md-4 row-cols-lg-5 g-2">
               {searchResult.map((property) => (
                 <div key={property.id} className="col">
                   <div class="card m-3 shadow" >

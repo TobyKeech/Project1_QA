@@ -153,7 +153,7 @@ const Buyer = () => {
     <>
     <h1 class="display-1">&nbsp;Buyers List</h1>
     <br />
-      <div className="bg-body-tertiary text-white p-4">
+      <div className="bg-body-tertiary text-black p-4">
         {showBuyerInputForm && (
           <BuyerInputForm buyerAddHandler={buyerAddHandler} />
         )}
@@ -175,10 +175,11 @@ const Buyer = () => {
         ) : (
           ""
         )}
+         <div className="d-flex justify-content-center align-items-center flex-column">
         <button
           className={`btn ${
             showBuyerInputForm ? "btn-outline-danger btn-lg" : "btn-outline-success btn-lg"
-          } mb-2 p-2`}
+          } mb-2 p-2`} style={{ width: "150px" }}
           onClick={toggleBuyerInputForm}
         >
           {showBuyerInputForm ? (
@@ -191,6 +192,7 @@ const Buyer = () => {
             </>
           )}
         </button>
+        </div>
         <div className="container-fluid">
         <div className="row justify-content-center">
         <div className="col-lg-10">

@@ -54,6 +54,9 @@ const SellerForm = (props) => {
    
     return (
         <>
+        
+<div className="container">
+<h1 class="display-6 text-black">Add a new seller:</h1>
         <form>
             <div class="form-row text-black">
         <div class="col">
@@ -63,7 +66,7 @@ const SellerForm = (props) => {
 
         <div>
             <label>Surname</label>
-            <input type="text"  placeholder="Enter surname name" class="form-control" id="sellerSurname" ref={refSecondName}></input>
+            <input type="text"  placeholder="Enter surname" class="form-control" id="sellerSurname" ref={refSecondName}></input>
             {/* the ref is given the ref set by use ref above which is started as empty. */}
         </div>
 
@@ -84,11 +87,12 @@ const SellerForm = (props) => {
         <br />
 
         <div className="d-flex justify-content-center align-items-center">
-            <button type="submit" class="btn btn-success p-2" onClick={sumbitHandler}><FontAwesomeIcon icon={faPlus} />&nbsp;New Seller </button>
+            <button type="submit" class="btn btn-success p-2 btn-lg" onClick={sumbitHandler} style={{ width: "150px" }}><FontAwesomeIcon icon={faPlus}  />&nbsp;New Seller </button>
             {/* when the add new seller button is clicked the submitHandler function is called and the inputs are filled with the vlaues which were entered into the text inputs */}
         </div>
         </div>
         </form>
+        </div>
 
         </>
       );

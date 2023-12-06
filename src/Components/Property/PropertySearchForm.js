@@ -28,6 +28,9 @@ const PropertySearchForm = (props) => {
     //identifies the current value of the input from the form using the typeRef and than then uses it within the searchCriteria function
 
     return ( 
+        <>
+        <h1 class="display-6 text-black">Find the perfect property:</h1>
+        <br />
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-8">
@@ -104,6 +107,7 @@ const PropertySearchForm = (props) => {
                 </div>
             </div>
         </div>
+        </>
      );
 }
  
