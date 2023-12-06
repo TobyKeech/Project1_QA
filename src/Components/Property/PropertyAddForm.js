@@ -88,7 +88,7 @@ const propertyAddHandler = props.propertyAddHandler
                 <label>Type</label>
                 <select  placeholder="Enter type" class="form-select" id="propertyStatus" ref={refType} >
                 <option value="">Select Type</option>
-                <option value="APARTMENT">FOR SALE</option>
+                <option value="APARTMENT">APARTMENT</option>
                 <option value="SEMI">SEMI</option>
                 <option value="SEMI-DETACHED">SEMI_DETACHED</option>
                 </select>
@@ -104,7 +104,7 @@ const propertyAddHandler = props.propertyAddHandler
             <br />
             <div className="d-flex justify-content-center align-items-center">
                
-                <button type="submit" class="btn btn-success p-2" onClick={submitHandler}>
+                <button type="submit" class="btn btn-success btn-lg p-2" onClick={submitHandler}>
                 <FontAwesomeIcon icon={faPlus}/>&nbsp;New Property
                     <br />
                 </button>

@@ -259,7 +259,7 @@ const Property = () => {
           >
             {showPropertyInputForm ? (
               <>
-                <FontAwesomeIcon icon={faMinus} /> Input Form
+                <FontAwesomeIcon icon={faMinus} /> &nbsp; Input Form
               </>
             ) : (
               <>
@@ -274,10 +274,15 @@ const Property = () => {
           {searchResult.length === 0 && !loading ? (
             <div>No properties found</div>
           ) : (
-            <div className="row row-cols-1 row-cols-md-3 g-4">
+            <div className="row row-cols-1  row-cols-md-3 row-cols-lg-3 g-2">
               {searchResult.map((property) => (
                 <div key={property.id} className="col">
-                  <div className="card">
+                  <div class="card" >
+                  <img
+                    class="card-img-top"
+                    src={property.img ? require(`../../images/${property.img}`) : require('../../images/noimg.jpg').default}
+                    alt="Card image cap"
+                  />
                     <div className="card-body">
                       <h5 className="card-title">{property.address}</h5>
                       <p className="card-text">
@@ -285,6 +290,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faMapPin}
                           style={{ color: "red" }}
+                         
                         />
                       </p>
                       <p className="card-text">
@@ -292,6 +298,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faBed}
                           style={{ color: "#00ace6" }}
+                          
                         />
                       </p>
                       <p className="card-text">
@@ -299,6 +306,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faTree}
                           style={{ color: "green" }}
+                         
                         />
                       </p>
                       <p className="card-text">
@@ -306,6 +314,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faHouseChimney}
                           style={{ color: "#a86f2e" }}
+                          
                         />
                       </p>
                       <p className="card-text">
@@ -313,6 +322,7 @@ const Property = () => {
                         <FontAwesomeIcon
                           icon={faCoins}
                           style={{ color: "#dcad04" }}
+                          
                         />
                       </p>
                       <p className="card-text">Status: {property.status}</p>

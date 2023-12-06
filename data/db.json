@@ -101,7 +101,8 @@
       "garden": "2",
       "type": "APARTMENT",
       "price": "175000",
-      "status": "SOLD"
+      "status": "SOLD",
+      "img": "img1.jpg"
     },
     {
       "id": 2,
@@ -113,7 +114,8 @@
       "bathroom": 2,
       "garden": 1,
       "sellerId": 2,
-      "status": "FOR SALE"
+      "status": "FOR SALE",
+      "img": "img2.jpg"
     },
     {
       "id": 3,
@@ -126,19 +128,21 @@
       "garden": 0,
       "sellerId": 3,
       "status": "SOLD",
+      "img": "img3.jpg",
       "buyerId": 4
     },
     {
       "id": 4,
       "address": "15 Elm Street, Elmville",
       "postcode": "EV1 1EV",
-      "type": "DETACHED",
+      "type": "SEMI",
       "price": 180000,
       "bedroom": 4,
       "bathroom": 2,
       "garden": 1,
       "sellerId": 4,
-      "status": "FOR SALE"
+      "status": "FOR SALE",
+      "img": "img4.jpg"
     },
     {
       "id": 5,
@@ -151,6 +155,7 @@
       "garden": 1,
       "sellerId": 5,
       "status": "SOLD",
+      "img": "img5.jpg",
       "buyerId": 5
     },
     {
@@ -163,7 +168,8 @@
       "bathroom": 1,
       "garden": 0,
       "sellerId": 6,
-      "status": "FOR SALE"
+      "status": "FOR SALE",
+      "img": "img6.jpg"
     },
     {
       "id": 7,
@@ -176,7 +182,8 @@
       "garden": 1,
       "sellerId": 7,
       "status": "SOLD",
-      "buyerId": 6
+      "buyerId": 6,
+      "img": "img7.jpg"
     },
     {
       "id": 8,
@@ -188,7 +195,8 @@
       "bathroom": 3,
       "garden": 1,
       "sellerId": 8,
-      "status": "FOR SALE"
+      "status": "FOR SALE",
+      "img": "img8.jpg"
     },
     {
       "id": 9,
@@ -201,7 +209,8 @@
       "garden": 0,
       "sellerId": 9,
       "status": "SOLD",
-      "buyerId": 7
+      "buyerId": 7,
+      "img": "img9.jpg"
     },
     {
       "id": 10,
@@ -213,32 +222,8 @@
       "bathroom": 2,
       "garden": 1,
       "sellerId": 10,
-      "status": "FOR SALE"
-    },
-    {
-      "id": 11,
-      "address": "5 Redwood Street, Redwood City",
-      "postcode": "RC1 1RC",
-      "type": "DETACHED",
-      "price": 220000,
-      "bedroom": 5,
-      "bathroom": 3,
-      "garden": 1,
-      "sellerId": 11,
-      "status": "SOLD",
-      "buyerId": 8
-    },
-    {
-      "id": 12,
-      "address": "22 Maple Street, Maple City",
-      "postcode": "MC1 1MC",
-      "type": "SEMI",
-      "price": 150000,
-      "bedroom": 4,
-      "bathroom": 2,
-      "garden": 1,
-      "sellerId": 12,
-      "status": "FOR SALE"
+      "status": "FOR SALE",
+      "img": "img10.jpg"
     }
   ],
   "buyer": [
