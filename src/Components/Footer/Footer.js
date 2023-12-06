@@ -12,19 +12,17 @@ const Footer = () => {
     </div>
 
     <div>
-      <a href="" className="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
+      
+      <a href="" class="me-4 text-reset fa-lg">
        <FontAwesomeIcon icon={faInstagram} style={{color: "#bb06e0"}}/>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-4 text-reset fa-lg">
       <FontAwesomeIcon icon={faGoogle} style={{color: "#48ec27"}}/>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-4 text-reset fa-lg">
       <FontAwesomeIcon icon={faFacebook} style={{color: "#0822e2"}}/>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-4 text-reset fa-lg">
       <FontAwesomeIcon icon={faLinkedin} style={{color: "#0792e9"}}/>
       </a>
     </div>

@@ -96,7 +96,12 @@
       "surname": "Johnson",
       "address": "42 Pen-y-lan Road, Cardiff",
       "postcode": "CA1 8RR",
-      "phone": "01234567890"
+      "phone": "01234567890",
+      "bedroom": "4",
+      "garden": "2",
+      "type": "APARTMENT",
+      "price": "175000",
+      "status": "SOLD"
     },
     {
       "id": 2,
