@@ -229,7 +229,9 @@ const Seller = () => {
             </>
           )}
         </button>
-
+        <div className="container-fluid">
+        <div className="row justify-content-center">
+        <div className="col-lg-10">
         <table  class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -329,6 +331,9 @@ const Seller = () => {
             )}
           </tbody>
         </table>
+        </div>
+      </div>  
+      </div>  
       </div>  
     </>
   );
