@@ -1,5 +1,6 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faT} from "@fortawesome/free-solid-svg-icons"
+import { Link } from "react-router-dom";
+import {faT, faPhone, faAt, faMapLocationDot} from "@fortawesome/free-solid-svg-icons"
 import{faInstagram, faGoogle, faFacebook, faLinkedin} from "@fortawesome/free-brands-svg-icons"
 const Footer = () => {
     return ( 
@@ -49,13 +50,12 @@ const Footer = () => {
             Useful links
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+          <Link to="/property" className="text-reset">
+              Properties
+            </Link>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
-          </p>
-          <p>
-            <a href="#!" class="text-reset">Orders</a>
+            <a href="#!" class="text-reset">About Us</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Help</a>
@@ -63,20 +63,19 @@ const Footer = () => {
         </div>
 
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="fas fa-home me-3"></i>Scotland, home of the brave</p>
-          <p>
-            <i class="fas fa-envelope me-3"></i>
+          <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+          <p class="fasme-3"> <FontAwesomeIcon icon={faMapLocationDot}/> &nbsp;186 Braveheart Lane, Perth, PH8 7LF</p>
+          <p class="fasme-3"> <FontAwesomeIcon icon={faAt}/>&nbsp;
             trustedtenancys@wethebest.com
           </p>
-          <p><i class="fas fa-phone me-3"></i> 12345679</p>
+          <p class="fasme-3"> <FontAwesomeIcon icon={faPhone}/>&nbsp;01652 864579</p>
         </div>
       </div>
     </div>
   </section>
 
   <div class="text-center p-4">
-    © 2023 Copyright:&nbsp;
+     2023 Copyright:&nbsp;
     <a class="text-reset fw-bold">TrustedTenancys.com</a>
   </div>
 </footer>
