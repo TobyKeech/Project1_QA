@@ -101,10 +101,10 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
           onChange={handleChange}
           required
         >
-           <option value="">Select Status</option>
-          <option value="FOR SALE">FOR SALE</option>
-          <option value="SOLD">SOLD</option>
-        
+           <option value="">Select Type</option>
+          <option value="APARTMENT">APARTMENT</option>
+          <option value="SEMI">SEMI</option>
+          <option value="SEMI-DETACHED">SEMI-DETACHED</option>
           </select>
       </div>
 
