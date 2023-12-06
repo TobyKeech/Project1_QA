@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import { Link } from "react-router-dom";
 import SellerAddForm from "./SellerAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPenToSquare, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -235,7 +236,7 @@ const Seller = () => {
         </div>
         <div className="container-fluid">
         <div className="row justify-content-center">
-        <div className="col-lg-10">
+        <div className="col-lg-6">
         <table  class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -262,6 +263,9 @@ const Seller = () => {
                   <td>{seller.postcode}</td>
                   <td>{seller.phone}</td>
                   <td>
+                  <Link to={`/seller/${seller.id}/properties`}>
+                     View Properties
+                  </Link>
                   <button
                         type="button"
                         className="btn btn-outline-danger m-1"

@@ -195,8 +195,8 @@ const Buyer = () => {
         </div>
         <div className="container-fluid">
         <div className="row justify-content-center">
-        <div className="col-lg-10">
-        <table className="table table-hover table-bordered">
+        <div className="col-lg-6">
+        <table className="table table-hover table-bg-dark table-bordered">
           <thead>
             <tr>
               <th scope="col">First Name</th>

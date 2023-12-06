@@ -1,6 +1,8 @@
 import { Link, Outlet} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHouseUser, faHouseFlag, faT } from "@fortawesome/free-solid-svg-icons"
+import { faHouse, faHouseUser, faHouseFlag, faChessRook} from "@fortawesome/free-solid-svg-icons"
+import { faChessKnight} from "@fortawesome/free-regular-svg-icons"
+
 
 const NavBar = () => {
   return (
@@ -19,19 +21,19 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav mr-auto">
-            <Link to="/property" className="navbar-brand text-black">
-              &nbsp;<FontAwesomeIcon icon={faT} size="2x"/>&nbsp;<FontAwesomeIcon icon={faT} size="2x"/>
+            <Link to="/home" className="navbar-brand fw-bold text-black">
+              &nbsp;<FontAwesomeIcon icon={faChessRook} /> <FontAwesomeIcon icon={faChessKnight} /> 
             </Link>
           </div>
-          <div className="navbar-nav ms-auto">
-            <Link to="/property" className="nav-item nav-link text-black">
-              &nbsp;Properties <FontAwesomeIcon icon={faHouse} />
+          <div className="navbar-nav ms-auto text-dark">
+            <Link to="/property" className="nav-item fw-bold nav-link text-dark">
+            <FontAwesomeIcon icon={faHouse}  />&nbsp;Properties 
             </Link>
-            <Link to="/seller" className="nav-item nav-link text-black">
-              &nbsp;Seller <FontAwesomeIcon icon={faHouseFlag} />
+            <Link to="/seller" className="nav-item nav-link fw-bold text-black">
+            <FontAwesomeIcon icon={faHouseFlag}  />&nbsp;Seller 
             </Link>
-            <Link to="/buyer" className="nav-item nav-link text-black">
-              &nbsp;Buyers <FontAwesomeIcon icon={faHouseUser} />
+            <Link to="/buyer" className="nav-item nav-link fw-bold text-black">
+            <FontAwesomeIcon icon={faHouseUser}  />&nbsp;Buyers 
             </Link>
           </div>
         </div>

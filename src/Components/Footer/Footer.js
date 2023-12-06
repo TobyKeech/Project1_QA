@@ -33,10 +33,10 @@ const Footer = () => {
       <div class="row mt-3">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <h6 class="text-uppercase fw-bold mb-2">
-          <FontAwesomeIcon icon={faT}/>&nbsp;rusted
+          Rook
           </h6>
           <h6 class="text-uppercase fw-bold mb-2">
-         <FontAwesomeIcon icon={faT}/>&nbsp;enancys
+         Residences
           </h6>
           <p>
             Check out our helpful links and how we can help secure your next home.
@@ -50,7 +50,7 @@ const Footer = () => {
           <p>
           <Link to="/property" className="text-reset">
               Properties
-            </Link>
+          </Link>
           </p>
           <p>
             <a href="#!" class="text-reset">About Us</a>
@@ -64,7 +64,7 @@ const Footer = () => {
           <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
           <p class="fasme-3"> <FontAwesomeIcon icon={faMapLocationDot}/> &nbsp;186 Braveheart Lane, Perth, PH8 7LF</p>
           <p class="fasme-3"> <FontAwesomeIcon icon={faAt}/>&nbsp;
-            trustedtenancys@wethebest.com
+          RookResidences@chess.com
           </p>
           <p class="fasme-3"> <FontAwesomeIcon icon={faPhone}/>&nbsp;01652 864579</p>
         </div>
@@ -74,7 +74,7 @@ const Footer = () => {
 
   <div class="text-center p-4">
      2023 Copyright:&nbsp;
-    <a class="text-reset fw-bold">TrustedTenancys.com</a>
+    <a class="text-reset fw-bold">RookResidences.com</a>
   </div>
 </footer>
 
