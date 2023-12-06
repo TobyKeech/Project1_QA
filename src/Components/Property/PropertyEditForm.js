@@ -93,17 +93,21 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         <label htmlFor="type" className="form-label text-black">
           Type
         </label>
-        <input
-          type="text"
-          className="form-control"
+        <select
+          className="form-select"
           id="type"
           name="type"
           value={editedProperty.type || ""}
           onChange={handleChange}
           required
-          pattern="SEMI|DETACHED|APARTMENT"
-        />
+        >
+           <option value="">Select Type</option>
+          <option value="APARTMENT">APARTMENT</option>
+          <option value="SEMI">SEMI</option>
+          <option value="SEMI-DETACHED">SEMI-DETACHED</option>
+          </select>
       </div>
+
       <div className="mb-3">
         <label htmlFor="price" className="form-label text-black">
           Price
@@ -121,19 +125,21 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="price" className="form-label text-black">
+        <label htmlFor="status" className="form-label text-black">
           Status
         </label>
-        <input
-          type="text"
-          className="form-control"
+        <select
+          className="form-select"
           id="status"
           name="status"
           value={editedProperty.status || ""}
           onChange={handleChange}
           required
-          pattern="FOR SALE|SOLD"
-        />
+        >
+          <option value="">Select Status</option>
+          <option value="FOR SALE">FOR SALE</option>
+          <option value="SOLD">SOLD</option>
+        </select>
       </div>
       <div className="mb-3">
         <button type="submit" className="btn btn-success me-2">

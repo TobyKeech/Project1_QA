@@ -151,6 +151,7 @@ const Buyer = () => {
 
   return (
     <>
+    <h1 class="display-1">&nbsp;Buyers Page</h1>
       <div className="bg-body-tertiary text-white p-4">
         {showBuyerInputForm && (
           <BuyerInputForm buyerAddHandler={buyerAddHandler} />
@@ -175,7 +176,7 @@ const Buyer = () => {
         )}
         <button
           className={`btn ${
-            showBuyerInputForm ? "btn-outline-danger" : "btn-outline-success"
+            showBuyerInputForm ? "btn-outline-danger btn-lg" : "btn-outline-success btn-lg"
           } mb-2 p-2`}
           onClick={toggleBuyerInputForm}
         >
@@ -204,7 +205,7 @@ const Buyer = () => {
           <tbody>
             {listOfBuyers.length === 0 && !loading ? (
               <tr>
-                <td colSpan="5">No buyers found</td>
+                <td colSpan="6">No buyers found</td>
               </tr>
             ) : (
               listOfBuyers.map((buyer) => (

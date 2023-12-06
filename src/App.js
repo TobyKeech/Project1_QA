@@ -13,6 +13,7 @@ function App() {
       <BrowserRouter>
       <NavBar/>
           <Routes>
+            <Route index element = {<Property/>}/>
               <Route path="property" element={<Property/>}></Route>
               <Route path="buyer" element={<Buyer/>}></Route>
               <Route path="seller" element={<Seller/>}></Route>

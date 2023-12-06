@@ -186,6 +186,7 @@ const Seller = () => {
 
   return (
     <>
+    <h1 class="display-1">&nbsp;Sellers Page</h1>
       <div className="bg-body-tertiary text-white p-4">
         {showSellerInputForm && (
           <SellerAddForm addSellerHandler={addSellerHandler} />
@@ -214,7 +215,7 @@ const Seller = () => {
         )}
         <button
           className={`btn ${
-            showSellerInputForm ? "btn-outline-danger" : "btn-outline-success"
+            showSellerInputForm ? "btn-outline-danger  btn-lg" : "btn-outline-success  btn-lg"
           } mb-2 p-2`}
           onClick={toggleSellerInputForm}
         >
@@ -229,7 +230,7 @@ const Seller = () => {
           )}
         </button>
 
-        <table class="table table-hover table-bordered">
+        <table  class="table table-hover table-bordered">
           <thead>
             <tr>
               <th scope="col">First Name</th>

@@ -72,26 +72,34 @@ const propertyAddHandler = props.propertyAddHandler
 
             <div class="col">
                 <label>Gardens</label>
-                <input type="text" placeholder="Enter gardens" class="form-control" id="propertyGardens" ref={refGardens} />
+                <input type="number" placeholder="Enter gardens" class="form-control" id="propertyGardens" ref={refGardens} />
             </div>
 
             <div class="col">
                 <label>Bathrooms</label>
-                <input type="text" placeholder="Enter bathrooms" class="form-control" id="propertyBathrooms" ref={refBathrooms} />
+                <input type="number" placeholder="Enter bathrooms" class="form-control" id="propertyBathrooms" ref={refBathrooms} />
             </div>
 
             <div class="col">
                 <label>Price</label>
-                <input type="text" placeholder="Enter price" class="form-control" id="propertyPrice" ref={refPrice} />
-            </div>
-
-            <div class="col">
-                <label>Status</label>
-                <input type="text" placeholder="Enter status" class="form-control" id="propertyStatus" ref={refStatus} />
+                <input type="number" placeholder="Enter price" class="form-control" id="propertyPrice" ref={refPrice} />
             </div>
             <div class="col">
                 <label>Type</label>
-                <input type="text" placeholder="Enter type" class="form-control" id="propertyStatus" ref={refType} />
+                <select  placeholder="Enter type" class="form-select" id="propertyStatus" ref={refType} >
+                <option value="">Select Type</option>
+                <option value="APARTMENT">FOR SALE</option>
+                <option value="SEMI">SEMI</option>
+                <option value="SEMI-DETACHED">SEMI_DETACHED</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>Status</label>
+                <select placeholder="Enter status" class="form-select" id="propertyStatus" ref={refStatus}>
+                <option value="">Select Status</option>
+                <option value="FOR SALE">FOR SALE</option>
+                <option value="SOLD">SOLD</option>
+                </select>
             </div>
             <br />
             <div className="d-flex justify-content-center align-items-center">
