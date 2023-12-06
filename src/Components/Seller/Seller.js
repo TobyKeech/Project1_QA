@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import { Link } from "react-router-dom";
 import SellerAddForm from "./SellerAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPenToSquare, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -262,6 +263,9 @@ const Seller = () => {
                   <td>{seller.postcode}</td>
                   <td>{seller.phone}</td>
                   <td>
+                  <Link to={`/seller/${seller.id}/properties`}>
+                     View Properties
+                  </Link>
                   <button
                         type="button"
                         className="btn btn-outline-danger m-1"

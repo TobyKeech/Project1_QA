@@ -304,6 +304,7 @@ const Property = () => {
                           
                         />
                       </p>
+                      
                       <p className="card-text">
                         No of Gardens: {property.garden}{" "}
                         <FontAwesomeIcon

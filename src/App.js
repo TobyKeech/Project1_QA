@@ -8,6 +8,7 @@ import Seller from "./Components/Seller/Seller";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
+import SellerProperties from "./Components/Seller/SellerProperties";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="property" element={<Property/>}></Route>
               <Route path="buyer" element={<Buyer/>}></Route>
               <Route path="seller" element={<Seller/>}></Route>
+              <Route path="seller/:sellerId/property" element={SellerProperties} />
           </Routes>
           <Footer />
       </BrowserRouter>
