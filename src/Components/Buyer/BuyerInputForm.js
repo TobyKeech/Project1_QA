@@ -45,6 +45,8 @@ const BuyerInputForm = (props) => {
 
     return (
         <>
+        <div className="container">
+            <h1 class="display-6">&nbsp;Add a new buyer:</h1>
         <form>
             <div class="form-row">
             <div class="col">
@@ -54,7 +56,7 @@ const BuyerInputForm = (props) => {
 
             <div class="col">
                 <label>Surname</label>
-                <input type="text" placeholder="Enter surname name" class="form-control" id="buyerSurname" ref={refSurname} />
+                <input type="text" placeholder="Enter surname" class="form-control" id="buyerSurname" ref={refSurname} />
             </div>
 
             <div class="col">
@@ -82,6 +84,7 @@ const BuyerInputForm = (props) => {
             </div>
             </div>
         </form>
+        </div>
         </>
     );
 };
