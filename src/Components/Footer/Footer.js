@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom";
 import {faPhone, faAt, faMapLocationDot} from "@fortawesome/free-solid-svg-icons"
-import{faInstagram, faGoogle, faFacebook, faLinkedin} from "@fortawesome/free-brands-svg-icons"
+import{faInstagram, faFacebook, faLinkedin , faTwitter} from "@fortawesome/free-brands-svg-icons"
 const Footer = () => {
     return ( 
         <>
@@ -14,7 +14,7 @@ const Footer = () => {
       <FontAwesomeIcon icon={faInstagram} style={{ color: "#bb06e0" }} />
     </a>
     <a href="" class="me-4 text-reset fa-lg">
-      <FontAwesomeIcon icon={faGoogle}  style={{ color: "#48ec27" }} />
+      <FontAwesomeIcon icon={faTwitter}  style={{ color: "#07929e9" }} />
     </a>
     <a href="" class="me-4 text-reset fa-lg">
       <FontAwesomeIcon icon={faFacebook}  style={{ color: "#0822e2" }} />
