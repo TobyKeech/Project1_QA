@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# QA Estate Agent Project 1
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Estate Agency: Rook Residences
 
-## Available Scripts
+Estate Agent Website for Project 1 of QA.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Tech Stack](#tech-stack)
+- [Planning](#planning)
+- [Challenges](#challenges)
+- [Future Improvemenets](#future-imporvements)
+- [What I would do differently](#what-I-would-do-differently)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Description
 
-### `npm test`
+The project wacs reated for the QA project 1 utilising frontend knowledge to build a CRUD application. The website is a estate agancy of Rook Residences to use in regards  where you can view properties, sellers and buyers. You can filter for a specific property you wish to see depenedent on search conditions. A new porperty, seller andd buyer can be added to the website. Properties can be updated from "for sale" to "sold". Properties, buyers and sellers can also be deleted or edited to provide new details. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+Follow these steps to set up and run the project on your local machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/TobyKeech/Project1_QA.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd p1_estate_agent
+   
+3. **Install Dependencies:**
+   ```bash
+   npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+1. **Start the backend server for the application:**
+   ```bash
+   npx json-server --watch data\db.json --port 8081
+  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Run the project on your machine:**
+   ```bash
+   npm start
+  
+Visit http://localhost:3000 in your web browser to view the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
+1. Javascript
+2. CSS
+3. HTML
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies Used
+1. React
+2. Bootstrap
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Planning
+**Trello Board:**
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This was used to identify tasks at three levels to keep track of objects and targets for the day. Three levels of priority were used of low, medium and high to influence the important of features or bug fixes. See example above of this. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Stand Ups**
+This was consulted on a daily basis with Lyam to access our objectives for the day and any barriers we had. We would consult wether we could provide assiatance for a task the other was attempting to tackle. We provided feedback and suggestions to better improve each others webistes. 
 
-### Code Splitting
+**Inital Steps**
+I started by breaking down the example code to help me understand how things worked and the process which were happening. I spent initally before the project week itself reading over how things worked and anything new I broke it down and tried it in a seperate enviroment to better understand. I often took notes and referenced back to these as well as breaking code down line by line. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Challanges
+I would have liked more time with Javascript and React before starting the project but took this an oppurtunity to learn and consolidate. Utilising useReducer slowed me down a lot as I had not used this before and understanding the process and how it was working within the application. This was great to push myself with but presented a lot of errors and issues in the early stages. 
 
-### Analyzing the Bundle Size
+Passing down properties wether that was data or functions I also found challanging to begin with. Although I feel more confident with this now, it made understanding my code hard at times. My lack of commenting as I was going through did not help which I have addressed further down. Getting certian functionalities of adding, deleting and editing became a challange as I had this being hidden via state and therefore required passing information up and down to trigger certian functions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+As mentioned below, bootstrap was great to use but the challanages with applying styling how I wanted and also the user experience I wished to provide made this more challanging than it needed to be. I reference below how I would approach this in the future. 
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Future Improvements
+1. I would like to have added a bookings page to the application as this was thought of late on into the application. Using new react features required more time to understand than I would have liked and by the time I got round to it and wanted to focus on what I had and making it styled well for presentation. I think this would have provided another feature for the user as opposed to only being able to see the properties. 
+   
+2. When changing the property from the status of "SOLD" and "FOR SALE" I would have liked to include a visual change on the application to reflect this. This would have made a more user friendly experience.
 
-### Advanced Configuration
+## What I would do differrently
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. I feel spending more time with bootstrap would have been benifiical. Although good to use and provided a lot of layouts and structure at times CSS became more challanging due to my lack of knowledge of it and only the second time using it. Certian bugs and issues could have been fixed quicker had I spent more time going over it before hand. I will spend more time utilsing this. 
 
-### Deployment
+2. Not get to far ahead before taking the time to add comments. At times I would add code and say to myself that I would come back to comment later on and didn't. This could make more work for myself further down the line re tracing what I had done before when I should have taken the time to add it. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
