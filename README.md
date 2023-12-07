@@ -63,7 +63,7 @@ Visit http://localhost:3000 in your web browser to view the application.
 ## Planning
 **Trello Board:**
 
-<img src="../p1_estate_agent/src/images/Capture.PNG" alt="Trello Board" title="Trello Board">
+<img src="../p1_estate_agent/src/images/Capture.PNG" alt="Trello Board"/>
 
 
 This was used to identify tasks at three levels to keep track of objects and targets for the day. Three levels of priority were used of low, medium and high to influence the important of features or bug fixes. See example above of this. 
