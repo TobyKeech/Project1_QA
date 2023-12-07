@@ -33,7 +33,13 @@ Follow these steps to set up and run the project on your local machine.
    npm install
 
 ## Usage
-Run the project on your machine
+
+1. Start the backend server for the application
+   ```bash
+   npx json-server --watch data\db.json --port 8081
+   ```
+
+3. Run the project on your machine
  ```bash
    npm start
 ```
