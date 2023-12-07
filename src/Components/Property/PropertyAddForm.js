@@ -59,6 +59,7 @@ const propertyAddHandler = props.propertyAddHandler
     return ( 
     <>
     <div className="container">
+        
 <h1 class="display-6 text-black">Add a new property:</h1>
       
      <form>

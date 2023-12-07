@@ -8,6 +8,7 @@ import Seller from "./Components/Seller/Seller";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
+import Booking from "./Components/Booking/Booking";
 import SellerProperties from "./Components/Seller/SellerProperties";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
               <Route path="property" element={<Property/>}></Route>
               <Route path="buyer" element={<Buyer/>}></Route>
               <Route path="seller" element={<Seller/>}></Route>
+              <Route path="booking" element={<Booking/>}></Route>
               <Route path="seller/:sellerId/properties" element={<SellerProperties/>} />
           </Routes>
           <Footer />
