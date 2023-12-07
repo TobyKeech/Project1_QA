@@ -195,7 +195,7 @@ const Buyer = () => {
         </div>
         <div className="container-fluid">
         <div className="row justify-content-center">
-        <div className="col-lg-6">
+        <div className="col-lg-7">
         <table className="table table-hover table-bg-dark table-bordered">
           <thead>
             <tr>
@@ -214,7 +214,7 @@ const Buyer = () => {
               </tr>
             ) : (
               listOfBuyers.map((buyer) => (
-                <tr key={buyer.id}>
+                <tr className="display-7" key={buyer.id}>
                   <td>{buyer.firstName}</td>
                   <td>{buyer.surname}</td>
                   <td>{buyer.address}</td>
@@ -269,7 +269,7 @@ const Buyer = () => {
                             </button>
                             <button
                               type="button"
-                              className="btn btn-primary"
+                              className="btn btn-danger"
                               data-bs-dismiss="modal"
                               onClick={() => {
                                 deleteBuyerHandler(buyer);

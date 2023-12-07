@@ -13,8 +13,7 @@ import {
   faPlus,
   faMagnifyingGlass,
   faPenToSquare,
-  faCoins,
-  faHouse
+  faCoins
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
@@ -291,14 +290,14 @@ const Property = () => {
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
               {searchResult.map((property) => (
                 <div key={property.id} className="col">
-                  <div class="card m-3 shadow" >
+                  <div class="card m-3 shadow"  >
                   <img
                     class="card-img-top"
-                    src={property.img ? require(`../../images/${property.img}`) : require('../../images/noimg.jpg').default}
+                    src={property.img ? require(`../../images/${property.img}`) : require('../../images/chessimg.jpg')}
                     alt="Card image cap"
                   />
                     <div className="card-body">
-                      <h5 className="card-title">{property.address}</h5>
+                      <h5 className="card-title" style={{minHeight:"3rem"}}>{property.address}</h5>
                       <p className="card-text">
                         Postcode: {property.postcode}{" "}
                         <FontAwesomeIcon
@@ -389,7 +388,7 @@ const Property = () => {
                               </button>
                               <button
                                 type="button"
-                                className="btn btn-primary"
+                                className="btn btn-danger"
                                 data-bs-dismiss="modal"
                                 onClick={() => {
                                   deletePropertyHandler(property);

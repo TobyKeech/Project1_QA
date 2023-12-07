@@ -2,7 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import { Link } from "react-router-dom";
 import SellerAddForm from "./SellerAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPenToSquare, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPenToSquare, faPlus, faSearch, faTrash } from "@fortawesome/free-solid-svg-icons";
 import SellerEditForm from "./SellerEditForm";
 
 const Seller = () => {
@@ -236,10 +236,10 @@ const Seller = () => {
         </div>
         <div className="container-fluid">
         <div className="row justify-content-center">
-        <div className="col-lg-6">
+        <div className="col-lg-7">
         <table  class="table table-hover table-bordered">
-          <thead>
-            <tr>
+          <thead >
+            <tr >
               <th scope="col">First Name</th>
               <th scope="col">Surname</th>
               <th scope="col">Address</th>
@@ -264,15 +264,20 @@ const Seller = () => {
                   <td>{seller.address}</td>
                   <td>{seller.postcode}</td>
                   <td>{seller.phone}</td>
-                  <td> <Link to={`/seller/${seller.id}/properties`}>
-                     View Properties
-                  </Link></td>
+                  <td>
+                    <button type="button" className="btn btn-outline-info p-2">
+                      <Link to={`/seller/${seller.id}/properties`} className="text-decoration-none">
+                        View Properties <FontAwesomeIcon icon={faSearch}/>
+                      </Link>
+                    </button>
+                  </td>
                   <td>
   
                   <button
                         type="button"
                         className="btn btn-outline-danger m-1"
                         data-bs-toggle="modal"
+                        style={{ width: "100px" }}
                         data-bs-target={`#exampleModal-${seller.id}`}
                       >
                         Delete <FontAwesomeIcon icon={faTrash} />
@@ -317,7 +322,7 @@ const Seller = () => {
                               </button>
                               <button
                                 type="button"
-                                className="btn btn-primary"
+                                className="btn btn-danger"
                                 data-bs-dismiss="modal"
                                 onClick={() => {
                                   deleteSellerHandler(seller);
@@ -331,7 +336,7 @@ const Seller = () => {
                       </div>
 
                       <button  type="button"
-                        className="btn btn-outline-warning" onClick={() => {
+                        className="btn btn-outline-warning" style={{ width: "100px" }} onClick={() => {
                           startEditSeller(seller);
                           toggleSellerEditForm();
 
