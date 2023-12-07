@@ -13,7 +13,9 @@ import {
   faPlus,
   faMagnifyingGlass,
   faPenToSquare,
-  faCoins
+  faCoins,
+  faXmark,
+  faHouseFlag
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
@@ -290,13 +292,14 @@ const Property = () => {
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
               {searchResult.map((property) => (
                 <div key={property.id} className="col">
-                  <div class="card m-3 shadow"  >
+                <div class="card m-3 shadow">
                   <img
                     class="card-img-top"
                     src={property.img ? require(`../../images/${property.img}`) : require('../../images/chessimg.jpg')}
                     alt="Card image cap"
+                    style={{ filter: property.status === 'SOLD' ? 'grayscale(100%)' : 'none' }}
                   />
-                    <div className="card-body">
+                  <div className="card-body">
                       <h5 className="card-title" style={{minHeight:"3rem"}}>{property.address}</h5>
                       <p className="card-text">
                         Postcode: {property.postcode}{" "}
@@ -339,7 +342,14 @@ const Property = () => {
                           
                         />
                       </p>
-                      <p className="card-text">Status: {property.status}</p>
+                     
+                       <p className="card-text"> {property.status} {property.status === 'SOLD' ? (
+                          <FontAwesomeIcon icon={faXmark} style={{ color: 'red' }} />
+                        ) : (
+                          <FontAwesomeIcon icon={faHouseFlag} style={{ color: 'green' }} />
+                        )}
+                        </p>
+        
                       <button
                         type="button"
                         className="btn btn-outline-danger m-1"
