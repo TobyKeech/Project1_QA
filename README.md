@@ -43,12 +43,12 @@ Follow these steps to set up and run the project on your local machine.
 1. **Start the backend server for the application:**
    ```bash
    npx json-server --watch data\db.json --port 8081
-   ```
+  
 
 2. **Run the project on your machine:**
    ```bash
    npm start
-    ```
+  
 Visit http://localhost:3000 in your web browser to view the application.
 
 ## Tech Stack
