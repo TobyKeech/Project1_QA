@@ -11,7 +11,6 @@ Short project description here.
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Description
 
@@ -36,8 +35,17 @@ Follow these steps to set up and run the project on your local machine.
 ## Usage
 Run the project on your machine
  ```bash
-   npm install
+   npm start
 ```
 Visit http://localhost:3000 in your web browser to view the application.
+
+##Tech Stack
+Javascript
+CSS
+HTML
+
+##Technologies Used
+React
+Bootstrap
 
 
