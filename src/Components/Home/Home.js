@@ -1,9 +1,14 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChessRook } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
     return (
         <>
         <section>
         <div class="container p-5">
+        <div className="d-flex align-items-center justify-content-center">
+                <h1 className="display-3 text-center">Rook Residencies&nbsp;<FontAwesomeIcon icon={faChessRook}/></h1>  
+            </div>
     <div
     id="carouselExampleIndicators"
     class="carousel slide"
@@ -64,6 +69,11 @@ const Home = () => {
     </button>
   </div>
 </div>
+<div className="d-flex align-items-center justify-content-center">
+                <h1 className="display-3 text-center">Helping you make the first move.</h1>
+            </div>
+            <br />
+            <br />
 </section>
       
         </>
