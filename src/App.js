@@ -15,12 +15,12 @@ function App() {
       <BrowserRouter>
       <NavBar/>
           <Routes>
-              <Route index element = {<Property/>}/>
+              <Route index element = {<Home/>}/>
               <Route path="home" element={<Home/>}></Route>
               <Route path="property" element={<Property/>}></Route>
               <Route path="buyer" element={<Buyer/>}></Route>
               <Route path="seller" element={<Seller/>}></Route>
-              <Route path="seller/:sellerId/property" element={SellerProperties} />
+              <Route path="seller/:sellerId/properties" element={<SellerProperties/>} />
           </Routes>
           <Footer />
       </BrowserRouter>

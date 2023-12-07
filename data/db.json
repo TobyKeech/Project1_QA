@@ -1,14 +1,6 @@
 {
   "seller": [
     {
-      "id": 2,
-      "firstName": "Anna",
-      "surname": "Smith",
-      "address": "2 Main Street, Cardiff",
-      "postcode": "CF1 1AB",
-      "phone": "01234567891"
-    },
-    {
       "id": 3,
       "firstName": "Peter",
       "surname": "Jones",
@@ -87,6 +79,14 @@
       "address": "12 Low Street, Cardiff",
       "postcode": "CF1 1AK",
       "phone": "01234567810"
+    },
+    {
+      "firstName": "Max",
+      "surname": "Beef",
+      "address": "prem beef, dundee",
+      "postcode": "BEE7 4LF",
+      "phone": "0123434535",
+      "id": 15
     }
   ],
   "property": [

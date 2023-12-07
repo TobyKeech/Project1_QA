@@ -1,32 +1,30 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { Link } from "react-router-dom";
-import {faT, faPhone, faAt, faMapLocationDot} from "@fortawesome/free-solid-svg-icons"
+import {faPhone, faAt, faMapLocationDot} from "@fortawesome/free-solid-svg-icons"
 import{faInstagram, faGoogle, faFacebook, faLinkedin} from "@fortawesome/free-brands-svg-icons"
 const Footer = () => {
     return ( 
         <>
 <footer class="text-center text-lg-start bg-body-info text-muted">
-  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <div class="me-5 d-none d-lg-block">
-      <span>Connect with us on socials:</span>
-    </div>
+<section class="d-flex justify-content-between p-4 border-bottom">
+  <div class="d-flex align-items-center">
+    <span class="me-3">Connect with us on socials:</span>
 
-    <div>
-      
-      <a href="" class="me-4 text-reset fa-lg">
-       <FontAwesomeIcon icon={faInstagram} style={{color: "#bb06e0"}}/>
-      </a>
-      <a href="" class="me-4 text-reset fa-lg">
-      <FontAwesomeIcon icon={faGoogle} style={{color: "#48ec27"}}/>
-      </a>
-      <a href="" class="me-4 text-reset fa-lg">
-      <FontAwesomeIcon icon={faFacebook} style={{color: "#0822e2"}}/>
-      </a>
-      <a href="" class="me-4 text-reset fa-lg">
-      <FontAwesomeIcon icon={faLinkedin} style={{color: "#0792e9"}}/>
-      </a>
-    </div>
-  </section>
+    <a href="" class="me-4 text-reset fa-lg">
+      <FontAwesomeIcon icon={faInstagram} style={{ color: "#bb06e0" }} />
+    </a>
+    <a href="" class="me-4 text-reset fa-lg">
+      <FontAwesomeIcon icon={faGoogle}  style={{ color: "#48ec27" }} />
+    </a>
+    <a href="" class="me-4 text-reset fa-lg">
+      <FontAwesomeIcon icon={faFacebook}  style={{ color: "#0822e2" }} />
+    </a>
+    <a href="" class="me-4 text-reset fa-lg">
+      <FontAwesomeIcon icon={faLinkedin}  style={{ color: "#0792e9" }} />
+    </a>
+  </div>
+</section>
+
 
   <section class="">
     <div class="container text-center text-md-start mt-5">

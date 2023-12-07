@@ -25,12 +25,15 @@ const BuyerInputForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
 
+        const isValidInput = (input) => {
+            return /^\d+$/.test(input); // Checks if the input is a positive integer
+        }
         if (
             refFirstName.current.value &&
             refSurname.current.value &&
             refAddress.current.value &&
             refPostcode.current.value &&
-            refPhone.current.value
+            isValidInput(refPhone.current.value)
         ) {
             buyerAddHandler({
                 firstName: refFirstName.current.value,
@@ -40,6 +43,8 @@ const BuyerInputForm = (props) => {
                 phone: refPhone.current.value,
             });
             resetForm();
+        } else {
+            alert("Please enter a valid phone number")
         }
     };
 

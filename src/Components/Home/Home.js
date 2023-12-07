@@ -1,38 +1,81 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChessRook } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
     return (
         <>
-        <div className="container">
-            <div className="d-flex align-items-center justify-content-center">
-                <h1 className="display-1 text-center">Rook Residencies</h1>
+        <section>
+        <div class="container p-5">
+        <div className="d-flex align-items-center justify-content-center">
+                <h1 className="display-3 text-center">Rook Residencies&nbsp;<FontAwesomeIcon icon={faChessRook}/></h1>  
             </div>
-            <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img className="d-block w-100" src={require("../../images/homeimg3.jpg")} alt="First slide" />
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src={require("../../images/chesshome.jpg")} alt="Second slide" />
-                    </div>
-                    <div className="carousel-item">
-                        <img className="d-block w-100" src={require("../../images/img3.jpg")} alt="Third slide" />
-                    </div>
-                </div>
-                <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                </a>
-            </div>
-            </div>
-            <div className="d-flex align-items-center justify-content-center">
-                <h1 className="display-1 text-center">Helping you make the right move.</h1>
+    <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-bs-ride="true"
+  >
+    <div class="carousel-indicators">
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+      ></button>
+      <button
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
+      ></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+      <img className="d-block w-100" src={require("../../images/homeimg3.jpg")} alt="First slide" style={{ filter: "grayscale(100%)" }} />
+      </div>
+      <div class="carousel-item">
+      <img className="d-block w-100" src={require("../../images/chesshome.jpg")} alt="First slide" style={{ filter: "grayscale(100%)" }} />
+
+      </div>
+      <div class="carousel-item">
+      <img className="d-block w-100" src={require("../../images/chesshomeredo.png")} alt="First slide" style={{ filter: "grayscale(100%)" }} />
+
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div className="d-flex align-items-center justify-content-center">
+                <h1 className="display-3 text-center">Helping you make the first move.</h1>
             </div>
             <br />
             <br />
+</section>
+      
         </>
     );
  

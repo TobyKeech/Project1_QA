@@ -58,6 +58,9 @@ const propertyAddHandler = props.propertyAddHandler
 
     return ( 
     <>
+    <div className="container">
+<h1 class="display-6 text-black">Add a new property:</h1>
+      
      <form>
             <div class="form-row text-black">
             <div class="col">
@@ -113,7 +116,7 @@ const propertyAddHandler = props.propertyAddHandler
             </div>
         </form>
         <br />
-
+</div>
     </>
      );
 }

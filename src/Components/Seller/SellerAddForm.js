@@ -11,7 +11,7 @@ const SellerForm = (props) => {
     //extracting this from props
 
     const refFirstName = useRef();
-    const refSecondName = useRef();
+    const refSurname = useRef();
     const refAddress = useRef();
     const refPhone = useRef();
     const refPostcode = useRef();
@@ -20,7 +20,7 @@ const SellerForm = (props) => {
 
     const resetForm =() => {
         refFirstName.current.value = "";
-        refSecondName.current.value = "";
+        refSurname.current.value = "";
         refAddress.current.value = "";
         refPhone.current.value = "";
         refPostcode.current.value = "";
@@ -30,24 +30,28 @@ const SellerForm = (props) => {
     const sumbitHandler = (event) => {
        event.preventDefault(); 
         //sumbit handler for when the submit button is pressed and used by the user. If statement is run to check if the inputted values match those of the and then will then proceed to add these to the db json 
-            
-        if ( refFirstName.current.value && refSecondName.current.value && refAddress.current.value && refPostcode.current.value && refPhone.current.value){
+        const isValidInput = (input) => {
+            return /^\d+$/.test(input); // Checks if the input is a positive integer
+          };
+        if ( refFirstName.current.value && refSurname.current.value && refAddress.current.value && refPostcode.current.value && isValidInput(refPhone.current.value)){
             //makes sure to have all the values to be able to add a seller using the function. 
             addSellerHandler(
                 {
-                    "firstName": refFirstName.current.value,
+                    firstName: refFirstName.current.value,
                     //adds the first name given the value of the submit provided in the text box of the form, same goes for all the others below 
-                    "secondName": refSecondName.current.value,
-                    "address": refAddress.current.value,
-                    "postcode": refPostcode.current.value,
-                    "phone": refPhone.current.value
+                    surname: refSurname.current.value,
+                    address: refAddress.current.value,
+                    postcode: refPostcode.current.value,
+                    phone: refPhone.current.value
                 }
                 //add seller handler is defined in parent component. Values are set with the those from the form and the function (check addSellerHandler in seller) will run its logic. 
                 //this will then proceed to add the handler to the state. 
             )
             resetForm();
             //form values are reset back to empty each time once action is called. Function is defined above. 
-            } 
+            } else {
+                alert("Please enter a valid phone number")
+            }
     
     }
 
@@ -66,7 +70,7 @@ const SellerForm = (props) => {
 
         <div>
             <label>Surname</label>
-            <input type="text"  placeholder="Enter surname" class="form-control" id="sellerSurname" ref={refSecondName}></input>
+            <input type="text"  placeholder="Enter surname" class="form-control" id="sellerSurname" ref={refSurname}></input>
             {/* the ref is given the ref set by use ref above which is started as empty. */}
         </div>
 
@@ -82,7 +86,7 @@ const SellerForm = (props) => {
 
         <div>
             <label>Phone Number</label>
-            <input type="text" placeholder="Enter phone number" class="form-control" id="sellerPhoneNumber" ref={refPhone}></input>
+            <input type="text" placeholder="Enter phone number" required pattern="123456890" class="form-control" id="sellerPhoneNumber" ref={refPhone} inputmode="numeric"></input>
         </div>
         <br />
 
