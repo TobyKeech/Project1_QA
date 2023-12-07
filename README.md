@@ -30,7 +30,7 @@ Follow these steps to set up and run the project on your local machine.
    ```bash
    git clone https://github.com/TobyKeech/Project1_QA.git
 
-2. **Navigate to the Project Directory :**
+2. **Navigate to the Project Directory:**
    ```bash
    cd p1_estate_agent
    
@@ -46,9 +46,9 @@ Follow these steps to set up and run the project on your local machine.
    ```
 
 2. **Run the project on your machine:**
- ```bash
+   ```bash
    npm start
-```
+    ```
 Visit http://localhost:3000 in your web browser to view the application.
 
 ## Tech Stack
