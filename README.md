@@ -1,8 +1,8 @@
 # QA Estate Agent Project 1
 
-# Project Name
+# Estate Agency: Rook Residences
 
-Short project description here.
+Estate Agent Website for Project 1 of QA.
 
 ## Table of Contents
 
