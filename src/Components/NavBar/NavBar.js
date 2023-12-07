@@ -1,6 +1,6 @@
 import { Link, Outlet} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHouseUser, faHouseFlag, faChessRook, faChessBoard} from "@fortawesome/free-solid-svg-icons"
+import { faHouse, faHouseUser, faHouseFlag, faChessRook, faChessBoard, faAddressBook} from "@fortawesome/free-solid-svg-icons"
 import { faChessKnight} from "@fortawesome/free-regular-svg-icons"
 
 
@@ -34,6 +34,9 @@ const NavBar = () => {
             </Link>
             <Link to="/buyer" className="nav-item nav-link fw-bold text-black">
             <FontAwesomeIcon icon={faHouseUser}  />&nbsp;Buyers 
+            </Link>
+            <Link to="/booking" className="nav-item nav-link fw-bold text-black">
+            <FontAwesomeIcon icon={faAddressBook}  />&nbsp;Bookings 
             </Link>
           </div>
         </div>
