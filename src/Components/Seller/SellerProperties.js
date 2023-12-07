@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const SellerProperties = ({  }) => {
   
+ const {sellerId} = useParams();
 
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Fetch properties based on the sellerId
-    fetch(`http://localhost:8081/property/sellerId`)
+    fetch(`http://localhost:8081/property`)
       .then((response) => response.json())
       .then((properties) => {
-        setProperties(properties);
+
+   
+        setProperties(properties.filter(p=>p.sellerId == sellerId))
         setLoading(false);
       })
+
+  
+
       .catch((error) => {
         console.error('Error fetching properties:', error);
         setLoading(false);
