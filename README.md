@@ -11,6 +11,7 @@ Estate Agent Website for Project 1 of QA.
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
+- [Tech Stack](#tech-stack)
 
 ## Description
 
@@ -34,23 +35,23 @@ Follow these steps to set up and run the project on your local machine.
 
 ## Usage
 
-1. Start the backend server for the application
+1. **Start the backend server for the application:**
    ```bash
    npx json-server --watch data\db.json --port 8081
    ```
 
-3. Run the project on your machine
+2. **Run the project on your machine:**
  ```bash
    npm start
 ```
 Visit http://localhost:3000 in your web browser to view the application.
 
-##Tech Stack
+## Tech Stack
 Javascript
 CSS
 HTML
 
-##Technologies Used
+## Technologies Used
 React
 Bootstrap
 
