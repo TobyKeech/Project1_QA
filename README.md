@@ -85,7 +85,7 @@ As mentioned below, bootstrap was great to use but the challanages with applying
 ## Future Improvements
 1. I would like to have added a bookings page to the application as this was thought of late on into the application. Using new react features required more time to understand than I would have liked and by the time I got round to it and wanted to focus on what I had and making it styled well for presentation. I think this would have provided another feature for the user as opposed to only being able to see the properties. 
    
-2. When changing the property from the status of "SOLD" and "FOR SALE" I would have liked to include a visual change on the application to reflect this. This would have made a more user friendly experience.
+2. Add a styling for colour validation so that the user is given a more visual cue. This could be in the form of a modal and border round incorrect text. Better form validation in general. 
 
 ## What I would do differrently
 
