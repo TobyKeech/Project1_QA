@@ -30,12 +30,14 @@ const PropertySearchForm = (props) => {
     return ( 
         <>
         <div className="container">
-        <h1 class="display-6 text-black">Find the perfect property:</h1>
-        <br />
+       
        
             <div className="row justify-content-center">
-                <div className=" col-lg-8 col-md-5 col-lg-8">
+            
+                <div className="col-lg-8 col-md-5 col-lg-8">
                     <form>
+                    <h1 class="display-6 text-black">Find the perfect property:</h1>
+        <br />
                         <div className="row">
                             
                                 <div className="form-group text-black">
