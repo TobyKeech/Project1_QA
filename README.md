@@ -73,21 +73,21 @@ This was consulted on a daily basis with Lyam to access our objectives for the d
 I started by breaking down the example code to help me understand how things worked and the process which were happening. I spent initally before the project week itself reading over how things worked and anything new I broke it down and tried it in a seperate enviroment to better understand. I often took notes and referenced back to these as well as breaking code down line by line. 
 
 ## Challanges
-I would have liked more time with Javascript and React before starting the project but took this an oppurtunity to learn and consolidate. Utilising useReducer slowed me down a lot as I had no used this before and understanding the process and how it was working within the application. This was great to push myself with but presented a lot of errors and issues in the early stages. 
+I would have liked more time with Javascript and React before starting the project but took this an oppurtunity to learn and consolidate. Utilising useReducer slowed me down a lot as I had not used this before and understanding the process and how it was working within the application. This was great to push myself with but presented a lot of errors and issues in the early stages. 
 
-Passing down properties wether that was data or functions I also found challanging to begin with. Although I feel more confident with this now it made understanding my code hard at times. My lack of commenting as I was going through did not help which I have addressed further down. Getting certian functionalities of adding, deleting and editing became a challange as I had this being hidden via state and therefore required passing information up and down to trigger certian functions.
+Passing down properties wether that was data or functions I also found challanging to begin with. Although I feel more confident with this now, it made understanding my code hard at times. My lack of commenting as I was going through did not help which I have addressed further down. Getting certian functionalities of adding, deleting and editing became a challange as I had this being hidden via state and therefore required passing information up and down to trigger certian functions.
 
 As mentioned below, bootstrap was great to use but the challanages with applying styling how I wanted and also the user experience I wished to provide made this more challanging than it needed to be. I reference below how I would approach this in the future. 
 
 
 ## Future Improvements
-1. I would like to have added a bookings page to the application as this was thought of late on into the application. Using new react features required more time to understand than I would have liked and by the time I got round to it and wanted to focus on what I had and making it styled well for presentation.
+1. I would like to have added a bookings page to the application as this was thought of late on into the application. Using new react features required more time to understand than I would have liked and by the time I got round to it and wanted to focus on what I had and making it styled well for presentation. I think this would have provided another feature for the user as opposed to only being able to see the properties. 
    
 2. When changing the property from the status of "SOLD" and "FOR SALE" I would have liked to include a visual change on the application to reflect this. This would have made a more user friendly experience.
 
 ## What I would do differrently
 
-1. I feel spending more time with bootstrap would have been benifiical. Although good to use and provided a lot of layouts and structure at times CSS became more challanging due to my lack of knowledge of it and only the second time using it. Certian bugs and issues could have been fixed quicker had I spent more time going over it.
+1. I feel spending more time with bootstrap would have been benifiical. Although good to use and provided a lot of layouts and structure at times CSS became more challanging due to my lack of knowledge of it and only the second time using it. Certian bugs and issues could have been fixed quicker had I spent more time going over it before hand. I will spend more time utilsing this. 
 
 2. Not get to far ahead before taking the time to add comments. At times I would add code and say to myself that I would come back to comment later on and didn't. This could make more work for myself further down the line re tracing what I had done before when I should have taken the time to add it. 
 
