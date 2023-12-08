@@ -2,9 +2,12 @@ import {useState, useEffect, useReducer} from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHelmetSafety, faHammer } from "@fortawesome/free-solid-svg-icons"
+import { useParams } from "react-router-dom";
 
 
 const Booking = () => {
+
+  const {propertyId} = useParams();
 
     const reducedBookingsList = (state, action) => {
       //reduced properties list function used in useReducer
@@ -71,13 +74,23 @@ const Booking = () => {
           </thead>
           <tbody>
              {
+
+              propertyId == null ? 
+
               listOfBookings.map((booking) => (
                 <tr key={booking.id}>
                   <td>{booking.buyerId}</td>
                   <td>{booking.propertyId}</td>
                   <td>{booking.time}</td>
                 </tr>
-              ))}
+              )) : listOfBookings.filter(b => b.propertyId == propertyId).map((booking) => (
+                <tr key={booking.id}>
+                  <td>{booking.buyerId}</td>
+                  <td>{booking.propertyId}</td>
+                  <td>{booking.time}</td>
+                </tr>
+              ))
+              }
             
           </tbody>
         </table>

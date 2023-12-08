@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useReducer } from "react";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import PropertySearchForm from "./PropertySearchForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropertyAddForm from "./PropertyAddForm";
@@ -20,7 +20,12 @@ import {
   faBookOpen
 } from "@fortawesome/free-solid-svg-icons";
 
+
 const Property = () => {
+
+  const naviagte = useNavigate();
+
+
   const reducedPropertiesList = (state, action) => {
     //reduced properties list function used in useReducer
     switch (action.type) {
@@ -425,8 +430,7 @@ const Property = () => {
                       <button
                         className="btn btn-outline-info"
                         onClick={() => {
-                          <Link to="/booking" > 
-                       </Link>
+                      naviagte(`/booking/${property.id}`)
                         }}
                       >
                         Booking <FontAwesomeIcon icon={faBookOpen} />
