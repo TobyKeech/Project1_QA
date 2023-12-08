@@ -6,7 +6,7 @@ import {
   faTree,
   faHouseChimney,
   faMapPin,
- faXmark,
+  faXmark,
   faCoins,
   faHouseFlag
 } from "@fortawesome/free-solid-svg-icons";
