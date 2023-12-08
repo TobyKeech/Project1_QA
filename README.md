@@ -66,7 +66,7 @@ Visit http://localhost:3000 in your web browser to view the application.
 <img src="./src/images/Capture.PNG" alt="Trello Board"/>
 
 
-This was used to identify tasks at three levels to keep track of objects and targets for the day. Three levels of priority were used of low, medium and high to influence the important of features or bug fixes. See example above of this. 
+This was used to identify tasks at three levels to keep track of objectives and targets for the day. Three levels of priority were used of low, medium and high to influence the important of features or bug fixes. See example above of this. 
 
 **Stand Ups**
 This was consulted on a daily basis with Lyam to access our objectives for the day and any barriers we had. We would consult wether we could provide assiatance for a task the other was attempting to tackle. We provided feedback and suggestions to better improve each others webistes. 
@@ -83,13 +83,13 @@ As mentioned below, bootstrap was great to use but the challanages with applying
 
 
 ## Future Improvements
-1. I would like to have added a bookings page to the application as this was thought of late on into the application. Using new react features required more time to understand than I would have liked and by the time I got round to it and wanted to focus on what I had and making it styled well for presentation. I think this would have provided another feature for the user as opposed to only being able to see the properties. 
+1. I would like to have added a bookings page to the application as this was thought of late on into the application. Using new react features required more time to understand than I would have liked and by the time I got round to it and wanted to focus on what I had and making it styled well for presentation and useability. I think this would have provided another feature for the user as opposed to only being able to see the properties. 
    
-2. Add a styling for colour validation so that the user is given a more visual cue. This could be in the form of a modal and border round incorrect text. Better form validation in general. 
+2. Add a styling for colour validation so that the user is given a more visual cue. This could be in the form of a modal and border round incorrect text. Better form validation in general I feel is needed. 
 
 ## What I would do differrently
 
-1. I feel spending more time with bootstrap would have been benifiical. Although good to use and provided a lot of layouts and structure at times CSS became more challanging due to my lack of knowledge of it and only the second time using it. Certian bugs and issues could have been fixed quicker had I spent more time going over it before hand. I will spend more time utilsing this. 
+1. I feel spending more time with bootstrap would have been benifical. Although good to use and provided a lot of layouts and structure at times CSS became more challanging due to my lack of knowledge of it and only the second time using it. Certian bugs and issues could have been fixed quicker had I spent more time going over it before hand. I will spend more time utilisng this. 
 
 2. Not get to far ahead before taking the time to add comments. At times I would add code and say to myself that I would come back to comment later on and didn't. This could make more work for myself further down the line re tracing what I had done before when I should have taken the time to add it. 
 
