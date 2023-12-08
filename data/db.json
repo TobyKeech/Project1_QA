@@ -125,9 +125,9 @@
       "price": 120000,
       "bedroom": 2,
       "bathroom": 1,
-      "garden": 0,
+      "garden": "1",
       "sellerId": 3,
-      "status": "SOLD",
+      "status": "FOR SALE",
       "img": "img3.jpg",
       "buyerId": 4
     },
