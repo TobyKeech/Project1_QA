@@ -22,6 +22,7 @@ function App() {
               <Route path="buyer" element={<Buyer/>}></Route>
               <Route path="seller" element={<Seller/>}></Route>
               <Route path="booking" element={<Booking/>}></Route>
+              <Route path="booking/:propertyId" element={<Booking/>}></Route>
               <Route path="seller/:sellerId/properties" element={<SellerProperties/>} />
           </Routes>
           <Footer />
