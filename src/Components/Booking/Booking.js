@@ -1,45 +1,90 @@
+import {useState, useEffect, useReducer} from "react"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHelmetSafety, faHammer } from "@fortawesome/free-solid-svg-icons"
 
 
 const Booking = () => {
+
+    const reducedBookingsList = (state, action) => {
+      //reduced properties list function used in useReducer
+      switch (action.type) {
+        case "SET": 
+          return action.payload;
+                  //returns the state as is 
+        default:
+          return state; 
+      }
+    };
+
+    const [listOfBookings, dispatch] = useReducer(reducedBookingsList, []);
+
+  useEffect(() => {
+ 
+    fetch("http://localhost:8081/booking")
+      .then((response) => {
+        if (!response.ok) {
+          alert("Error occurred, could not load data of bookings");
+          throw response.status;
+          //GET request to get all the bookings and set this into state
+        }
+        return response.json();
+      })
+      .then((listOfBookings) => {
+        dispatch({ type: "SET", payload: listOfBookings });
+        //using a type of SET and the payload of all the bookings.
+       
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Error has occurred getting the data");
+      });
+  }, []);
+
+
+
+
+
   return <>
-  <br />
-  <br />
-  <br />
   <br />
   <br />
   <br />
   <h1 className="display-1">Bookings Page</h1>
   <br />
   <div><h2 className="display-2">coming soon <FontAwesomeIcon icon={faHelmetSafety} />&nbsp;<FontAwesomeIcon icon={faHammer} /></h2></div>
+  
   <br />
   <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+
+  <div className="container-fluid">
+        <div className="row justify-content-center">
+        <div className="col-lg-7">
+        <table  class="table table-hover table-bordered">
+          <thead >
+            <tr >
+              <th scope="col">Buyer</th>
+              <th scope="col">Property</th>
+              <th scope="col">Date/Time</th>
+              
+             
+            </tr>
+          </thead>
+          <tbody>
+             {
+              listOfBookings.map((booking) => (
+                <tr key={booking.id}>
+                  <td>{booking.buyerId}</td>
+                  <td>{booking.propertyId}</td>
+                  <td>{booking.time}</td>
+                </tr>
+              ))}
+            
+          </tbody>
+        </table>
+        </div>
+      </div>  
+      </div>
+       
   <br />
   <br />
   <br />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useReducer } from "react";
+import {Link} from "react-router-dom"
 import PropertySearchForm from "./PropertySearchForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropertyAddForm from "./PropertyAddForm";
@@ -15,7 +16,8 @@ import {
   faPenToSquare,
   faCoins,
   faXmark,
-  faHouseFlag
+  faHouseFlag,
+  faBookOpen
 } from "@fortawesome/free-solid-svg-icons";
 
 const Property = () => {
@@ -410,7 +412,7 @@ const Property = () => {
                           </div>
                         </div>
                       </div>
-
+                      
                       <button
                         className="btn btn-outline-warning"
                         onClick={() => {
@@ -419,6 +421,15 @@ const Property = () => {
                         }}
                       >
                         Edit <FontAwesomeIcon icon={faPenToSquare} />
+                      </button>
+                      <button
+                        className="btn btn-outline-info"
+                        onClick={() => {
+                          <Link to="/booking" > 
+                       </Link>
+                        }}
+                      >
+                        Booking <FontAwesomeIcon icon={faBookOpen} />
                       </button>
                     </div>
                   </div>
