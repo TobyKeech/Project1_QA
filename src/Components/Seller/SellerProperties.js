@@ -2,17 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTrash,
   faBed,
   faTree,
   faHouseChimney,
   faMapPin,
-  faMinus,
-  faPlus,
-  faMagnifyingGlass,
-  faPenToSquare,
+ faXmark,
   faCoins,
-  faHouse,
+  faHouseFlag
 } from "@fortawesome/free-solid-svg-icons";
 
 const SellerProperties = ({}) => {
@@ -59,6 +55,7 @@ const SellerProperties = ({}) => {
                         : require("../../images/noimg.jpg").default
                     }
                     alt="Card image cap"
+                    style={{ filter: property.status === 'SOLD' ? 'grayscale(100%)' : 'none' }}
                   />
                   <div className="card-body">
                     <h5 className="card-title">{property.address}</h5>
@@ -98,7 +95,12 @@ const SellerProperties = ({}) => {
                         style={{ color: "#dcad04" }}
                       />
                     </p>
-                    <p className="card-text">Status: {property.status}</p>
+                    <p className="card-text"> {property.status} {property.status === 'SOLD' ? (
+                          <FontAwesomeIcon icon={faXmark} style={{ color: 'red' }} />
+                        ) : (
+                          <FontAwesomeIcon icon={faHouseFlag} style={{ color: 'green' }} />
+                        )}
+                        </p>
                   </div>
                 </div>
               </div>
