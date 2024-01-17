@@ -68,8 +68,8 @@ const Property = () => {
       listOfProperties.filter(
         (property) =>
           (searchInput.type === "ANY" || property.type === searchInput.type) &&
-          Number(property.bathroom) >= Number(searchInput.bathroom) &&
-          Number(property.bedroom) >= Number(searchInput.bedroom) &&
+          Number(property.numberOfBathrooms) >= Number(searchInput.numberOfBathrooms) &&
+          Number(property.numberOfBedrooms ) >= Number(searchInput.numberOfBathrooms) &&
           Number(property.garden) >= Number(searchInput.garden) &&
           (Number(searchInput.price) === 0 ||
             Number(property.price) <= Number(searchInput.price))
@@ -80,7 +80,7 @@ const Property = () => {
   };
 
   const propertyAddHandler = (newProperty) => {
-    fetch("http://localhost:7091/Property", {
+    fetch("https://localhost:7091/Property", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProperty),
@@ -93,7 +93,7 @@ const Property = () => {
           setSaving(false);
           throw response.status;
         } else return response.json();
-                //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+                //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the https error code
       })
       .then((newProperty) => {
         dispatch({ type: "ADD", payload: newProperty });
@@ -106,16 +106,16 @@ const Property = () => {
   const deletePropertyHandler = (property) => {
     setSaving(true);
     //manipulates the state
-    fetch(`http://localhost:7091/Property/${property.id}`, {
+    fetch(`https://localhost:7091/Property/${property.id}`, {
       method: "DELETE",
-            //fetch the specific sellers id to match for deletion, HTTP method delete is specified
+            //fetch the specific sellers id to match for deletion, https method delete is specified
     })
       .then((response) => {
         if (!response.ok) {
           alert("An error has occurred. Unable to delete property");
           setSaving(false);
           throw response.status;
-        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the https error code
 
         } else {
           dispatch({ type: "REMOVE", payload: property });
@@ -135,7 +135,8 @@ const Property = () => {
   };
 
   const editPropertyHandler = (property) => {
-    fetch(`http://localhost:7091/Property/${property.id}`, {
+    console.log(property)
+    fetch(`https://localhost:7091/Property/${property.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(property),

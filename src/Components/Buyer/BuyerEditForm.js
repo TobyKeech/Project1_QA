@@ -74,7 +74,7 @@ const BuyerEditForm = ({buyer, editBuyerHandler, onClose}) => {
       </div>
       <div className="mb-3">
         <label htmlFor="postcode" className="form-label text-black">
-          Surname
+          Postcode
         </label>
         <input
           type="text"
@@ -88,7 +88,7 @@ const BuyerEditForm = ({buyer, editBuyerHandler, onClose}) => {
       </div>
       <div className="mb-3">
         <label htmlFor="phone" className="form-label text-black">
-          Surname
+          Phone Number
         </label>
         <input
           type="text"

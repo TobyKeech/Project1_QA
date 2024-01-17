@@ -49,6 +49,8 @@ const propertyAddHandler = props.propertyAddHandler
                 price: refPrice.current.value,
                 status: refStatus.current.value,
                 type: refType.current.value,
+                sellerId: 1,
+               // buyerId:null
             });
             resetForm();
         } else {

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
 
     const [editedProperty, setEditedProperty] = useState({...property})
-    //state to manage the edited property, the inital state is set with the current ata of the orinigal property using spread
+    //state to manage the edited property, the inital state is set with the current data of the orinigal property using spread
     const [formVisible, setFormVisible] = useState(true);
 
 
@@ -58,38 +58,6 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="bedroom" className="form-label text-black">
-          No of Bedrooms
-        </label>
-        <input
-          type="number"
-          className="form-control"
-          id="bedroom"
-          name="bedroom"
-          value={editedProperty.bedroom || ""}
-          min="1"
-          max="10"
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="garden" className="form-label text-black">
-          No of Gardens
-        </label>
-        <input
-          type="number"
-          className="form-control"
-          id="garden"
-          name="garden"
-          value={editedProperty.garden || ""}
-          min="0"
-          max="5"
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="mb-3">
         <label htmlFor="type" className="form-label text-black">
           Type
         </label>
@@ -107,6 +75,54 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
           <option value="SEMI-DETACHED">SEMI-DETACHED</option>
           </select>
       </div>
+      <div className="mb-3">
+        <label htmlFor="numberOfBedrooms" className="form-label text-black">
+          No of Bedrooms
+        </label>
+        <input
+          type="number"
+          className="form-control"
+          id="numberOfBedrooms"
+          name="numberOfBedrooms"
+          value={editedProperty.numberOfBedrooms || ""}
+          min="1"
+          max="10"
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="numberOfBathrooms" className="form-label text-black">
+          No of Bathrooms
+        </label>
+        <input
+          type="number"
+          className="form-control"
+          id="numberOfBathrooms"
+          name="numberOfBathrooms"
+          value={editedProperty.numberOfBathrooms || ""}
+          onChange={handleChange}
+          required
+        />
+      </div>
+     
+      <div className="mb-3">
+        <label htmlFor="garden" className="form-label text-black">
+          No of Gardens
+        </label>
+        <input
+          type="bool"
+          className="form-control"
+          id="garden"
+          name="garden"
+          value={editedProperty.garden || ""}
+          min="0"
+          max="5"
+          onChange={handleChange}
+          required
+        />
+      </div>
+    
 
       <div className="mb-3">
         <label htmlFor="price" className="form-label text-black">

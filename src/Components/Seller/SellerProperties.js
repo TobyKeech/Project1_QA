@@ -19,7 +19,7 @@ const SellerProperties = ({}) => {
 
   useEffect(() => {
     // Fetch properties based on the sellerId
-    fetch(`http://localhost:8081/property`)
+    fetch(`https://localhost:7091/Property`)
       .then((response) => response.json())
       .then((properties) => {
         setProperties(properties.filter((p) => p.sellerId == sellerId));
