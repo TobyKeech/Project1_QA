@@ -28,16 +28,16 @@ const propertyAddHandler = props.propertyAddHandler
     const submitHandler = (event) => {
         event.preventDefault();
 
-        const isValidInput = (input) => {
-            return /^\d+$/.test(input); // Checks if the input is a positive integer
-          };
+        //const isValidInput = (input) => {
+        //    return /^\d+$/.test(input); // Checks if the input is a positive integer
+        //  };
 
         if (
             refAddress.current.value &&
             refPostcode.current.value &&
-           isValidInput(refGardens.current.value) &&
-           isValidInput(refBathrooms.current.value) &&
-            isValidInput(refPrice.current.value) &&
+          refGardens.current.value &&
+           refBathrooms.current.value &&
+            refPrice.current.value &&
             refStatus.current.value &&
             refType.current.value
         ) {
@@ -78,7 +78,7 @@ const propertyAddHandler = props.propertyAddHandler
 
             <div class="col">
                 <label>Gardens</label>
-                <input type="number" placeholder="Enter gardens" class="form-control" id="propertyGardens" ref={refGardens} />
+                <input type="bool" placeholder="Enter gardens" class="form-control" id="propertyGardens" ref={refGardens} />
             </div>
 
             <div class="col">

@@ -67,9 +67,9 @@ const Property = () => {
       //state of search result will be updated with the filtered list of properties, this is used for the display in the map. See below within return. 
       listOfProperties.filter(
         (property) =>
-          (searchInput.type === "ANY" || property.type === searchInput.type) &&
+        property.type === searchInput.type &&
           Number(property.numberOfBathrooms) >= Number(searchInput.numberOfBathrooms) &&
-          Number(property.numberOfBedrooms ) >= Number(searchInput.numberOfBathrooms) &&
+          Number(property.numberOfBedrooms ) >= Number(searchInput.numberOfBedrooms) &&
           Number(property.garden) >= Number(searchInput.garden) &&
           (Number(searchInput.price) === 0 ||
             Number(property.price) <= Number(searchInput.price))
@@ -304,7 +304,7 @@ const Property = () => {
                 <div class="card m-3 shadow">
                   <img
                     class="card-img-top"
-                    src={property.img ? require(`../../images/${property.img}`) : require('../../images/chessimg.jpg')}
+                    src={property.img ? require(`../../images/${property.img}`) : require('../../images/img1.jpg')}
                     alt="Card image cap"
                     style={{ filter: property.status === 'SOLD' ? 'grayscale(100%)' : 'none' }}
                   />
