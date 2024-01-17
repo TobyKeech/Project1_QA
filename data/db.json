@@ -1,14 +1,6 @@
 {
   "seller": [
     {
-      "id": 3,
-      "firstName": "Peter",
-      "surname": "Jones",
-      "address": "3 Low Street, Cardiff",
-      "postcode": "CF1 1AC",
-      "phone": "01234567892"
-    },
-    {
       "id": 4,
       "firstName": "Karen",
       "surname": "Slater",
@@ -101,7 +93,7 @@
       "garden": "2",
       "type": "APARTMENT",
       "price": "175000",
-      "status": "SOLD",
+      "status": "FOR SALE",
       "img": "img1.jpg"
     },
     {
@@ -179,7 +171,7 @@
       "price": "100000000",
       "bedroom": "8",
       "bathroom": 2,
-      "garden": "0",
+      "garden": "1",
       "sellerId": 7,
       "status": "FOR SALE",
       "buyerId": 6,
@@ -206,11 +198,21 @@
       "price": 140000,
       "bedroom": 2,
       "bathroom": 1,
-      "garden": 0,
+      "garden": "0",
       "sellerId": 9,
-      "status": "SOLD",
+      "status": "FOR SALE",
       "buyerId": 7,
       "img": "img9.jpg"
+    },
+    {
+      "address": "prem beef, dundee",
+      "postcode": "fdfdf",
+      "gardens": "2",
+      "bathrooms": "2",
+      "price": "42342",
+      "status": "FOR SALE",
+      "type": "SEMI",
+      "id": 10
     }
   ],
   "buyer": [
@@ -309,6 +311,14 @@
       "address": "2 Yarn Road, Southampton",
       "postcode": "SO1 4KN",
       "phone": "01234567812"
+    },
+    {
+      "firstName": "Max",
+      "surname": "Beef",
+      "address": "prem beef, dundee",
+      "postcode": "BEE7 4LF",
+      "phone": "0123434535",
+      "id": 14
     }
   ],
   "booking": [

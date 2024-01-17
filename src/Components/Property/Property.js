@@ -17,7 +17,8 @@ import {
   faCoins,
   faXmark,
   faHouseFlag,
-  faBookOpen
+  faBookOpen,
+  faBath
 } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -79,7 +80,7 @@ const Property = () => {
   };
 
   const propertyAddHandler = (newProperty) => {
-    fetch("http://localhost:8081/property", {
+    fetch("http://localhost:7091/Property", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProperty),
@@ -105,7 +106,7 @@ const Property = () => {
   const deletePropertyHandler = (property) => {
     setSaving(true);
     //manipulates the state
-    fetch(`http://localhost:8081/property/${property.id}`, {
+    fetch(`http://localhost:7091/Property/${property.id}`, {
       method: "DELETE",
             //fetch the specific sellers id to match for deletion, HTTP method delete is specified
     })
@@ -134,7 +135,7 @@ const Property = () => {
   };
 
   const editPropertyHandler = (property) => {
-    fetch(`http://localhost:8081/property/${property.id}`, {
+    fetch(`http://localhost:7091/Property/${property.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(property),
@@ -168,7 +169,7 @@ const Property = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8081/property")
+    fetch("https://localhost:7091/Property")
       .then((response) => {
         if (!response.ok) {
           alert("Error occurred, could not load data of properties");
@@ -317,11 +318,20 @@ const Property = () => {
                         />
                       </p>
                       <p className="card-text">
-                        No of Bedrooms: {property.bedroom}{" "}
+                        No of Bedrooms: {property.numberOfBedrooms}{" "}
                         <FontAwesomeIcon
                           icon={faBed}
                           style={{ color: "#00ace6" }}
                           
+                        />
+                      </p>
+
+                      <p className="card-text">
+                        No of Bathrooms: {property.numberOfBathrooms}{" "}
+                        <FontAwesomeIcon
+                          icon={faBath}
+                          style={{ color: "#00ace6" }}
+              
                         />
                       </p>
                       
