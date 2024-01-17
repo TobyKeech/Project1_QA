@@ -42,7 +42,8 @@ const SellerForm = (props) => {
                     surname: refSurname.current.value,
                     address: refAddress.current.value,
                     postcode: refPostcode.current.value,
-                    phone: refPhone.current.value
+                    phone: refPhone.current.value,
+                    properties:[]
                 }
                 //add seller handler is defined in parent component. Values are set with the those from the form and the function (check addSellerHandler in seller) will run its logic. 
                 //this will then proceed to add the handler to the state. 

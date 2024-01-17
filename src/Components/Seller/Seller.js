@@ -56,7 +56,7 @@ const Seller = () => {
     setSaving(true);
     //state set to true
 
-    fetch("http://localhost:8081/seller", {
+    fetch("https://localhost:7091/Seller", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newSeller),
@@ -82,7 +82,7 @@ const Seller = () => {
     setSaving(true);
     //manipulates the state
 
-    fetch(`http://localhost:8081/seller/${seller.id}`, {
+    fetch(`https://localhost:7091/Seller/${seller.id}`, {
       method: "DELETE",
       //fetch the specific sellers id to match for deletion, HTTP method delete is specified
     })
@@ -108,7 +108,7 @@ const Seller = () => {
   };
 
   const editSellerHandler = (seller) => {
-    fetch(`http://localhost:8081/seller/${seller.id}`, {
+    fetch(`https://localhost:7091/Seller/${seller.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(seller),
@@ -144,7 +144,7 @@ const Seller = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8081/seller")
+    fetch("https://localhost:7091/Seller")
     //used to obtain list of all the sellers when page refreshes or state changes
       .then((response) => {
         if (!response.ok) {

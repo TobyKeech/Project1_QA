@@ -45,7 +45,7 @@ const Buyer = () => {
     }
 
     setSaving(true);
-    fetch("http://localhost:8081/buyer", {
+    fetch("https://localhost:7091/Buyer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newBuyer),
@@ -66,7 +66,7 @@ const Buyer = () => {
   const deleteBuyerHandler = (buyer) => {
     setSaving(true);
 
-    fetch(`http://localhost:8081/buyer/${buyer.id}`, {
+    fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -87,7 +87,7 @@ const Buyer = () => {
   };
 
   const editBuyerHandler = (buyer) => {
-    fetch(`http://localhost:8081/buyer/${buyer.id}`, {
+    fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(buyer),
@@ -118,7 +118,7 @@ const Buyer = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8081/buyer")
+    fetch("https://localhost:7091/Buyer")
       .then((response) => {
         if (!response.ok) {
           alert("Error occurred, could not load data of buyers");
