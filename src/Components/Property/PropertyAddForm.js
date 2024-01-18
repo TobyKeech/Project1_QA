@@ -43,14 +43,14 @@ const propertyAddHandler = props.propertyAddHandler
         ) {
             propertyAddHandler({
                 address: refAddress.current.value,
-                postcode: refPostcode.current.value,
+                postcode:  refPostcode.current.value,
                 gardens: refGardens.current.value,
                 bathrooms: refBathrooms.current.value,
                 price: refPrice.current.value,
                 status: refStatus.current.value,
                 type: refType.current.value,
                 sellerId: 1,
-               // buyerId:null
+               buyerId:3
             });
             resetForm();
         } else {

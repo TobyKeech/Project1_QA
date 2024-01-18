@@ -24,7 +24,7 @@ const Booking = () => {
 
   useEffect(() => {
  
-    fetch("http://localhost:8081/booking")
+    fetch("https://localhost:7091/Booking")
       .then((response) => {
         if (!response.ok) {
           alert("Error occurred, could not load data of bookings");
