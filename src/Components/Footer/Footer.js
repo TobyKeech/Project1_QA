@@ -56,6 +56,11 @@ const Footer = () => {
           <p>
             <a href="#!" class="text-reset">Help</a>
           </p>
+          <p>
+          <Link to="/login" className="text-reset">
+              Login
+          </Link>
+          </p>
         </div>
 
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
