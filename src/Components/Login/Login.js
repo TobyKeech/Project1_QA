@@ -27,7 +27,7 @@ const Login = () => {
                     }
                     else {
                         toast.warn('Check your username and password 1', {
-                            position: toast.POSITION.BOTTOM_LEFT
+                            //position: toast.POSITION.BOTTOM_LEFT
                         })
                     }
                 }
@@ -35,7 +35,7 @@ const Login = () => {
             .catch((error)=>{
                 console.log(error.message)
                 toast.warn('Check your username and password', {
-                    position: toast.POSITION.BOTTOM_LEFT
+                    //position: toast.POSITION.BOTTOM_LEFT
                 })
             })
     }
