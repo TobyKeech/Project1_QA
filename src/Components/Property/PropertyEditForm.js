@@ -12,13 +12,13 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
     }, [property]);
 
     const handleChange = (event) => {
-      const { name, value } = event.target;
-      setEditedProperty((previousProperty) => {
-          const updatedProperty = { ...previousProperty, [name]: value };
-          console.log('Updated editedProperty:', updatedProperty);
-          return updatedProperty;
-      });
-  };
+    const { name, value } = event.target;
+    setEditedProperty((previousProperty) => {
+        const updatedProperty = { ...previousProperty, [name]: value };
+        console.log('Updated editedProperty:', updatedProperty);
+        return updatedProperty;
+    });
+};
 
     const handleSubmit = (event) => {
         event.preventDefault();
