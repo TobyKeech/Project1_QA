@@ -38,6 +38,9 @@ const Seller = () => {
   const [showSellerEditForm, setShowSellerEditForm] = useState(false);
   //state for showing and hiding the seller edit form used below
 
+  //JWT token used for authentication
+  const token = sessionStorage.getItem("jwt");
+
   const addSellerHandler = (newSeller) => {
     //add seller function which takes in a new seller 
     if (
@@ -58,7 +61,7 @@ const Seller = () => {
 
     fetch("https://localhost:7091/Seller", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
       body: JSON.stringify(newSeller),
       //post request to the defined url and the newSeller object converted to JSON
     })
@@ -84,6 +87,7 @@ const Seller = () => {
 
     fetch(`https://localhost:7091/Seller/${seller.id}`, {
       method: "DELETE",
+      headers: { "Authorization" : `Bearer ${token}` }
       //fetch the specific sellers id to match for deletion, HTTP method delete is specified
     })
       .then((response) => {
@@ -110,7 +114,7 @@ const Seller = () => {
   const editSellerHandler = (seller) => {
     fetch(`https://localhost:7091/Seller/${seller.id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
       body: JSON.stringify(seller),
       //sends a PUT request which will update the data on the server. Converts the seller object to JSON string. 
     })

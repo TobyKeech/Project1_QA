@@ -21,6 +21,9 @@ const Booking = () => {
     };
 
     const [listOfBookings, dispatch] = useReducer(reducedBookingsList, []);
+    
+    //JWT token used for authentication
+    const token = sessionStorage.getItem("jwt");
 
   useEffect(() => {
  

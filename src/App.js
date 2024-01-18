@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./Components/Home/Home";
 import Booking from "./Components/Booking/Booking";
 import SellerProperties from "./Components/Seller/SellerProperties";
+import Login from "./Components/Login/Login";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path="booking" element={<Booking/>}></Route>
               <Route path="booking/:propertyId" element={<Booking/>}></Route>
               <Route path="seller/:sellerId/properties" element={<SellerProperties/>} />
+              <Route path="login" element={<Login />} />
           </Routes>
           <Footer />
       </BrowserRouter>

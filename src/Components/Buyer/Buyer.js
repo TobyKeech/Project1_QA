@@ -32,6 +32,10 @@ const Buyer = () => {
   const [showBuyerInputForm, setShowBuyerInputForm] = useState(false);
   const [editedBuyer, setEditedBuyer] = useState(null);
   const [showBuyerEditForm, setShowBuyerEditForm] = useState(false);
+  
+  //JWT token used for authentication
+  const token = sessionStorage.getItem("jwt");
+
   const buyerAddHandler = (newBuyer) => {
     if (
       listOfBuyers.filter(
@@ -47,7 +51,7 @@ const Buyer = () => {
     setSaving(true);
     fetch("https://localhost:7091/Buyer", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
       body: JSON.stringify(newBuyer),
     })
       .then((response) => {
@@ -68,6 +72,7 @@ const Buyer = () => {
 
     fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
       method: "DELETE",
+      headers: { "Authorization" : `Bearer ${token}` }
     })
       .then((response) => {
         if (!response.ok) {
@@ -89,7 +94,7 @@ const Buyer = () => {
   const editBuyerHandler = (buyer) => {
     fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
       body: JSON.stringify(buyer),
     })
       .then((response) => {

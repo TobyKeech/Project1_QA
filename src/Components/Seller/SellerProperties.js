@@ -16,6 +16,9 @@ const SellerProperties = ({}) => {
 
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  //JWT token used for authentication
+  const token = sessionStorage.getItem("jwt");
 
   useEffect(() => {
     // Fetch properties based on the sellerId

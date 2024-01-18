@@ -60,6 +60,9 @@ const Property = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   //both of these above used for state maniplution for setting loading and saving to true or false within functions to allow for displaying of error handling. 
+  
+  //JWT token used for authentication
+  const token = sessionStorage.getItem("jwt");
 
   const searchHandlerForForm = (searchInput) => {
     //function which takes the search input as a parameter
@@ -82,7 +85,7 @@ const Property = () => {
   const propertyAddHandler = (newProperty) => {
     fetch("https://localhost:7091/Property", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
       body: JSON.stringify(newProperty),
             //post request to the defined url and the newProperty object converted to JSON
 
@@ -108,6 +111,7 @@ const Property = () => {
     //manipulates the state
     fetch(`https://localhost:7091/Property/${property.id}`, {
       method: "DELETE",
+      headers: { "Authorization" : `Bearer ${token}` }
             //fetch the specific sellers id to match for deletion, https method delete is specified
     })
       .then((response) => {
@@ -138,7 +142,7 @@ const Property = () => {
     console.log(property)
     fetch(`https://localhost:7091/Property/${property.id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
       body: JSON.stringify(property),
       //request made with a specific id for a property and a put method indicating an update of the property 
     })
