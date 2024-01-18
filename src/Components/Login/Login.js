@@ -56,12 +56,12 @@ const Login = () => {
     else {
         return (
                         <>
-                        <label for="Username" >Username: </label>
+                        <label for="Username" >Username: </label><br/>
             <input type={"text"} name="username"label="Username" onChange={handleChange} /><br/>
+            <label for="Username" >Password: </label><br/>
  <input type="password" name="password"
             label="Password" onChange={handleChange} /><br/><br/>
- <button variant="outlined" color="primary"
-         onClick={login}>
+ <button variant="outlined" style={{ backgroundColor: "rgb(255, 192, 203)" }}onClick={login}>
      Login
  </button>
  <ToastContainer autoClose={5000} />
