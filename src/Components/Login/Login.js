@@ -7,6 +7,7 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import { useNavigate } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 const Login = () => {
     let navigate = useNavigate();
@@ -17,8 +18,6 @@ const Login = () => {
         setUser({ ...user, [event.target.name]: event.target.value })
     }
 
-    console.log(user);
-   
     const login = () => {
         axios
             .post(SERVER_URL + 'api/token/login', user)
@@ -54,8 +53,10 @@ const Login = () => {
     }
 
     if (isAuthenticated === true) {
-        navigate('/');
-        return (<Home/>);
+        //navigate('/');
+        //return (<Home/>)
+        window.history.back();
+        //history.back();
     }
     else {
         return ( 
@@ -85,7 +86,6 @@ const Login = () => {
                             &nbsp;
                             <div className="d-flex justify-content-center align-items-center">
             <button type="button" className="btn btn-primary mb-2 p-3"  style={{ width: "200px" }}  onClick={login}> 
- 
      Login
  </button>
  </div>

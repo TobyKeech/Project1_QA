@@ -4,6 +4,9 @@ import SellerAddForm from "./SellerAddForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPenToSquare, faPlus, faSearch, faTrash } from "@fortawesome/free-solid-svg-icons";
 import SellerEditForm from "./SellerEditForm";
+import Login from "../Login/Login";
+import { Navigate } from "react-router-dom/dist";
+import { useNavigate } from "react-router-dom/dist";
 
 const Seller = () => {
   const [loading, setLoading] = useState(true);
@@ -39,111 +42,129 @@ const Seller = () => {
   //state for showing and hiding the seller edit form used below
 
   //JWT token used for authentication
+  let navigate = useNavigate();
   const token = sessionStorage.getItem("jwt");
+  const [isAuthenticated, setAuth] = useState(false);
+  //console.log("token: " + token);
 
   const addSellerHandler = (newSeller) => {
     //add seller function which takes in a new seller 
-    if (
-      listOfSellers.filter(
-        //filters the list of sellers fo each seller and compares if the sellers first name matches that of the new sellers first name as well as second name
-
-        (seller) =>
-          seller.firstName === newSeller.firstName &&
-          seller.surname === newSeller.surname
-      ).length
-    ) {
-      alert("Seller already exists in the list");
-      return;
-      //if a seller macthing the first name and surname appears then a alrt is thrown stating tthe seller alredy exists
+    if(token === null){
+      navigate('/login');
     }
-    setSaving(true);
-    //state set to true
+    else{
+      if (
+        listOfSellers.filter(
+          //filters the list of sellers fo each seller and compares if the sellers first name matches that of the new sellers first name as well as second name
 
-    fetch("https://localhost:7091/Seller", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
-      body: JSON.stringify(newSeller),
-      //post request to the defined url and the newSeller object converted to JSON
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("An error has occurred. Unable to add seller");
-          setSaving(false);
-          throw response.status;
-        } else return response.json();
-        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+          (seller) =>
+            seller.firstName === newSeller.firstName &&
+            seller.surname === newSeller.surname
+        ).length
+      ) {
+        alert("Seller already exists in the list");
+        return;
+        //if a seller macthing the first name and surname appears then a alrt is thrown stating tthe seller alredy exists
+      }
+      setSaving(true);
+      //state set to true
+
+      fetch("https://localhost:7091/Seller", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
+        body: JSON.stringify(newSeller),
+        //post request to the defined url and the newSeller object converted to JSON
       })
-      .then((newSeller) => {
-        dispatch({ type: "ADD", payload: newSeller });
-        setSaving(false);
-        //if response is successful then the new seller is sent as the payload using dispath with the type set as ADD, this is then used by the 
-        //reducedSellerList function at the top which contains the action depending on the action type in this case ADD. Read above for details.
-      });
+        .then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred. Unable to add seller");
+            setSaving(false);
+            throw response.status;
+          } else return response.json();
+          //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+        })
+        .then((newSeller) => {
+          dispatch({ type: "ADD", payload: newSeller });
+          setSaving(false);
+          //if response is successful then the new seller is sent as the payload using dispath with the type set as ADD, this is then used by the 
+          //reducedSellerList function at the top which contains the action depending on the action type in this case ADD. Read above for details.
+        });
+    }
   };
 
   const deleteSellerHandler = (seller) => {
     setSaving(true);
     //manipulates the state
 
-    fetch(`https://localhost:7091/Seller/${seller.id}`, {
-      method: "DELETE",
-      headers: { "Authorization" : `Bearer ${token}` }
-      //fetch the specific sellers id to match for deletion, HTTP method delete is specified
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("An error has occurred. Unable to delete seller");
-          setSaving(false);
-          throw response.status;
-        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
-      } else {
-          dispatch({ type: "REMOVE", payload: seller });
-          setSaving(false);
-        //if response is successful then the seller is sent as the payload using dispath with the type set as REMOVE, this is then used by the 
-        //reducedSellerList function at the top which contains the action depending on the action type in this case REMOVE. Read above for details.
-      }
+    if(token === null){
+      navigate('/login');
+    }
+    else{
+      fetch(`https://localhost:7091/Seller/${seller.id}`, {
+        method: "DELETE",
+        headers: { "Authorization" : `Bearer ${token}` }
+        //fetch the specific sellers id to match for deletion, HTTP method delete is specified
       })
-      .catch((error) => {
-        setSaving(false);
-        console.log(error);
-        alert("Error has occurred while deleting the seller");
-        //error handling that if anything goes wrong then state of saving is changed as well as an error alert being given to the user that there was issue deleting the seller 
-      });
+        .then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred. Unable to delete seller");
+            setSaving(false);
+            throw response.status;
+          //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the HTTP error code
+        } else {
+            dispatch({ type: "REMOVE", payload: seller });
+            setSaving(false);
+          //if response is successful then the seller is sent as the payload using dispath with the type set as REMOVE, this is then used by the 
+          //reducedSellerList function at the top which contains the action depending on the action type in this case REMOVE. Read above for details.
+        }
+        })
+        .catch((error) => {
+          setSaving(false);
+          console.log(error);
+          alert("Error has occurred while deleting the seller");
+          //error handling that if anything goes wrong then state of saving is changed as well as an error alert being given to the user that there was issue deleting the seller 
+        });
+    }
   };
 
   const editSellerHandler = (seller) => {
-    fetch(`https://localhost:7091/Seller/${seller.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
-      body: JSON.stringify(seller),
-      //sends a PUT request which will update the data on the server. Converts the seller object to JSON string. 
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("An error has occurred, unable to edit seller");
+    if(token === null){
+      navigate('/login');
+    }
+    else{
+      fetch(`https://localhost:7091/Seller/${seller.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
+        body: JSON.stringify(seller),
+        //sends a PUT request which will update the data on the server. Converts the seller object to JSON string. 
+      })
+        .then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred, unable to edit seller");
+            setSaving(false);
+            throw response.status;
+            //see above for explination of same code
+          }
+          return response.json();
+        })
+        .then((updatedSeller) => {
+          dispatch({
+            type: "SET",
+            payload: listOfSellers.map((s) =>
+              s.id === updatedSeller.id ? updatedSeller : s
+            ),
+            //dispatch action with the type set as SET and the payload is given an updated list of sellers with the seller with the same id is replaced with the updated seller. 
+          });
           setSaving(false);
-          throw response.status;
-          //see above for explination of same code
-        }
-        return response.json();
-      })
-      .then((updatedSeller) => {
-        dispatch({
-          type: "SET",
-          payload: listOfSellers.map((s) =>
-            s.id === updatedSeller.id ? updatedSeller : s
-          ),
-          //dispatch action with the type set as SET and the payload is given an updated list of sellers with the seller with the same id is replaced with the updated seller. 
-        });
-        setSaving(false);
-        //state changed when completion of asynchronous function is finished. 
-      })
-      .catch((error) => {
-        setSaving(false);
-        console.log(error);
-        alert("Error has occurred while editing the seller");
-          //see above for explination of same code
-        });
+          //state changed when completion of asynchronous function is finished. 
+        })
+        .catch((error) => {
+          setSaving(false);
+          console.log(error);
+          alert("Error has occurred while editing the seller");
+            //see above for explination of same code
+          });
+      }
   };
 
   useEffect(() => {
