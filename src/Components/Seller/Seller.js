@@ -40,6 +40,7 @@ const Seller = () => {
 
   //JWT token used for authentication
   const token = sessionStorage.getItem("jwt");
+  //console.log("token: " + token);
 
   const addSellerHandler = (newSeller) => {
     //add seller function which takes in a new seller 
