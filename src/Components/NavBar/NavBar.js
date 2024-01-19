@@ -32,7 +32,7 @@ const NavBar = () => {
             {
               token && (
                 <Link to="/logout" className="navbar-brand fw-bold text-black">
-              &nbsp; Hi {"test"}
+              &nbsp;
             </Link>
               )
             }  
