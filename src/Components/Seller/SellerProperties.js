@@ -8,7 +8,8 @@ import {
   faMapPin,
   faXmark,
   faCoins,
-  faHouseFlag
+  faHouseFlag,
+  faBath
 } from "@fortawesome/free-solid-svg-icons";
 
 const SellerProperties = ({}) => {
@@ -70,7 +71,7 @@ const SellerProperties = ({}) => {
                       />
                     </p>
                     <p className="card-text">
-                      No of Bedrooms: {property.bedroom}{" "}
+                      No of Bedrooms: {property.numberOfBedrooms}{" "}
                       <FontAwesomeIcon
                         icon={faBed}
                         style={{ color: "#00ace6" }}
@@ -78,12 +79,25 @@ const SellerProperties = ({}) => {
                     </p>
 
                     <p className="card-text">
-                      No of Gardens: {property.garden}{" "}
+                      No of Bathrooms: {property.numberOfBathrooms}{" "}
                       <FontAwesomeIcon
-                        icon={faTree}
-                        style={{ color: "green" }}
+                        icon={faBath}
+                        style={{ color: "#00ace6" }}
                       />
                     </p>
+
+
+                    <p className="card-text">
+  {property.garden ? (
+    <>
+      Gardens: Yes
+      <FontAwesomeIcon icon={faTree} style={{ color: "green" }} />
+    </>
+  ) : (
+    "No Gardens"
+  )}
+</p>
+
                     <p className="card-text">
                       Type: {property.type}{" "}
                       <FontAwesomeIcon
