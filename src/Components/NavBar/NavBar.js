@@ -1,10 +1,11 @@
 import { Link, Outlet} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHouseUser, faHouseFlag, faChessRook, faChessBoard, faAddressBook} from "@fortawesome/free-solid-svg-icons"
+import { faHouse, faHouseUser, faUser,faHouseFlag, faChessRook, faChessBoard, faAddressBook, faSignIn, faSignOut} from "@fortawesome/free-solid-svg-icons"
 import { faChessKnight} from "@fortawesome/free-regular-svg-icons"
-
-
+import { useState } from "react";
 const NavBar = () => {
+  const [userId, setUserId] = useState();
+  const jwt = localStorage.getItem("jwt")
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-body-tertiary">
@@ -24,6 +25,8 @@ const NavBar = () => {
             <Link to="/home" className="navbar-brand fw-bold text-black">
               &nbsp;<FontAwesomeIcon icon={faChessRook} /> <FontAwesomeIcon icon={faChessBoard} /> 
             </Link>
+
+              
           </div>
           <div className="navbar-nav ms-auto text-dark">
             <Link to="/property" className="nav-item fw-bold nav-link text-dark">

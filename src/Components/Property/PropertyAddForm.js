@@ -9,6 +9,7 @@ const propertyAddHandler = props.propertyAddHandler
     const refAddress = useRef();
     const refPostcode = useRef();
     const refGardens = useRef();
+    const refBedrooms = useRef();
     const refBathrooms = useRef();
     const refPrice = useRef();
     const refStatus = useRef();
@@ -18,6 +19,7 @@ const propertyAddHandler = props.propertyAddHandler
         refAddress.current.value = "";
         refPostcode.current.value = "";
         refGardens.current.value = "";
+        refBedrooms.current.value ="";
         refBathrooms.current.value = "";
         refPrice.current.value = "";
         refStatus.current.value = "";
@@ -43,14 +45,15 @@ const propertyAddHandler = props.propertyAddHandler
         ) {
             propertyAddHandler({
                 address: refAddress.current.value,
-                postcode:  refPostcode.current.value,
-                gardens: refGardens.current.value,
-                bathrooms: refBathrooms.current.value,
+                postcode: refPostcode.current.value,
+                gardens: refGardens.current.checked,
+                numberOfBedrooms: refBedrooms.current.value,
+                numberOfBathrooms: refBathrooms.current.value,
                 price: refPrice.current.value,
                 status: refStatus.current.value,
                 type: refType.current.value,
                 sellerId: 1,
-               buyerId:3
+                buyerId: 3
             });
             resetForm();
         } else {
@@ -78,7 +81,12 @@ const propertyAddHandler = props.propertyAddHandler
 
             <div class="col">
                 <label>Gardens</label>
-                <input type="bool" placeholder="Enter gardens" class="form-control" id="propertyGardens" ref={refGardens} />
+                <input type="checkbox" placeholder="Enter gardens" class="form-check-input" id="propertyGardens" ref={refGardens} />
+            </div>
+
+            <div class="col">
+                <label>Bedrooms</label>
+                <input type="number" placeholder="Enter bedrooms" class="form-control" id="propertyBedrooms" ref={refBedrooms} />
             </div>
 
             <div class="col">
@@ -92,7 +100,7 @@ const propertyAddHandler = props.propertyAddHandler
             </div>
             <div class="col">
                 <label>Type</label>
-                <select  placeholder="Enter type" class="form-select" id="propertyStatus" ref={refType} >
+                <select  placeholder="Enter type" class="form-select" id="propertyType" ref={refType} >
                 <option value="">Select Type</option>
                 <option value="APARTMENT">APARTMENT</option>
                 <option value="SEMI">SEMI</option>

@@ -18,8 +18,8 @@ const PropertySearchForm = (props) => {
         searchHandlerFormInput(
             {
                 type: referenceType.current?.value,
-                bedroom: referenceBedroom.current?.value,
-                bathroom: referenceBathroom.current?.value,
+                numberOfBedrooms: referenceBedroom.current?.value,
+                numberOfBathrooms: referenceBathroom.current?.value,
                 garden: referenceGarden.current?.value,
                 price: referencePrice.current?.value,
             }

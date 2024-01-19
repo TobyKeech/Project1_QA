@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import {SERVER_URL} from '../Login/constants.js';
+import { SERVER_URL } from '../Login/constants.js';
 import Home from '../Home/Home.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
+import { useNavigate } from 'react-router';
 
 const Login = () => {
-    const [user, setUser] = useState({username: '', password: ''})
+    let navigate = useNavigate();
+    const [user, setUser] = useState({ username: '', password: '' })
     const [isAuthenticated, setAuth] = useState(false);
 
     const handleChange = (event) => {
-        setUser({...user, [event.target.name] : event.target.value})
+        setUser({ ...user, [event.target.name]: event.target.value })
     }
 
+    console.log(user);
     const login = () => {
         axios
             .post(SERVER_URL + 'api/token/login', user)
@@ -24,6 +27,12 @@ const Login = () => {
                     if (jwtToken) {
                         sessionStorage.setItem("jwt", jwtToken);
                         setAuth(true);
+                       /**  if (res.AccessToken)
+                        {
+                            localStorage.setItem("jwt", res.AccessToken);
+                            sessionStorage.setItem("jwt", jwtToken);
+                        }*/
+                        
                     }
                     else {
                         toast.warn('Check your username and password 1', {
@@ -32,7 +41,7 @@ const Login = () => {
                     }
                 }
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log(error.message)
                 toast.warn('Check your username and password', {
                     //position: toast.POSITION.BOTTOM_LEFT
@@ -41,21 +50,23 @@ const Login = () => {
     }
 
     if (isAuthenticated === true) {
-        return (<Home />)
+       // navigate('/');
+        return (<Home/>)
     }
     else {
         return (
-            <div>
-                <input type={"text"} name="username"
-                           label="Username" onChange={handleChange} /><br/>
-                <input type="password" name="password"
-                           label="Password" onChange={handleChange} /><br/><br/>
-                <button variant="outlined" color="primary"
-                        onClick={login}>
-                    Login
-                </button>
-                <ToastContainer autoClose={5000} />
-            </div>
+                        <>
+                        <label for="Username" >Username: </label><br/>
+            <input type={"text"} name="username"label="Username" onChange={handleChange} /><br/>
+            <label for="Username" >Password: </label><br/>
+ <input type="password" name="password"
+            label="Password" onChange={handleChange} /><br/><br/>
+ <button variant="outlined" style={{ backgroundColor: "rgb(255, 192, 203)" }}onClick={login}>
+     Login
+ </button>
+ <ToastContainer autoClose={5000} />
+ </>
+
         );
     }
 }

@@ -12,13 +12,13 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
     }, [property]);
 
     const handleChange = (event) => {
-      const { name, value } = event.target;
-      setEditedProperty((previousProperty) => {
-          const updatedProperty = { ...previousProperty, [name]: value };
-          console.log('Updated editedProperty:', updatedProperty);
-          return updatedProperty;
-      });
-  };
+    const { name, value } = event.target;
+    setEditedProperty((previousProperty) => {
+        const updatedProperty = { ...previousProperty, [name]: value };
+        console.log('Updated editedProperty:', updatedProperty);
+        return updatedProperty;
+    });
+};
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -108,21 +108,18 @@ const PropertyEditForm = ({property, editPropertyHandler, onClose}) => {
       </div>
      
       <div className="mb-3">
-        <label htmlFor="garden" className="form-label text-black">
-          No of Gardens
-        </label>
-        <input
-          type="bool"
-          className="form-control"
-          id="garden"
-          name="garden"
-          value={editedProperty.garden || ""}
-          min="0"
-          max="5"
-          onChange={handleChange}
-          required
-        />
-      </div>
+    <label htmlFor="garden" className="form-label text-black">
+        Garden
+    </label>
+    <input
+        type="checkbox"
+        className="form-check-input"
+        id="garden"
+        name="garden"
+        checked={editedProperty.garden || false}
+        onChange={(event) => setEditedProperty({ ...editedProperty, garden: event.target.checked })}
+    />
+</div>
     
 
       <div className="mb-3">
