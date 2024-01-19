@@ -88,15 +88,15 @@ const SellerProperties = ({}) => {
 
 
                     <p className="card-text">
-  {property.garden ? (
-    <>
-      Gardens: Yes
-      <FontAwesomeIcon icon={faTree} style={{ color: "green" }} />
-    </>
-  ) : (
-    "No Gardens"
-  )}
-</p>
+                      {property.garden ? (
+                        <>
+                          Gardens: Yes
+                          <FontAwesomeIcon icon={faTree} style={{ color: "green" }} />
+                        </>
+                      ) : (
+                        "No Gardens"
+                      )}
+                    </p>
 
                     <p className="card-text">
                       Type: {property.type}{" "}
