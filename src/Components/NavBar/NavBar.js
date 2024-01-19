@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faHouseUser, faUser,faHouseFlag, faChessRook, faChessBoard, faAddressBook, faSignIn, faSignOut} from "@fortawesome/free-solid-svg-icons"
 import { faChessKnight} from "@fortawesome/free-regular-svg-icons"
 import { useState } from "react";
+import Login from "../Login/Login";
+import { getValue } from "@testing-library/user-event/dist/utils";
 const NavBar = () => {
-  const [userId, setUserId] = useState();
-  const jwt = localStorage.getItem("jwt")
+ //JWT token used for authentication
+ const token = sessionStorage.getItem("jwt");
+  
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-dark bg-body-tertiary">
@@ -26,7 +29,13 @@ const NavBar = () => {
               &nbsp;<FontAwesomeIcon icon={faChessRook} /> <FontAwesomeIcon icon={faChessBoard} /> 
             </Link>
 
-              
+            {
+              token && (
+                <Link to="/logout" className="navbar-brand fw-bold text-black">
+              &nbsp; Hi {"test"}
+            </Link>
+              )
+            }  
           </div>
           <div className="navbar-nav ms-auto text-dark">
             <Link to="/property" className="nav-item fw-bold nav-link text-dark">
