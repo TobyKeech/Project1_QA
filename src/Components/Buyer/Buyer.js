@@ -4,6 +4,7 @@ import BuyerEditForm from "./BuyerEditForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus, faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom/dist";
 
 import { useEffect, useReducer } from "react";
 
@@ -35,90 +36,106 @@ const Buyer = () => {
   
   //JWT token used for authentication
   const token = sessionStorage.getItem("jwt");
+  let navigate = useNavigate();
 
   const buyerAddHandler = (newBuyer) => {
-    if (
-      listOfBuyers.filter(
-        (buyer) =>
-          buyer.firstName === newBuyer.firstName &&
-          buyer.surname === newBuyer.surname
-      ).length
-    ) {
-      alert("Buyer already in the list");
-      return;
+    if(token === null){
+      navigate('/login');
     }
+    else{
+      if (
+        listOfBuyers.filter(
+          (buyer) =>
+            buyer.firstName === newBuyer.firstName &&
+            buyer.surname === newBuyer.surname
+        ).length
+      ) {
+        alert("Buyer already in the list");
+        return;
+      }
 
-    setSaving(true);
-    fetch("https://localhost:7091/Buyer", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
-      body: JSON.stringify(newBuyer),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("error has occurred, unable to add buyer");
-          setSaving(false);
-          throw response.status;
-        } else return response.json();
+      setSaving(true);
+      fetch("https://localhost:7091/Buyer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
+        body: JSON.stringify(newBuyer),
       })
-      .then((newBuyer) => {
-        dispatch({ type: "ADD", payload: newBuyer });
-        setSaving(false);
-      });
+        .then((response) => {
+          if (!response.ok) {
+            alert("error has occurred, unable to add buyer");
+            setSaving(false);
+            throw response.status;
+          } else return response.json();
+        })
+        .then((newBuyer) => {
+          dispatch({ type: "ADD", payload: newBuyer });
+          setSaving(false);
+        });
+    }
   };
 
   const deleteBuyerHandler = (buyer) => {
     setSaving(true);
 
-    fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
-      method: "DELETE",
-      headers: { "Authorization" : `Bearer ${token}` }
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("An error has occurred. Unable to delete buyer");
-          setSaving(false);
-          throw response.status;
-        } else {
-          dispatch({ type: "REMOVE", payload: buyer });
-          setSaving(false);
-        }
+    if(token === null){
+      navigate('/login');
+    }
+    else{
+      fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
+        method: "DELETE",
+        headers: { "Authorization" : `Bearer ${token}` }
       })
-      .catch((error) => {
-        setSaving(false);
-        console.log(error);
-        alert("Error has occurred while deleting the buyer");
-      });
+        .then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred. Unable to delete buyer");
+            setSaving(false);
+            throw response.status;
+          } else {
+            dispatch({ type: "REMOVE", payload: buyer });
+            setSaving(false);
+          }
+        })
+        .catch((error) => {
+          setSaving(false);
+          console.log(error);
+          alert("Error has occurred while deleting the buyer");
+        });
+    }
   };
 
   const editBuyerHandler = (buyer) => {
-    fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
-      body: JSON.stringify(buyer),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("An error has occurred, unable to edit buyer");
+    if(token === null){
+      navigate('/login');
+    }
+    else{
+      fetch(`https://localhost:7091/Buyer/${buyer.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
+        body: JSON.stringify(buyer),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred, unable to edit buyer");
+            setSaving(false);
+            throw response.status;
+          }
+          return response.json();
+        })
+        .then((updatedBuyer) => {
+          dispatch({
+            type: "SET",
+            payload: listOfBuyers.map((b) =>
+              b.id === updatedBuyer.id ? updatedBuyer : b
+            ),
+          });
           setSaving(false);
-          throw response.status;
-        }
-        return response.json();
-      })
-      .then((updatedBuyer) => {
-        dispatch({
-          type: "SET",
-          payload: listOfBuyers.map((b) =>
-            b.id === updatedBuyer.id ? updatedBuyer : b
-          ),
+        })
+        .catch((error) => {
+          setSaving(false);
+          console.log(error);
+          alert("Error has occurred while editing the property");
         });
-        setSaving(false);
-      })
-      .catch((error) => {
-        setSaving(false);
-        console.log(error);
-        alert("Error has occurred while editing the property");
-      });
+      }
   };
 
   useEffect(() => {

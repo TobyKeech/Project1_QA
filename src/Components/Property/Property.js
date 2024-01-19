@@ -63,6 +63,7 @@ const Property = () => {
   
   //JWT token used for authentication
   const token = sessionStorage.getItem("jwt");
+  let navigate = useNavigate();
 
   const searchHandlerForForm = (searchInput) => {
     //function which takes the search input as a parameter
@@ -83,93 +84,108 @@ const Property = () => {
   };
 
   const propertyAddHandler = (newProperty) => {
-    fetch("https://localhost:7091/Property", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
-      body: JSON.stringify(newProperty),
-            //post request to the defined url and the newProperty object converted to JSON
+    if(token === null){
+      navigate('/login');
+    }
+    else{
+      fetch("https://localhost:7091/Property", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
+        body: JSON.stringify(newProperty),
+              //post request to the defined url and the newProperty object converted to JSON
 
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("Error occurred while adding a property");
-          setSaving(false);
-          throw response.status;
-        } else return response.json();
-                //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the https error code
       })
-      .then((newProperty) => {
-        dispatch({ type: "ADD", payload: newProperty });
-        setSaving(false);
-         //if response is successful then the new property is sent as the payload using dispath with the type set as ADD, this is then used by the 
-        //reducedPropertiesList function at the top which contains the action depending on the action type in this case ADD. Read above for details.
-      });
+        .then((response) => {
+          if (!response.ok) {
+            alert("Error occurred while adding a property");
+            setSaving(false);
+            throw response.status;
+          } else return response.json();
+                  //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the https error code
+        })
+        .then((newProperty) => {
+          dispatch({ type: "ADD", payload: newProperty });
+          setSaving(false);
+          //if response is successful then the new property is sent as the payload using dispath with the type set as ADD, this is then used by the 
+          //reducedPropertiesList function at the top which contains the action depending on the action type in this case ADD. Read above for details.
+        });
+      }
   };
 
   const deletePropertyHandler = (property) => {
     setSaving(true);
     //manipulates the state
-    fetch(`https://localhost:7091/Property/${property.id}`, {
-      method: "DELETE",
-      headers: { "Authorization" : `Bearer ${token}` }
-            //fetch the specific sellers id to match for deletion, https method delete is specified
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("An error has occurred. Unable to delete property");
-          setSaving(false);
-          throw response.status;
-        //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the https error code
-
-        } else {
-          dispatch({ type: "REMOVE", payload: property });
-          setSaving(false);
-        //if response is successful then the property is sent as the payload using dispath with the type set as REMOVE, this is then used by the 
-        //reducedPropertiesList function at the top which contains the action depending on the action type in this case REMOVE. Read above for details.
-
-        }
+    if(token === null){
+      navigate('/login');
+    }
+    else{
+      fetch(`https://localhost:7091/Property/${property.id}`, {
+        method: "DELETE",
+        headers: { "Authorization" : `Bearer ${token}` }
+              //fetch the specific sellers id to match for deletion, https method delete is specified
       })
-      .catch((error) => {
-        setSaving(false);
-        console.log(error);
-        alert("Error has occurred while deleting the property");
-                //error handling that if anything goes wrong then state of saving is changed as well as an error alert being given to the user that there was issue deleting the property 
+        .then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred. Unable to delete property");
+            setSaving(false);
+            throw response.status;
+          //error handling for the response from the server, if this is not okay a alert will be thrown as well as showing the https error code
 
-      });
+          } else {
+            dispatch({ type: "REMOVE", payload: property });
+            setSaving(false);
+          //if response is successful then the property is sent as the payload using dispath with the type set as REMOVE, this is then used by the 
+          //reducedPropertiesList function at the top which contains the action depending on the action type in this case REMOVE. Read above for details.
+
+          }
+        })
+        .catch((error) => {
+          setSaving(false);
+          console.log(error);
+          alert("Error has occurred while deleting the property");
+                  //error handling that if anything goes wrong then state of saving is changed as well as an error alert being given to the user that there was issue deleting the property 
+
+        });
+    }
   };
 
   const editPropertyHandler = (property) => {
-    console.log(property)
-    fetch(`https://localhost:7091/Property/${property.id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
-      body: JSON.stringify(property),
-      //request made with a specific id for a property and a put method indicating an update of the property 
-    })
-      .then((response) => {
-        if (!response.ok) {
-          alert("An error has occurred, unable to edit property");
+    //console.log(property)
+    if(token === null){
+      navigate('/login');
+    }
+    else{
+      fetch(`https://localhost:7091/Property/${property.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", "Authorization" : `Bearer ${token}` },
+        body: JSON.stringify(property),
+        //request made with a specific id for a property and a put method indicating an update of the property 
+      })
+        .then((response) => {
+          if (!response.ok) {
+            alert("An error has occurred, unable to edit property");
+            setSaving(false);
+            throw response.status;
+            //error handling for bad requests
+          }
+          return response.json();
+        })
+        .then((updatedProperty) => {
+          dispatch({
+            type: "SET",
+            payload: listOfProperties.map((p) =>
+              p.id === updatedProperty.id ? updatedProperty : p
+            ),
+          });
+          //action to update the state and the payload now is set with the updated property to the correct one by checking via the id and then using the SET in the reduced properties list function
           setSaving(false);
-          throw response.status;
-          //error handling for bad requests
-        }
-        return response.json();
-      })
-      .then((updatedProperty) => {
-        dispatch({
-          type: "SET",
-          payload: listOfProperties.map((p) =>
-            p.id === updatedProperty.id ? updatedProperty : p
-          ),
+        })
+        .catch((error) => {
+          setSaving(false);
+          console.log(error);
+          alert("Error has occurred while editing the property");
         });
-        //action to update the state and the payload now is set with the updated property to the correct one by checking via the id and then using the SET in the reduced properties list function
-        setSaving(false);
-      })
-      .catch((error) => {
-        setSaving(false);
-        console.log(error);
-        alert("Error has occurred while editing the property");
-      });
+    } 
   };
 
   useEffect(() => {

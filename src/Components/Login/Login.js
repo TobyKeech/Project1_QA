@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { useNavigate } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 const Login = () => {
     let navigate = useNavigate();
@@ -15,7 +16,7 @@ const Login = () => {
         setUser({ ...user, [event.target.name]: event.target.value })
     }
 
-    console.log(user);
+    //console.log(user);
     const login = () => {
         axios
             .post(SERVER_URL + 'api/token/login', user)
@@ -50,8 +51,10 @@ const Login = () => {
     }
 
     if (isAuthenticated === true) {
-       // navigate('/');
-        return (<Home/>)
+        //navigate('/');
+        //return (<Home/>)
+        window.history.back();
+        //history.back();
     }
     else {
         return (
@@ -61,7 +64,7 @@ const Login = () => {
             <label for="Username" >Password: </label><br/>
  <input type="password" name="password"
             label="Password" onChange={handleChange} /><br/><br/>
- <button variant="outlined" style={{ backgroundColor: "rgb(255, 192, 203)" }}onClick={login}>
+ <button type="button" variant="outlined" style={{ backgroundColor: "rgb(255, 192, 203)" }}onClick={login}>
      Login
  </button>
  <ToastContainer autoClose={5000} />
