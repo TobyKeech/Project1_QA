@@ -4,6 +4,8 @@ import Home from '../Home/Home.js';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
 import { useNavigate } from 'react-router';
 import { withRouter } from 'react-router-dom';
 
@@ -11,12 +13,11 @@ const Login = () => {
     let navigate = useNavigate();
     const [user, setUser] = useState({ username: '', password: '' })
     const [isAuthenticated, setAuth] = useState(false);
-
+    
     const handleChange = (event) => {
         setUser({ ...user, [event.target.name]: event.target.value })
     }
 
-    //console.log(user);
     const login = () => {
         axios
             .post(SERVER_URL + 'api/token/login', user)
@@ -27,6 +28,7 @@ const Login = () => {
                     const jwtToken = res.data.authorizationToken;
                     if (jwtToken) {
                         sessionStorage.setItem("jwt", jwtToken);
+                        localStorage.setItem("user", user);
                         setAuth(true);
                        /**  if (res.AccessToken)
                         {
@@ -44,7 +46,7 @@ const Login = () => {
             })
             .catch((error) => {
                 console.log(error.message)
-                toast.warn('Check your username and password', {
+                toast.error('Check your username and password', {
                     //position: toast.POSITION.BOTTOM_LEFT
                 })
             })
@@ -57,17 +59,47 @@ const Login = () => {
         //history.back();
     }
     else {
-        return (
-                        <>
+        return ( 
+        <>
+            <div className="container">
+           
+           
+                <div className="row justify-content-center">
+                
+                    <div className="col-lg-8 col-md-5 col-lg-8">
+                        <form>
+                        <h1 class="display-6 text-black">Login:</h1>
+            <br />
+                            <div className="row">
+                                
+                                    <div className="form-group text-black">    
                         <label for="Username" >Username: </label><br/>
             <input type={"text"} name="username"label="Username" onChange={handleChange} /><br/>
+            </div>
+            
+            <div className='form-group text-black'>
             <label for="Username" >Password: </label><br/>
  <input type="password" name="password"
             label="Password" onChange={handleChange} /><br/><br/>
- <button type="button" variant="outlined" style={{ backgroundColor: "rgb(255, 192, 203)" }}onClick={login}>
+            </div>
+            <div className="text-end">
+                            &nbsp;
+                            <div className="d-flex justify-content-center align-items-center">
+            <button type="button" className="btn btn-primary mb-2 p-3"  style={{ width: "200px" }}  onClick={login}> 
      Login
  </button>
+ </div>
+ </div>
+ </div>
+ <br/>
+ <br/>
  <ToastContainer autoClose={5000} />
+
+ </form>
+</div>
+
+</div>
+ </div>
  </>
 
         );
