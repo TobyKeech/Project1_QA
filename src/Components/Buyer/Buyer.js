@@ -155,9 +155,7 @@ const Buyer = () => {
     <h1 class="display-1" tabIndex={0}>&nbsp;Buyers List</h1>
     <br />
       <div className="bg-body-tertiary text-black p-4">
-        {showBuyerInputForm && (
-          <BuyerInputForm buyerAddHandler={buyerAddHandler} />
-        )}
+       
         <br />
 
         {showBuyerEditForm && (
@@ -193,6 +191,11 @@ const Buyer = () => {
             </>
           )}
         </button>
+
+        {showBuyerInputForm && (
+          <BuyerInputForm buyerAddHandler={buyerAddHandler} />
+        )}
+        <br/>
         </div>
         <div className="container-fluid" tabIndex={0}>
         <div className="row justify-content-center">
