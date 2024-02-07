@@ -41,8 +41,8 @@ const PropertySearchForm = (props) => {
                         <div className="row">
                             
                                 <div className="form-group text-black">
-                                    <label>Type</label>
-                                    <select className="form-control form-control-sm" ref={referenceType}>
+                                    <label for="propertyType">Type</label>
+                                    <select className="form-control form-control-sm"  title="propertyType" id="propertyType" ref={referenceType}>
                                         <option value="ANY">Any</option>
                                         <option value="DETACHED">Detached</option>
                                         <option value="SEMI">Semi</option>
@@ -52,8 +52,8 @@ const PropertySearchForm = (props) => {
                            
                             
                                 <div className="form-group text-black">
-                                    <label>Price</label>
-                                    <select className="form-control" ref={referencePrice}>
+                                    <label for="propertyPrice">Price</label>
+                                    <select className="form-control" title="propertyPrice" id="propertyPrice" ref={referencePrice}>
                                         <option value="0">Any</option>
                                         <option value="50000">Up to 50000</option>
                                         <option value="100000">Up to 100000</option>
@@ -65,8 +65,8 @@ const PropertySearchForm = (props) => {
                             
                            
                                 <div className="form-group text-black">
-                                    <label>Bedrooms</label>
-                                    <select className="form-control" ref={referenceBedroom}>
+                                    <label for="propertyBedroom">Bedrooms</label>
+                                    <select className="form-control" title="propertyBedroom" id="propertyBedroom" ref={referenceBedroom}>
                                         <option value="0">Any</option>
                                         <option value="1">Minimum 1</option>
                                         <option value="2">Minimum 2</option>
@@ -78,8 +78,8 @@ const PropertySearchForm = (props) => {
                             
                             
                                 <div className="form-group text-black">
-                                    <label>Bathrooms</label>
-                                    <select className="form-control" ref={referenceBathroom}>
+                                    <label for="propertyBathrooms">Bathrooms</label>
+                                    <select className="form-control" title="propertyBathrooms" id="propertyBathrooms" ref={referenceBathroom}>
                                         <option value="0">Any</option>
                                         <option value="1">Minimum 1</option>
                                         <option value="2">Minimum 2</option>
@@ -89,8 +89,8 @@ const PropertySearchForm = (props) => {
                             </div>
                            
                                 <div className="form-group text-black">
-                                    <label>Garden</label>
-                                    <select className="form-control" ref={referenceGarden}>
+                                    <label for="propertyGardens">Garden</label>
+                                    <select className="form-control" title="propertyGardens" id="propertyGardens" ref={referenceGarden}>
                                         <option value="0">Any</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
