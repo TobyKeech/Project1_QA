@@ -219,6 +219,7 @@ const Property = () => {
 
   return (
     <>
+    <main>
         <h1 class="display-2" >&nbsp;Properties Page</h1>
         <br />
       <div className="bg-body-tertiary text-white p-4">
@@ -443,6 +444,7 @@ const Property = () => {
           )}
         </div>
       </div>
+      </main>
     </>
   );
 };
