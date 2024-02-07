@@ -60,7 +60,7 @@ const SellerForm = (props) => {
         <>
         
 <div className="container">
-<h1 class="display-6 text-black">Add a new seller:</h1>
+<h1 class="display-6 text-black" tabIndex={0}>Add a new seller:</h1>
         <form>
             <div class="form-row text-black">
         <div class="col">
