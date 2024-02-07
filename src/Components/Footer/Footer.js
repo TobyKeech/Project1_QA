@@ -30,21 +30,21 @@ const Footer = () => {
     <div class="container text-center text-md-start mt-5">
       <div class="row mt-3">
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-2">
+          <div class="text-uppercase fw-bold mb-2">
           Rook
-          </h6>
-          <h6 class="text-uppercase fw-bold mb-2">
+          </div>
+          <div class="text-uppercase fw-bold mb-2">
          Residences
-          </h6>
+          </div>
           <p>
             Check out our helpful links and how we can help secure your next home.
           </p>
         </div>
 
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">
+          <div class="text-uppercase fw-bold mb-4">
             Useful links
-          </h6>
+          </div>
           <p>
           <Link to="/property" className="text-reset">
               Properties
@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
 
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-          <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+          <div class="text-uppercase fw-bold mb-4">Contact Us</div>
           <p class="fasme-3"> <FontAwesomeIcon icon={faMapLocationDot}/> &nbsp;186 Braveheart Lane, Perth, PH8 7LF</p>
           <p class="fasme-3"> <FontAwesomeIcon icon={faAt}/>&nbsp;
           RookResidences@chess.com
