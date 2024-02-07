@@ -4,6 +4,7 @@ import { faChessRook } from "@fortawesome/free-solid-svg-icons";
 const Home = () => {
     return (
         <>
+        <main>
         <section>
         <div class="container p-5">
         <div className="d-flex align-items-center justify-content-center">
@@ -38,7 +39,7 @@ const Home = () => {
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-      <img className="d-block w-100" src={require("../../images/homeimg3.jpg")} alt="First slide" style={{ filter: "grayscale(100%)" }} />
+      <img className="d-block w-100" title="image 1" src={require("../../images/homeimg3.jpg")} alt="First slide" style={{ filter: "grayscale(100%)" }} />
       </div>
       <div class="carousel-item">
       <img className="d-block w-100" src={require("../../images/chesshome.jpg")} alt="First slide" style={{ filter: "grayscale(100%)" }} />
@@ -75,7 +76,7 @@ const Home = () => {
             <br />
             <br />
 </section>
-      
+</main>
         </>
     );
  
