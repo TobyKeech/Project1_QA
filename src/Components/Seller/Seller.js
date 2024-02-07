@@ -191,10 +191,7 @@ const Seller = () => {
     <h1 class="display-1" tabIndex={0}>&nbsp;Sellers List</h1>
     <br />
       <div className="bg-body-tertiary text-white p-4">
-        {showSellerInputForm && (
-          <SellerAddForm addSellerHandler={addSellerHandler} />
-          //seller add form is passed down the add seller handler to the function 
-        )}
+       
         <br />
 
         {showSellerEditForm && (
@@ -232,8 +229,16 @@ const Seller = () => {
               <FontAwesomeIcon icon={faPlus} /> Add Seller
             </>
           )}
-      
+
         </button>
+
+
+        {showSellerInputForm && (
+          <SellerAddForm addSellerHandler={addSellerHandler} />
+          //seller add form is passed down the add seller handler to the function 
+        )}
+
+        <br/>
         </div>
         <div className="container-fluid" tabIndex={0}>
         <div className="row justify-content-center">

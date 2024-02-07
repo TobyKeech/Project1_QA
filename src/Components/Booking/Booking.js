@@ -45,9 +45,6 @@ const Booking = () => {
   }, []);
 
 
-
-
-
   return <>
   <main>
   <br />
