@@ -49,6 +49,7 @@ const Booking = () => {
 
 
   return <>
+  <main>
   <br />
   <br />
   <br />
@@ -104,7 +105,7 @@ const Booking = () => {
   <br />
   <br />
   
-  
+  </main>
   </>;
 };
 
