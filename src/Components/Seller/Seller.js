@@ -225,17 +225,17 @@ const Seller = () => {
         >
           {showSellerInputForm ? (
             <>
-              <FontAwesomeIcon icon={faMinus} /> Form
+              <FontAwesomeIcon icon={faMinus} /> Close Form
             </>
           ) : (
             <>
-              <FontAwesomeIcon icon={faPlus} /> Seller
+              <FontAwesomeIcon icon={faPlus} /> Add Seller
             </>
           )}
       
         </button>
         </div>
-        <div className="container-fluid">
+        <div className="container-fluid" tabIndex={0}>
         <div className="row justify-content-center">
         <div className="col-lg-7">
         <table  class="table table-hover table-bordered">

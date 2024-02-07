@@ -327,7 +327,7 @@ const Property = () => {
                       </p>
                       
                       <p className="card-text">
-                        No of Gardens: {property.garden}{" "}
+                        No of Garden: {property.garden}{" "}
                         <FontAwesomeIcon
                           icon={faTree}
                           style={{ color: "green" }}
