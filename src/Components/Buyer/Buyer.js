@@ -151,6 +151,7 @@ const Buyer = () => {
 
   return (
     <>
+    <main>
     <h1 class="display-1">&nbsp;Buyers List</h1>
     <br />
       <div className="bg-body-tertiary text-black p-4">
@@ -178,7 +179,7 @@ const Buyer = () => {
          <div className="d-flex justify-content-center align-items-center flex-column">
         <button
           className={`btn ${
-            showBuyerInputForm ? "btn-outline-danger btn-lg" : "btn-outline-success btn-lg"
+            showBuyerInputForm ? "btn-danger btn-lg" : "btn-success btn-lg"
           } mb-2 p-2`} style={{ width: "150px" }}
           onClick={toggleBuyerInputForm}
         >
@@ -223,7 +224,7 @@ const Buyer = () => {
                   <td>
                     <button
                       type="button"
-                      className="btn btn-outline-danger m-1"
+                      className="btn btn-danger m-1"
                       data-bs-toggle="modal"
                       data-bs-target={`#exampleModal-${buyer.id}`}
                     >
@@ -282,7 +283,7 @@ const Buyer = () => {
                       </div>
                     </div>
                     <button  type="button"
-                        className="btn btn-outline-warning" onClick={() => {
+                        className="btn btn-warning" onClick={() => {
                           startEditBuyer(buyer);
                           toggleBuyerEditForm();
 
@@ -297,6 +298,7 @@ const Buyer = () => {
         </div>
         </div>
       </div>
+      </main>
     </>
   );
 };
