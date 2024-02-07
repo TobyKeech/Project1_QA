@@ -307,7 +307,7 @@ const Property = () => {
                     style={{ filter: property.status === 'SOLD' ? 'grayscale(100%)' : 'none' }}
                   />
                   <div className="card-body">
-                      <h5 className="card-title" style={{minHeight:"3rem"}}>{property.address}</h5>
+                      <div className="card-title" style={{minHeight:"3rem"}}><b>{property.address}</b></div>
                       <p className="card-text">
                         Postcode: {property.postcode}{" "}
                         <FontAwesomeIcon
