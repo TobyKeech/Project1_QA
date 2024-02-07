@@ -152,7 +152,7 @@ const Buyer = () => {
   return (
     <>
     <main>
-    <h1 class="display-1">&nbsp;Buyers List</h1>
+    <h1 class="display-1" tabIndex={0}>&nbsp;Buyers List</h1>
     <br />
       <div className="bg-body-tertiary text-black p-4">
         {showBuyerInputForm && (
@@ -185,16 +185,16 @@ const Buyer = () => {
         >
           {showBuyerInputForm ? (
             <>
-              <FontAwesomeIcon icon={faMinus} /> Form
+              <FontAwesomeIcon icon={faMinus} /> Close Form
             </>
           ) : (
             <>
-              <FontAwesomeIcon icon={faPlus} /> Buyer
+              <FontAwesomeIcon icon={faPlus} /> Add Buyer
             </>
           )}
         </button>
         </div>
-        <div className="container-fluid">
+        <div className="container-fluid" tabIndex={0}>
         <div className="row justify-content-center">
         <div className="col-lg-7">
         <table className="table table-hover table-bg-dark table-bordered">
