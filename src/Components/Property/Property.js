@@ -219,9 +219,10 @@ const Property = () => {
 
   return (
     <>
+    <main>
         <h1 class="display-2" >&nbsp;Properties Page</h1>
         <br />
-      <div className="bg-body-tertiary text-white p-4">
+      <div className="bg-body-info text-white p-4">
         {showPropertyInputForm && (
           <PropertyAddForm propertyAddHandler={propertyAddHandler} />
         )}
@@ -307,7 +308,7 @@ const Property = () => {
                     style={{ filter: property.status === 'SOLD' ? 'grayscale(100%)' : 'none' }}
                   />
                   <div className="card-body">
-                      <h5 className="card-title" style={{minHeight:"3rem"}}>{property.address}</h5>
+                      <div className="card-title" style={{minHeight:"3rem"}}><b>{property.address}</b></div>
                       <p className="card-text">
                         Postcode: {property.postcode}{" "}
                         <FontAwesomeIcon
@@ -359,7 +360,7 @@ const Property = () => {
         
                       <button
                         type="button"
-                        className="btn btn-outline-danger m-1"
+                        className="btn text-black btn-danger m-1"
                         data-bs-toggle="modal"
                         data-bs-target={`#exampleModal-${property.id}`}
                       >
@@ -419,7 +420,7 @@ const Property = () => {
                       </div>
                       
                       <button
-                        className="btn btn-outline-warning"
+                        className="btn btn-warning"
                         onClick={() => {
                           startEditProperty(property);
                           togglePropertyEditForm();
@@ -428,7 +429,7 @@ const Property = () => {
                         Edit <FontAwesomeIcon icon={faPenToSquare} />
                       </button>
                       <button
-                        className="btn btn-outline-info"
+                        className="btn btn-info"
                         onClick={() => {
                       naviagte(`/booking/${property.id}`)
                         }}
@@ -443,6 +444,7 @@ const Property = () => {
           )}
         </div>
       </div>
+      </main>
     </>
   );
 };

@@ -88,23 +88,30 @@ const propertyAddHandler = props.propertyAddHandler
                 <label>Price</label>
                 <input type="number" placeholder="Enter price" class="form-control" id="propertyPrice" ref={refPrice} />
             </div>
+
+
             <div class="col">
-                <label>Type</label>
-                <select  placeholder="Enter type" class="form-select" id="propertyStatus" ref={refType} >
+                <label for="propertyType">Type</label>
+                <select  placeholder="Enter type" class="form-select" title="propertyType" id="propertyType" ref={refType} >
                 <option value="">Select Type</option>
                 <option value="APARTMENT">APARTMENT</option>
                 <option value="SEMI">SEMI</option>
                 <option value="SEMI-DETACHED">SEMI_DETACHED</option>
                 </select>
             </div>
+
+
             <div class="col">
-                <label>Status</label>
-                <select placeholder="Enter status" class="form-select" id="propertyStatus" ref={refStatus}>
+                <label for="propertyStatus">Status</label>
+                <select placeholder="Enter status" class="form-select" title="propertyStatus" id="propertyStatus" ref={refStatus}>
                 <option value="">Select Status</option>
                 <option value="FOR SALE">FOR SALE</option>
                 <option value="SOLD">SOLD</option>
                 </select>
             </div>
+
+
+
             <br />
             <div className="d-flex justify-content-center align-items-center">
                
