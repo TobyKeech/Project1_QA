@@ -266,17 +266,17 @@ const Seller = () => {
                   <td>{seller.postcode}</td>
                   <td>{seller.phone}</td>
                   <td>
-                    <button type="button" className="btn btn-info  p-2">
-                      <Link to={`/seller/${seller.id}/properties`} className="text-decoration-none text-black">
+                    
+                      <Link to={`/seller/${seller.id}/properties`} title="Link to seller properties" className="text-decoration-none text-blue">
                         View Properties <FontAwesomeIcon icon={faSearch}/>
                       </Link>
-                    </button>
+               
                   </td>
                   <td>
   
                   <button
                         type="button"
-                        className="btn btn-danger m-1"
+                        className="btn btn-danger text-black m-1"
                         data-bs-toggle="modal"
                         style={{ width: "100px" }}
                         data-bs-target={`#exampleModal-${seller.id}`}
