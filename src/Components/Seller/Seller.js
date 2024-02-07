@@ -187,6 +187,7 @@ const Seller = () => {
 
   return (
     <>
+    <main>
     <h1 class="display-1">&nbsp;Sellers List</h1>
     <br />
       <div className="bg-body-tertiary text-white p-4">
@@ -351,6 +352,7 @@ const Seller = () => {
       </div>  
       </div>  
       </div>  
+      </main>
     </>
   );
 };
