@@ -187,6 +187,7 @@ const Seller = () => {
 
   return (
     <>
+    <main>
     <h1 class="display-1">&nbsp;Sellers List</h1>
     <br />
       <div className="bg-body-tertiary text-white p-4">
@@ -218,7 +219,7 @@ const Seller = () => {
          <div className="d-flex justify-content-center align-items-center flex-column">
         <button
           className={`btn ${
-            showSellerInputForm ? "btn-outline-danger  btn-lg" : "btn-outline-success  btn-lg"
+            showSellerInputForm ? "btn-danger  btn-lg" : "btn-success  btn-lg"
           } mb-2 p-2`} style={{ width: "150px" }}
           onClick={toggleSellerInputForm}
         >
@@ -265,17 +266,17 @@ const Seller = () => {
                   <td>{seller.postcode}</td>
                   <td>{seller.phone}</td>
                   <td>
-                    <button type="button" className="btn btn-outline-info p-2">
-                      <Link to={`/seller/${seller.id}/properties`} className="text-decoration-none">
+                    
+                      <Link to={`/seller/${seller.id}/properties`} title="Link to seller properties" className="text-decoration-none text-blue">
                         View Properties <FontAwesomeIcon icon={faSearch}/>
                       </Link>
-                    </button>
+               
                   </td>
                   <td>
   
                   <button
                         type="button"
-                        className="btn btn-outline-danger m-1"
+                        className="btn btn-danger text-black m-1"
                         data-bs-toggle="modal"
                         style={{ width: "100px" }}
                         data-bs-target={`#exampleModal-${seller.id}`}
@@ -336,7 +337,7 @@ const Seller = () => {
                       </div>
 
                       <button  type="button"
-                        className="btn btn-outline-warning" style={{ width: "100px" }} onClick={() => {
+                        className="btn btn-warning" style={{ width: "100px" }} onClick={() => {
                           startEditSeller(seller);
                           toggleSellerEditForm();
 
@@ -351,6 +352,7 @@ const Seller = () => {
       </div>  
       </div>  
       </div>  
+      </main>
     </>
   );
 };

@@ -22,19 +22,19 @@ const Home = () => {
         data-bs-slide-to="0"
         class="active"
         aria-current="true"
-        aria-label="Slide 1"
+        aria-label="Slide 1 for first image"
       ></button>
       <button
         type="button"
         data-bs-target="#carouselExampleIndicators"
         data-bs-slide-to="1"
-        aria-label="Slide 2"
+        aria-label="Slide 2 for second image"
       ></button>
       <button
         type="button"
         data-bs-target="#carouselExampleIndicators"
         data-bs-slide-to="2"
-        aria-label="Slide 3"
+        aria-label="Slide 3 for third image"
       ></button>
     </div>
     <div class="carousel-inner">
