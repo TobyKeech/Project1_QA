@@ -360,7 +360,7 @@ const Property = () => {
         
                       <button
                         type="button"
-                        className="btn btn-danger m-1"
+                        className="btn text-black btn-danger m-1"
                         data-bs-toggle="modal"
                         data-bs-target={`#exampleModal-${property.id}`}
                       >
