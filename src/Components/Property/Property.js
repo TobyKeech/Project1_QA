@@ -223,10 +223,7 @@ const Property = () => {
         <h1 class="display-2" >&nbsp;Properties Page</h1>
         <br />
       <div className="bg-body-info text-white p-4">
-        {showPropertyInputForm && (
-          <PropertyAddForm propertyAddHandler={propertyAddHandler} />
-        )}
-
+       
         <br />
 
         {showPropertySearchForm && (
@@ -290,6 +287,10 @@ const Property = () => {
               </>
             )}
           </button>
+          {showPropertyInputForm && (
+          <PropertyAddForm propertyAddHandler={propertyAddHandler} />
+        )}
+
         </div>
               
         <div>
