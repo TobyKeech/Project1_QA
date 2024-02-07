@@ -21,7 +21,7 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav mr-auto">
-            <Link to="/home" className="navbar-brand fw-bold text-black">
+            <Link to="/home" title="navbar home button" className="navbar-brand fw-bold text-black">
               &nbsp;<FontAwesomeIcon icon={faChessRook} /> <FontAwesomeIcon icon={faChessBoard} /> 
             </Link>
           </div>
