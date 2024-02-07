@@ -268,7 +268,7 @@ const Property = () => {
               </>
             ) : (
               <>
-                <FontAwesomeIcon icon={faMagnifyingGlass} /> for a property
+                <FontAwesomeIcon icon={faMagnifyingGlass} /> search for a property
               </>
             )}
           </button>
@@ -291,7 +291,7 @@ const Property = () => {
             )}
           </button>
         </div>
-
+              
         <div>
           <br />
           {searchResult.length === 0 && !loading ? (
@@ -299,7 +299,7 @@ const Property = () => {
           ) : (
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-2">
               {searchResult.map((property) => (
-                <div key={property.id} className="col">
+                <div key={property.id} className="col" tabIndex={0}>
                 <div class="card m-3 shadow">
                   <img
                     class="card-img-top"
@@ -406,12 +406,12 @@ const Property = () => {
                               </button>
                               <button
                                 type="button"
-                                className="btn btn-danger"
+                                className="btn btn-dange"
                                 data-bs-dismiss="modal"
                                 onClick={() => {
                                   deletePropertyHandler(property);
                                 }}
-                              >
+                              > 
                                 Delete
                               </button>
                             </div>
