@@ -84,7 +84,7 @@ const Booking = () => {
                   <td>{booking.propertyId}</td>
                   <td>{booking.time}</td>
                 </tr>
-              )) : listOfBookings.filter(b => b.propertyId == propertyId).map((booking) => (
+              )) : listOfBookings.filter(b => b.propertyId === propertyId).map((booking) => (
                 <tr key={booking.id}>
                   <td>{booking.buyerId}</td>
                   <td>{booking.propertyId}</td>
