@@ -51,7 +51,7 @@ const BuyerInputForm = (props) => {
     return (
         <>
         <div className="container">
-            <h1 class="display-6">&nbsp;Add a new buyer:</h1>
+            <h1 class="display-6" tabIndex={0}>&nbsp;Add a new buyer:</h1>
         <form>
             <div class="form-row">
             <div class="col">

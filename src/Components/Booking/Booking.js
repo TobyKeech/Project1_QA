@@ -53,14 +53,14 @@ const Booking = () => {
   <br />
   <br />
   <br />
-  <h1 className="display-1">Bookings Page</h1>
+  <h1 className="display-1" tabIndex={0}>Bookings Page</h1>
   <br />
-  <div><h2 className="display-2">coming soon <FontAwesomeIcon icon={faHelmetSafety} />&nbsp;<FontAwesomeIcon icon={faHammer} /></h2></div>
+  <div><h2 className="display-2" tabIndex={0}>coming soon <FontAwesomeIcon icon={faHelmetSafety} />&nbsp;<FontAwesomeIcon icon={faHammer} /></h2></div>
   
   <br />
   <br />
 
-  <div className="container-fluid">
+  <div className="container-fluid" tabIndex={0}>
         <div className="row justify-content-center">
         <div className="col-lg-7">
         <table  class="table table-hover table-bordered">
