@@ -219,7 +219,7 @@ const Seller = () => {
          <div className="d-flex justify-content-center align-items-center flex-column">
         <button
           className={`btn ${
-            showSellerInputForm ? "btn-outline-danger  btn-lg" : "btn-success  btn-lg"
+            showSellerInputForm ? "btn-danger  btn-lg" : "btn-success  btn-lg"
           } mb-2 p-2`} style={{ width: "150px" }}
           onClick={toggleSellerInputForm}
         >
